@@ -1,4 +1,4 @@
-import { Drawer as MuiDrawer, List, ListItemButton, ListItemIcon, ListItemText, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Drawer as MuiDrawer, List, ListItemButton, ListItemIcon, ListItemText, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
@@ -26,8 +26,6 @@ interface DrawerProps {
 
 const SideDrawer = ({ open, onClose }: DrawerProps) => {
   const navigate = useNavigate();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleItemClick = (path: string) => {
     navigate(path);

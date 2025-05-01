@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Box, Select, MenuItem, FormControl, Typography, useTheme, useMediaQuery, Switch } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Box, Select, MenuItem, FormControl, Typography, Switch } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ApartmentIcon from '@mui/icons-material/Apartment';
@@ -14,8 +14,7 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { campus, setCampus } = useCampus();
   const { isDarkMode, toggleTheme } = useThemeContext();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);

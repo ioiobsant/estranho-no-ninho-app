@@ -1,4 +1,4 @@
-import { Box, Grid as MuiGrid, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
 import SupportIcon from '@mui/icons-material/Support';
@@ -18,8 +18,6 @@ const menuItems = [
 
 const MenuGrid = () => {
   const navigate = useNavigate();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box 

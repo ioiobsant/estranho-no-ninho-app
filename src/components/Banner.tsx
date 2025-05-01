@@ -1,11 +1,8 @@
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const Banner = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <Box
       component={motion.div}

@@ -13,9 +13,24 @@ const CoursesPage = () => {
   ];
 
   return (
-    <Box sx={{ pt: 7, pb: 8, bgcolor: '#fff', minHeight: '100vh', width: '100vw', maxWidth: '100vw', margin: 0, px: 0 }}>
+    <Box sx={{ 
+      pt: 1, 
+      pb: 8, 
+      bgcolor: 'background.paper', 
+      minHeight: '100vh', 
+      width: '100vw',
+      position: 'relative',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      overflowX: 'hidden'
+    }}>
       {/* Header da página */}
-      <Box sx={{ px: 3, py: 2, borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+      <Box sx={{ 
+        px: 3, 
+        py: 2, 
+        borderBottom: '1px solid',
+        borderColor: 'divider'
+      }}>
         <Typography variant="h6" color="primary" fontWeight="500">
           Cursos
         </Typography>
@@ -24,8 +39,7 @@ const CoursesPage = () => {
         </Typography>
       </Box>
 
-      {/* Lista de cursos */}
-      <List sx={{ width: '100vw', bgcolor: 'background.paper', padding: 0 }}>
+      <List sx={{ width: '100%', bgcolor: 'background.paper', padding: 0 }}>
         {courses.map((course, index) => (
           <React.Fragment key={index}>
             <Box
@@ -44,12 +58,15 @@ const CoursesPage = () => {
                   py: 2,
                   px: 3,
                   cursor: 'pointer',
+                  '&:hover': {
+                    bgcolor: 'action.hover',
+                  },
                   '&:active': {
-                    bgcolor: 'rgba(74, 144, 226, 0.1)',
+                    bgcolor: 'action.selected',
                   },
                 }}
               >
-                <ListItemIcon sx={{ color: '#4A90E2' }}>
+                <ListItemIcon sx={{ color: 'primary.main' }}>
                   <SchoolIcon />
                 </ListItemIcon>
                 <ListItemText
@@ -65,7 +82,7 @@ const CoursesPage = () => {
                   }}
                 />
                 <ArrowForwardIosIcon
-                  sx={{ color: 'rgba(0,0,0,0.3)', fontSize: 16 }}
+                  sx={{ color: 'text.disabled', fontSize: 16 }}
                 />
               </ListItem>
             </Box>

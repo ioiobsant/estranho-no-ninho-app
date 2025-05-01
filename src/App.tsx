@@ -1,111 +1,118 @@
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
+import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline } from '@mui/material'
 import { Box } from '@mui/material'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header'
-import BottomNav from './components/BottomNav'
-import HomePage from './components/HomePage'
-import CoursesPage from './components/CoursesPage'
-import { AnimatePresence, motion } from 'framer-motion'
+import BottomBar from './components/BottomBar'
+import { CampusProvider } from './contexts/CampusContext'
+import { ThemeProvider, useThemeContext } from './contexts/ThemeContext'
+import AppRoutes from './routes'
+import CampusIndicator from './components/CampusIndicator'
 
-// Criação do tema
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#4A90E2',
+const AppContent = () => {
+  const { isDarkMode } = useThemeContext();
+
+  const theme = createTheme({
+    palette: {
+      mode: isDarkMode ? 'dark' : 'light',
+      primary: {
+        main: '#2196F3',
+        light: '#64B5F6',
+        dark: '#1976D2',
+      },
+      background: {
+        default: isDarkMode ? '#121212' : '#F8FAFC',
+        paper: isDarkMode ? '#1E1E1E' : '#FFFFFF',
+      },
+      text: {
+        primary: isDarkMode ? '#FFFFFF' : '#1A2027',
+        secondary: isDarkMode ? '#B0B0B0' : '#3E5060',
+      },
     },
-    background: {
-      default: '#F5F5F5',
-      paper: '#FFFFFF',
+    typography: {
+      fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+      button: {
+        textTransform: 'none',
+      },
     },
-    text: {
-      primary: '#333333',
-      secondary: '#666666',
+    shape: {
+      borderRadius: 12,
     },
-  },
-})
-
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: 0,
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-  },
-  out: {
-    opacity: 0,
-    x: 0,
-  },
-}
-
-const pageTransition = {
-  type: "tween",
-  ease: "easeInOut",
-  duration: 0.3
-}
-
-const AnimatedRoutes = () => {
-  const location = useLocation();
+    components: {
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backdropFilter: 'blur(8px)',
+            backgroundColor: isDarkMode ? 'rgba(18, 18, 18, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+            borderBottom: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.05)',
+          },
+        },
+      },
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            transition: 'all 0.2s ease-in-out',
+            '&:hover': {
+              transform: 'translateY(-1px)',
+              boxShadow: isDarkMode ? '0 4px 8px rgba(0, 0, 0, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.1)',
+            },
+          },
+        },
+      },
+    },
+  });
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route 
-          path="/" 
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <CampusProvider>
+        <Router>
+          <Box sx={{ 
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            bgcolor: 'background.default',
+            overflow: 'hidden',
+            pb: '88px'
+          }}>
+            <Header />
+            <Box 
+              component="main" 
+              sx={{ 
+                flex: 1,
+                mt: '56px',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
             >
-              <HomePage />
-            </motion.div>
-          } 
-        />
-        <Route 
-          path="/cursos" 
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <CoursesPage />
-            </motion.div>
-          } 
-        />
-      </Routes>
-    </AnimatePresence>
+              <Box 
+                sx={{ 
+                  position: 'fixed',
+                  top: '56px',
+                  left: 0,
+                  right: 0,
+                  zIndex: 1000
+                }}
+              >
+                <CampusIndicator />
+              </Box>
+              <Box sx={{ mt: '32px' }}>
+                <AppRoutes />
+              </Box>
+            </Box>
+            <BottomBar />
+          </Box>
+        </Router>
+      </CampusProvider>
+    </MuiThemeProvider>
   );
 };
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Box sx={{ 
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          bgcolor: 'background.default',
-          overflow: 'hidden'
-        }}>
-          <Header />
-          <Box component="main" sx={{ flex: 1 }}>
-            <AnimatedRoutes />
-          </Box>
-          <BottomNav />
-        </Box>
-      </Router>
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

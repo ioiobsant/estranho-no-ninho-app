@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FeatureCollection, Point } from 'geojson';
 
  export const blocoEngenharia = {

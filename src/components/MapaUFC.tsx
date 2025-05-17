@@ -42,8 +42,8 @@ const MapaUFC = () => {
         sx={{
           width: '100vw',
           height: isMobile
-            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_BOTTOMBAR + HEIGHT_SELECTOR + 16}px)`
-            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_BOTTOMBAR + HEIGHT_SELECTOR + 24}px)`,
+            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 8}px)`
+            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 12}px)`,
           position: 'relative',
           zIndex: 1,
         }}
@@ -51,6 +51,8 @@ const MapaUFC = () => {
         <MapContainer
           center={campusSelecionado === 'mucambinho' ? [-3.6932203, -40.3543455] : [-3.6937765, -40.3545796]}
           zoom={18}
+          minZoom={10}
+          maxZoom={24}
           style={{ height: '100%', width: '100%' }}
         >
           <TileLayer
@@ -117,10 +119,10 @@ const MapaUFC = () => {
         sx={{
           position: 'fixed',
           left: '50%',
-          bottom: `${HEIGHT_BOTTOMBAR + (isMobile ? 4 : 8)}px`,
+          bottom: isMobile ? '90px' : '100px',
           transform: 'translateX(-50%)',
           zIndex: 2000,
-          bgcolor: 'background.paper',
+          bgcolor: 'rgba(255,255,255,0.85)',
           borderRadius: 4,
           boxShadow: 6,
           p: isMobile ? 1 : 2,

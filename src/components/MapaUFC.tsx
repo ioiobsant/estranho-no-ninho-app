@@ -17,7 +17,6 @@ L.Icon.Default.mergeOptions({
 });
 
 const HEIGHT_HEADER = 56; // altura aproximada do header/topbar
-const HEIGHT_INDICATOR = 36; // altura real do indicador
 const HEIGHT_BOTTOMBAR = 64; // altura aproximada da BottomBar
 const HEIGHT_SELECTOR = 80; // altura do seletor customizado
 
@@ -96,10 +95,10 @@ const MapaUFC = () => {
         sx={{
           width: '100vw',
           height: isMobile
-            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_INDICATOR + 8}px)`
-            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_INDICATOR + 12}px)`,
+            ? `calc(100vh - ${HEIGHT_HEADER + 8}px)`
+            : `calc(100vh - ${HEIGHT_HEADER + 12}px)`,
           position: 'fixed',
-          top: `${HEIGHT_HEADER + HEIGHT_INDICATOR}px`,
+          top: `${HEIGHT_HEADER}px`,
           left: 0,
           right: 0,
           bottom: 0,
@@ -168,9 +167,14 @@ const MapaUFC = () => {
               color: nivelSelecionado === nivel ? 'common.white' : 'text.primary',
               border: nivelSelecionado === nivel ? '2px solid #1976d2' : '1.5px solid #bbb',
               transition: 'all 0.2s',
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent',
               '&:hover': {
                 bgcolor: nivelSelecionado === nivel ? 'primary.dark' : 'grey.200',
               },
+              '&:active': {
+                transform: 'scale(0.95)',
+              }
             }}
             onClick={() => setNivelSelecionado(nivel)}
           >

@@ -6,7 +6,6 @@ import BottomBar from './components/BottomBar'
 import { CampusProvider } from './contexts/CampusContext'
 import { ThemeProvider, useThemeContext } from './contexts/ThemeContext'
 import AppRoutes from './routes'
-import CampusIndicator from './components/CampusIndicator'
 
 const AppContent = () => {
   const { isDarkMode } = useThemeContext();
@@ -75,24 +74,6 @@ const AppContent = () => {
           }}>
             <Header />
             <Box 
-              sx={{ 
-                position: 'fixed',
-                top: '56px',
-                left: 0,
-                right: 0,
-                zIndex: 1000,
-                bgcolor: 'transparent',
-                m: 0,
-                p: 0,
-                boxShadow: 'none',
-                height: '56px',
-                display: 'flex',
-                alignItems: 'center'
-              }}
-            >
-              <CampusIndicator />
-            </Box>
-            <Box 
               component="main" 
               sx={{ 
                 flex: 1,
@@ -100,8 +81,8 @@ const AppContent = () => {
                 flexDirection: 'column',
                 position: 'relative',
                 overflow: 'auto',
-                height: 'calc(100vh - 56px - 56px)',
-                pt: '112px',
+                height: 'calc(100vh - 56px)',
+                pt: '56px',
                 pb: 0
               }}
             >

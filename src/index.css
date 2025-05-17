@@ -78,10 +78,25 @@ html {
   position: fixed;
   height: 100%;
   overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Melhorar interação touch com botões */
+button, 
+[role="button"],
+.MuiButtonBase-root {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }

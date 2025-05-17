@@ -69,7 +69,11 @@ const MapaPage: React.FC = () => {
         zoomSnap: 0.5,
         zoomDelta: 0.5,
         wheelDebounceTime: 40,
-        wheelPxPerZoomLevel: 60
+        wheelPxPerZoomLevel: 60,
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        dragging: true
       }).setView(center, 18);
       
       // Adicionando o tile layer do OpenStreetMap com configurações otimizadas

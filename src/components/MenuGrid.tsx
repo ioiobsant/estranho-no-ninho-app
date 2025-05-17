@@ -76,6 +76,8 @@ const MenuGrid = () => {
                   gap: { xs: 1.5, sm: 2 },
                   padding: 0,
                   textTransform: 'none',
+                  touchAction: 'manipulation',
+                  WebkitTapHighlightColor: 'transparent',
                   '&:hover': {
                     backgroundColor: 'transparent',
                     '& > div': {

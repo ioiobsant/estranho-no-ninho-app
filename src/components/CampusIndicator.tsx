@@ -13,13 +13,11 @@ const CampusIndicator = () => {
     <Box
       sx={{
         width: '100%',
-        py: 1,
+        py: 0.5,
         px: 2,
         bgcolor: 'primary.main',
         color: 'white',
-        textAlign: 'center',
-        borderBottom: '1px solid',
-        borderColor: 'divider'
+        textAlign: 'center'
       }}
     >
       <Typography variant="body2">

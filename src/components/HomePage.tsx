@@ -22,15 +22,10 @@ const HomePage = () => {
         borderRadius: 2, 
         boxShadow: (theme) => theme.palette.mode === 'dark' 
           ? '0 2px 8px rgba(0,0,0,0.3)' 
-          : '0 2px 8px rgba(0,0,0,0.08)'
+          : '0 2px 8px rgba(0,0,0,0.08)',
+        position: 'relative',
+        zIndex: 1
       }}>
-        <Box sx={{ 
-          py: 1.5, 
-          px: 2, 
-          borderBottom: '1px solid',
-          borderColor: 'divider'
-        }}>
-        </Box>
         <MenuGrid />
       </Box>
     </Box>

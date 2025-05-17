@@ -71,31 +71,46 @@ const AppContent = () => {
             display: 'flex',
             flexDirection: 'column',
             bgcolor: 'background.default',
-            overflow: 'hidden',
-            pb: '88px'
+            pb: { xs: '64px', sm: '80px' }
           }}>
             <Header />
+            <Box 
+              sx={{ 
+                position: 'fixed',
+                top: '56px',
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+                bgcolor: 'transparent',
+                m: 0,
+                p: 0,
+                boxShadow: 'none',
+                height: '56px',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              <CampusIndicator />
+            </Box>
             <Box 
               component="main" 
               sx={{ 
                 flex: 1,
-                mt: '56px',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                position: 'relative',
+                overflow: 'auto',
+                height: 'calc(100vh - 56px - 56px)',
+                pt: '112px',
+                pb: 0
               }}
             >
-              <Box 
-                sx={{ 
-                  position: 'fixed',
-                  top: '56px',
-                  left: 0,
-                  right: 0,
-                  zIndex: 1000
-                }}
-              >
-                <CampusIndicator />
-              </Box>
-              <Box sx={{ mt: '32px' }}>
+              <Box sx={{ 
+                position: 'relative', 
+                zIndex: 1,
+                flex: 1,
+                overflow: 'auto'
+              }}>
                 <AppRoutes />
               </Box>
             </Box>

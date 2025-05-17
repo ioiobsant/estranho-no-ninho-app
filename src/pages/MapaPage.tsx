@@ -20,24 +20,35 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapContainer = styled(Box)(({ theme }) => ({
   width: '100%',
-  height: '100vh',
+  height: 'calc(100vh - 112px)', // 56px do header + 56px da bottom bar
   position: 'relative',
+  overflow: 'hidden',
   '& .leaflet-container': {
     width: '100%',
-    height: '100%',
+    height: 'calc(100% - 160px)', // Subtraindo o espaço para os botões
+    position: 'absolute',
+    top: '160px',
+    left: 0,
+    right: 0,
+    bottom: 0,
     zIndex: 1
   }
 }));
 
 const MapTitle = styled(Typography)(({ theme }) => ({
-  position: 'absolute',
-  top: theme.spacing(2),
+  position: 'fixed',
+  top: '72px', // 56px do header + 16px de espaçamento
   left: theme.spacing(2),
   zIndex: 2,
   backgroundColor: 'rgba(255, 255, 255, 0.9)',
   padding: theme.spacing(1, 2),
   borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[2]
+  boxShadow: theme.shadows[2],
+  '& h1': {
+    margin: 0,
+    fontSize: '1.25rem',
+    fontWeight: 500
+  }
 }));
 
 const MapaPage: React.FC = () => {
@@ -49,12 +60,34 @@ const MapaPage: React.FC = () => {
       // Coordenadas do campus da UFC em Sobral
       const center: [number, number] = [-3.6806359, -40.3370175];
       
-      // Criando o mapa
-      const map = L.map('map').setView(center, 18);
+      // Criando o mapa com configurações otimizadas
+      const map = L.map('map', {
+        zoomControl: false,
+        attributionControl: false,
+        minZoom: 15,
+        maxZoom: 20,
+        zoomSnap: 0.5,
+        zoomDelta: 0.5,
+        wheelDebounceTime: 40,
+        wheelPxPerZoomLevel: 60
+      }).setView(center, 18);
       
-      // Adicionando o tile layer do OpenStreetMap
+      // Adicionando o tile layer do OpenStreetMap com configurações otimizadas
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        tileSize: 256,
+        zoomOffset: 0
+      }).addTo(map);
+
+      // Adicionando controle de zoom personalizado
+      L.control.zoom({
+        position: 'bottomright'
+      }).addTo(map);
+
+      // Adicionando controle de atribuição
+      L.control.attribution({
+        position: 'bottomleft'
       }).addTo(map);
 
       // Adicionando os pontos do mapa
@@ -134,22 +167,34 @@ const MapaPage: React.FC = () => {
       });
 
       mapRef.current = map;
-    }
 
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
-      }
-    };
+      // Forçar atualização do mapa quando a janela for redimensionada
+      const handleResize = () => {
+        map.invalidateSize();
+      };
+      window.addEventListener('resize', handleResize);
+
+      // Inicializar o mapa corretamente após um pequeno delay
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 100);
+
+      return () => {
+        if (mapRef.current) {
+          mapRef.current.remove();
+          mapRef.current = null;
+        }
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
 
   return (
     <MapContainer>
-      <MapTitle variant="h5">
+      <MapTitle>
         <h1>Mapa do Campus da UFC em Sobral</h1>
       </MapTitle>
-      <div id="map" style={{ height: '100%', width: '100%' }} />
+      <div id="map" style={{ width: '100%', height: '100%' }} />
     </MapContainer>
   );
 };

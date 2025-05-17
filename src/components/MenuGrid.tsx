@@ -1,10 +1,11 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
 import SupportIcon from '@mui/icons-material/Support';
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ArticleIcon from '@mui/icons-material/Article';
+import MapIcon from '@mui/icons-material/Map';
 import { useNavigate } from 'react-router-dom';
 
 const menuItems = [
@@ -14,6 +15,7 @@ const menuItems = [
   { icon: CardMembershipIcon, label: 'Carteirinhas', path: '/carteirinhas' },
   { icon: AttachMoneyIcon, label: 'Bolsas', path: '/bolsas' },
   { icon: ArticleIcon, label: 'UFC', path: '/ufc' },
+  { icon: MapIcon, label: 'Mapa', path: '/mapa' },
 ];
 
 const MenuGrid = () => {
@@ -24,7 +26,9 @@ const MenuGrid = () => {
       sx={{ 
         px: { xs: 2, sm: 3 },
         py: { xs: 1.5, sm: 2 },
-        bgcolor: 'background.paper'
+        bgcolor: 'background.paper',
+        position: 'relative',
+        zIndex: 2
       }}
     >
       <Typography
@@ -42,9 +46,9 @@ const MenuGrid = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
           gap: { xs: 3, sm: 4 },
-          maxWidth: 'md',
+          maxWidth: 'lg',
           mx: 'auto'
         }}
       >
@@ -58,15 +62,34 @@ const MenuGrid = () => {
                 justifyContent: 'center'
               }}
             >
-              <Box
-                onClick={() => navigate(item.path)}
+              <Button
+                onClick={() => {
+                  console.log('Clicou no botão:', item.path);
+                  navigate(item.path);
+                }}
                 sx={{
                   width: '100%',
                   maxWidth: { xs: 100, sm: 120 },
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: { xs: 1.5, sm: 2 }
+                  gap: { xs: 1.5, sm: 2 },
+                  padding: 0,
+                  textTransform: 'none',
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    '& > div': {
+                      transform: 'translateY(-4px)',
+                      bgcolor: 'primary.dark'
+                    }
+                  },
+                  '&:active': {
+                    backgroundColor: 'transparent',
+                    '& > div': {
+                      transform: 'translateY(0)',
+                      bgcolor: 'primary.dark'
+                    }
+                  }
                 }}
               >
                 <Box
@@ -79,16 +102,7 @@ const MenuGrid = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      bgcolor: 'primary.dark'
-                    },
-                    '&:active': {
-                      transform: 'translateY(0)',
-                      bgcolor: 'primary.dark'
-                    }
+                    transition: 'all 0.2s ease-in-out'
                   }}
                 >
                   <Icon sx={{ 
@@ -108,7 +122,7 @@ const MenuGrid = () => {
                 >
                   {item.label}
                 </Typography>
-              </Box>
+              </Button>
             </Box>
           );
         })}

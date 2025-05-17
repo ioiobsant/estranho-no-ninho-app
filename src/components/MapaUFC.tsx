@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { blocoEngenharia, famed } from '../data/geoJsonData';
@@ -7,6 +7,7 @@ import { iconpos, ObterNiveis } from '../data/mapData';
 import { Box, Button, Paper, useTheme, useMediaQuery } from '@mui/material';
 import MapIcon from '@mui/icons-material/Map';
 import AccessibleIcon from '@mui/icons-material/Accessible';
+import { useCampus } from '../contexts/CampusContext';
 
 // Corrige o ícone padrão do Leaflet para produção
 L.Icon.Default.mergeOptions({
@@ -16,8 +17,16 @@ L.Icon.Default.mergeOptions({
 });
 
 const HEIGHT_HEADER = 56; // altura aproximada do header/topbar
+const HEIGHT_INDICATOR = 36; // altura real do indicador
 const HEIGHT_BOTTOMBAR = 64; // altura aproximada da BottomBar
 const HEIGHT_SELECTOR = 80; // altura do seletor customizado
+
+// Componente para controlar o centro do mapa
+const ChangeView = ({ center }: { center: L.LatLngExpression }) => {
+  const map = useMap();
+  map.setView(center, map.getZoom());
+  return null;
+};
 
 const MapaUFC = () => {
   const mapRef = useRef<L.Map | null>(null);
@@ -25,6 +34,7 @@ const MapaUFC = () => {
   const [nivelSelecionado, setNivelSelecionado] = useState<string>('0');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { campus } = useCampus();
 
   const geojsonFiltrado = campusSelecionado === 'mucambinho'
     ? { ...blocoEngenharia, features: blocoEngenharia.features.filter(f => f.properties?.level === nivelSelecionado) }
@@ -43,25 +53,71 @@ const MapaUFC = () => {
 
   const niveisDisponiveis = campusSelecionado === 'mucambinho' ? ObterNiveis(blocoEngenharia.features) : ObterNiveis(famed.features);
 
+  const center: L.LatLngExpression = campusSelecionado === 'mucambinho' 
+    ? [-3.6932203, -40.3543455] as [number, number]
+    : [-3.681909655617651, -40.33721049717025] as [number, number];
+
+  if (campus === 'russas') {
+    return (
+      <Box sx={{
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        p: 3
+      }}>
+        <Box sx={{
+          bgcolor: 'background.paper',
+          borderRadius: 3,
+          boxShadow: 3,
+          p: 4,
+          textAlign: 'center',
+          maxWidth: 360
+        }}>
+          <span role="img" aria-label="Mapa indisponível" style={{ fontSize: 48 }}>🗺️</span>
+          <Box sx={{ mt: 2 }}>
+            <strong>O mapa dessa região ainda não está disponível.</strong>
+          </Box>
+        </Box>
+      </Box>
+    );
+  }
+
   return (
-    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ 
+      width: '100vw', 
+      minHeight: '100vh', 
+      bgcolor: 'background.default',
+      overflow: 'hidden'
+    }}>
       <Box
         sx={{
           width: '100vw',
           height: isMobile
-            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 8}px)`
-            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 12}px)`,
-          position: 'relative',
+            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_INDICATOR + 8}px)`
+            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_INDICATOR + 12}px)`,
+          position: 'fixed',
+          top: `${HEIGHT_HEADER + HEIGHT_INDICATOR}px`,
+          left: 0,
+          right: 0,
+          bottom: 0,
           zIndex: 1,
+          margin: 0,
+          padding: 0,
+          border: 'none',
+          outline: 'none'
         }}
       >
         <MapContainer
-          center={campusSelecionado === 'mucambinho' ? [-3.6932203, -40.3543455] : [-3.6937765, -40.3545796]}
+          center={center}
           zoom={18}
           minZoom={10}
           maxZoom={24}
           style={{ height: '100%', width: '100%' }}
         >
+          <ChangeView center={center} />
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

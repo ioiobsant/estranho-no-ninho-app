@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -23,12 +23,13 @@ const MapaUFC = () => {
   const mapRef = useRef<L.Map | null>(null);
   const [campusSelecionado, setCampusSelecionado] = useState<'mucambinho' | 'famed'>('mucambinho');
   const [nivelSelecionado, setNivelSelecionado] = useState<string>('0');
+  const [currentZoom, setCurrentZoom] = useState<number>(18);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const geojsonFiltrado = campusSelecionado === 'mucambinho'
-    ? { ...blocoEngenharia, features: blocoEngenharia.features.filter(f => f.properties?.level === nivelSelecionado) }
-    : { ...famed, features: famed.features.filter(f => f.properties?.level === nivelSelecionado) };
+    ? { ...blocoEngenharia, features: blocoEngenharia.features.filter((f: any) => f.properties?.level === nivelSelecionado) }
+    : { ...famed, features: famed.features.filter((f: any) => f.properties?.level === nivelSelecionado) };
 
   const marcadoresFiltrados = iconpos.filter((item) => {
     if (Array.isArray(item.pos)) {
@@ -43,11 +44,26 @@ const MapaUFC = () => {
 
   const niveisDisponiveis = campusSelecionado === 'mucambinho' ? ObterNiveis(blocoEngenharia.features) : ObterNiveis(famed.features);
 
+  useEffect(() => {
+    if (mapRef.current) {
+      const newCenter: [number, number] = campusSelecionado === 'mucambinho'
+        ? [-3.6932203, -40.3543455]
+        : [-3.681909655617651, -40.337232529802655];
+      mapRef.current.setView(newCenter, 18);
+    }
+  }, [campusSelecionado]);
+
+  const handleZoomEnd = (e: L.LeafletEvent) => {
+    const map = e.target;
+    setCurrentZoom(map.getZoom());
+  };
+
   return (
-    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'background.default', pb: 10 }}>
       <Box
         sx={{
           width: '100vw',
+          mt: 2,
           height: isMobile
             ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 8}px)`
             : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 12}px)`,
@@ -56,19 +72,29 @@ const MapaUFC = () => {
         }}
       >
         <MapContainer
-          center={campusSelecionado === 'mucambinho' ? [-3.6932203, -40.3543455] : [-3.6937765, -40.3545796]}
+          center={campusSelecionado === 'mucambinho' ? [-3.6932203, -40.3543455] : [-3.681909655617651, -40.337232529802655]}
           zoom={18}
-          minZoom={10}
-          maxZoom={24}
+          minZoom={16}
+          maxZoom={18}
           style={{ height: '100%', width: '100%' }}
+          whenReady={() => {
+            if (mapRef.current) {
+              mapRef.current.on('zoomend', handleZoomEnd);
+            }
+          }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <GeoJSON data={geojsonFiltrado} />
+          <GeoJSON data={geojsonFiltrado as GeoJSON.GeoJsonObject} />
           {marcadoresFiltrados.map((item, idx) => (
-            <Marker key={idx} position={item.pos} icon={item.icone}>
+            <Marker 
+              key={idx} 
+              position={item.pos} 
+              icon={item.icone}
+              opacity={currentZoom >= 18 ? 1 : 0.7}
+            >
               <Popup>
                 <div dangerouslySetInnerHTML={{ __html: String(item.popup.getContent() ?? '') }} />
               </Popup>
@@ -126,7 +152,7 @@ const MapaUFC = () => {
         sx={{
           position: 'fixed',
           left: '50%',
-          bottom: isMobile ? '90px' : '100px',
+          bottom: isMobile ? '120px' : '130px',
           transform: 'translateX(-50%)',
           zIndex: 2000,
           bgcolor: 'rgba(255,255,255,0.85)',

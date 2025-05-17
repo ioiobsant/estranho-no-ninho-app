@@ -5,10 +5,8 @@ import MenuGrid from './MenuGrid';
 const HomePage = () => {
   return (
     <Box sx={{ 
-      width: '100vw',
+      width: '100%',
       position: 'relative',
-      left: '50%',
-      transform: 'translateX(-50%)',
       pb: 8,
       bgcolor: 'background.paper',
       overflowX: 'hidden'

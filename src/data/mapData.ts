@@ -81,15 +81,15 @@ export const iconpos = [
   generateIconPos([-3.693303786947998, -40.354008317303666], "-1", "Balcao da biblioteca", icones.cadeirante[0], [2, 2, 2, 2, 2, 2, 2]),
   generateIconPos([-3.693342187876938, -40.354042164981365], "-1", "Rampa", icones.visual[2], [0, 1, 1, 1, 1, 1, 1]),
   // famed 
-  generateIconPos([-3.6937765346989315, -40.354579670518795], "0", "Copa", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.6938214796861875, -40.35473424408572], "0", "Banheiros", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.6938467327515214, -40.3545105457306], "0", "Laboratório de informática", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.693676621779604, -40.35443315753666], "0", "Estacionamento", icones.cadeirante[0], [2, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.6937052040350187, -40.354133024811745], "0", "Recepção", icones.visual[2], [0, 1, 1, 1, 1, 1, 1]),
-  generateIconPos([-3.6938842124520974, -40.35431809723378], "0", "Sala de Radiografia", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.694209458796248, -40.354255350519516], "0", "Almoxarifado", icones.visual[2], [0, 1, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.694208386745116, -40.35441130399705], "0", "Clínica", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
-  generateIconPos([-3.694168230028304, -40.35458430647851], "0", "Sala de Lavagem", icones.visual[2], [0, 1, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Copa", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Banheiros", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Laboratório de informática", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Estacionamento", icones.cadeirante[0], [2, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Recepção", icones.visual[2], [0, 1, 1, 1, 1, 1, 1]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Sala de Radiografia", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Almoxarifado", icones.visual[2], [0, 1, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Clínica", icones.visual[2], [0, 2, 2, 2, 2, 2, 2]),
+  generateIconPos([-3.681909655617651, -40.337232529802655], "0", "Sala de Lavagem", icones.visual[2], [0, 1, 2, 2, 2, 2, 2]),
 ];
 
 // Função para obter níveis do GeoJSON

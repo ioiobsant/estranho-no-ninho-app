@@ -65,43 +65,41 @@ const AppContent = () => {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <CampusProvider>
-        <Router>
-          <Box sx={{ 
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            bgcolor: 'background.default',
-            overflow: 'hidden',
-            pb: '88px'
-          }}>
-            <Header />
+        <Box sx={{ 
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          bgcolor: 'background.default',
+          pb: '140px'
+        }}>
+          <Header />
+          <Box 
+            component="main" 
+            sx={{ 
+              flex: 1,
+              mt: '72px',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative'
+            }}
+          >
             <Box 
-              component="main" 
               sx={{ 
-                flex: 1,
-                mt: '56px',
-                display: 'flex',
-                flexDirection: 'column'
+                position: 'sticky',
+                top: '56px',
+                left: 0,
+                right: 0,
+                zIndex: 1000
               }}
             >
-              <Box 
-                sx={{ 
-                  position: 'fixed',
-                  top: '56px',
-                  left: 0,
-                  right: 0,
-                  zIndex: 1000
-                }}
-              >
-                <CampusIndicator />
-              </Box>
-              <Box sx={{ mt: '32px' }}>
-                <AppRoutes />
-              </Box>
+              <CampusIndicator />
             </Box>
-            <BottomBar />
+            <Box sx={{ mt: '32px' }}>
+              <AppRoutes />
+            </Box>
           </Box>
-        </Router>
+          <BottomBar />
+        </Box>
       </CampusProvider>
     </MuiThemeProvider>
   );
@@ -110,7 +108,9 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <Router>
+        <AppContent />
+      </Router>
     </ThemeProvider>
   );
 }

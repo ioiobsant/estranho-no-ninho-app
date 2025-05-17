@@ -1,5 +1,5 @@
 import { BottomNavigation, BottomNavigationAction, Paper, Box } from '@mui/material';
-import { Home, School, Map } from '@mui/icons-material';
+import { Home, School } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const BottomBar = () => {
@@ -8,25 +8,19 @@ const BottomBar = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'fixed',
-          bottom: 56,
-          left: 0,
-          right: 0,
-          height: 1,
-          bgcolor: 'divider'
-        }}
-      />
-
-     
       <Paper
         sx={{
           position: 'fixed',
           bottom: 0,
           left: 0,
           right: 0,
-          bgcolor: 'background.paper'
+          width: '100vw',
+          bgcolor: 'background.paper',
+          height: 90,
+          zIndex: 1200,
+          '& .MuiBottomNavigation-root': {
+            height: '100%'
+          }
         }}
         elevation={3}
       >
@@ -36,8 +30,10 @@ const BottomBar = () => {
           onChange={(_, newValue) => navigate(newValue)}
           sx={{
             '& .MuiBottomNavigationAction-root': {
+              padding: '12px 0',
               '& .MuiSvgIcon-root': {
-                transform: 'translateY(-8px)'
+                transform: 'translateY(-8px)',
+                fontSize: 28
               }
             }
           }}
@@ -51,11 +47,6 @@ const BottomBar = () => {
             label="Cursos"
             value="/cursos"
             icon={<School />}
-          />
-          <BottomNavigationAction
-            label="Mapa"
-            value="/mapa"
-            icon={<Map />}
           />
         </BottomNavigation>
       </Paper>

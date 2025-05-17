@@ -8,6 +8,13 @@ import { Box, Button, Paper, useTheme, useMediaQuery } from '@mui/material';
 import MapIcon from '@mui/icons-material/Map';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 
+// Corrige o ícone padrão do Leaflet para produção
+L.Icon.Default.mergeOptions({
+  iconUrl: '/icons/marker.png',
+  iconRetinaUrl: '/icons/marker.png',
+  shadowUrl: '', // ou '/icons/marker-shadow.png' se desejar sombra
+});
+
 const HEIGHT_HEADER = 56; // altura aproximada do header/topbar
 const HEIGHT_BOTTOMBAR = 64; // altura aproximada da BottomBar
 const HEIGHT_SELECTOR = 80; // altura do seletor customizado

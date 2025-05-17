@@ -1,5 +1,5 @@
 import { BottomNavigation, BottomNavigationAction, Paper, Box } from '@mui/material';
-import { Home, School } from '@mui/icons-material';
+import { Home, School, Map } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const BottomBar = () => {
@@ -18,6 +18,8 @@ const BottomBar = () => {
           bgcolor: 'divider'
         }}
       />
+
+     
       <Paper
         sx={{
           position: 'fixed',
@@ -49,6 +51,11 @@ const BottomBar = () => {
             label="Cursos"
             value="/cursos"
             icon={<School />}
+          />
+          <BottomNavigationAction
+            label="Mapa"
+            value="/mapa"
+            icon={<Map />}
           />
         </BottomNavigation>
       </Paper>

@@ -7,6 +7,7 @@ import SupportIcon from '@mui/icons-material/Support';
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ArticleIcon from '@mui/icons-material/Article';
+import MapIcon from '@mui/icons-material/Map';
 import { motion } from 'framer-motion';
 
 const menuItems = [
@@ -17,6 +18,7 @@ const menuItems = [
   { icon: CardMembershipIcon, label: 'Carteirinhas', path: '/carteirinhas' },
   { icon: AttachMoneyIcon, label: 'Bolsas', path: '/bolsas' },
   { icon: ArticleIcon, label: 'UFC', path: '/ufc' },
+  { icon: MapIcon, label: 'Mapa', path: '/mapa' },
 ];
 
 interface DrawerProps {

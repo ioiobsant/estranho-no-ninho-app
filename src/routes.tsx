@@ -6,6 +6,7 @@ import AssistenciaPage from './components/AssistenciaPage';
 import CarteirinhasPage from './components/CarteirinhasPage';
 import BolsasPage from './components/BolsasPage';
 import UfcPage from './components/UfcPage';
+import MapaPage from './components/MapaPage';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/carteirinhas" element={<CarteirinhasPage />} />
       <Route path="/bolsas" element={<BolsasPage />} />
       <Route path="/ufc" element={<UfcPage />} />
+      <Route path="/mapa" element={<MapaPage />} />
     </Routes>
   );
 };

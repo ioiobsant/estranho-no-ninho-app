@@ -4,9 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import SideDrawer from './Drawer';
 import { useCampus } from '../contexts/CampusContext';
 import { useThemeContext } from '../contexts/ThemeContext';
@@ -16,8 +14,7 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { campus, setCampus } = useCampus();
   const { isDarkMode, toggleTheme } = useThemeContext();
-  const navigate = useNavigate();
-  const location = useLocation();
+
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -30,12 +27,6 @@ const Header = () => {
   const handleCampusChange = (event: any) => {
     setCampus(event.target.value as 'sobral' | 'russas');
   };
-
-  const handleBack = () => {
-    navigate(-1);
-  };
-
-  const isHomePage = location.pathname === '/';
 
   return (
     <>
@@ -64,18 +55,6 @@ const Header = () => {
             width: '100%', 
             gap: { xs: 1.5, sm: 2 }
           }}>
-            {!isHomePage && (
-              <IconButton 
-                edge="start" 
-                sx={{ 
-                  color: 'primary.main',
-                  padding: { xs: '6px', sm: '8px' },
-                }}
-                onClick={handleBack}
-              >
-                <ArrowBackIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
-              </IconButton>
-            )}
             <IconButton 
               edge="start" 
               sx={{ 

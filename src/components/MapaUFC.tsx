@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import { useRef, useState } from 'react';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { blocoEngenharia, famed } from '../data/geoJsonData';
@@ -7,6 +7,7 @@ import { iconpos, ObterNiveis } from '../data/mapData';
 import { Box, Button, Paper, useTheme, useMediaQuery } from '@mui/material';
 import MapIcon from '@mui/icons-material/Map';
 import AccessibleIcon from '@mui/icons-material/Accessible';
+import { useCampus } from '../contexts/CampusContext';
 
 // Corrige o ícone padrão do Leaflet para produção
 L.Icon.Default.mergeOptions({
@@ -19,17 +20,26 @@ const HEIGHT_HEADER = 56; // altura aproximada do header/topbar
 const HEIGHT_BOTTOMBAR = 64; // altura aproximada da BottomBar
 const HEIGHT_SELECTOR = 80; // altura do seletor customizado
 
+// Componente para controlar o centro do mapa
+const ChangeView = ({ center }: { center: L.LatLngExpression }) => {
+  const map = useMap();
+  map.setView(center, map.getZoom());
+  return null;
+};
+
 const MapaUFC = () => {
   const mapRef = useRef<L.Map | null>(null);
   const [campusSelecionado, setCampusSelecionado] = useState<'mucambinho' | 'famed'>('mucambinho');
   const [nivelSelecionado, setNivelSelecionado] = useState<string>('0');
-  const [currentZoom, setCurrentZoom] = useState<number>(18);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { campus } = useCampus();
 
   const geojsonFiltrado = campusSelecionado === 'mucambinho'
-    ? { ...blocoEngenharia, features: blocoEngenharia.features.filter((f: any) => f.properties?.level === nivelSelecionado) }
-    : { ...famed, features: famed.features.filter((f: any) => f.properties?.level === nivelSelecionado) };
+    // @ts-ignore - Ignorando erro de tipo do GeoJSON
+    ? { ...blocoEngenharia, features: blocoEngenharia.features.filter(f => f.properties?.level === nivelSelecionado) }
+    // @ts-ignore - Ignorando erro de tipo do GeoJSON
+    : { ...famed, features: famed.features.filter(f => f.properties?.level === nivelSelecionado) };
 
   const marcadoresFiltrados = iconpos.filter((item) => {
     if (Array.isArray(item.pos)) {
@@ -44,57 +54,79 @@ const MapaUFC = () => {
 
   const niveisDisponiveis = campusSelecionado === 'mucambinho' ? ObterNiveis(blocoEngenharia.features) : ObterNiveis(famed.features);
 
-  useEffect(() => {
-    if (mapRef.current) {
-      const newCenter: [number, number] = campusSelecionado === 'mucambinho'
-        ? [-3.6932203, -40.3543455]
-        : [-3.681909655617651, -40.337232529802655];
-      mapRef.current.setView(newCenter, 18);
-    }
-  }, [campusSelecionado]);
+  const center: L.LatLngExpression = campusSelecionado === 'mucambinho' 
+    ? [-3.6932203, -40.3543455] as [number, number]
+    : [-3.681909655617651, -40.33721049717025] as [number, number];
 
-  const handleZoomEnd = (e: L.LeafletEvent) => {
-    const map = e.target;
-    setCurrentZoom(map.getZoom());
-  };
+  if (campus === 'russas') {
+    return (
+      <Box sx={{
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        p: 3
+      }}>
+        <Box sx={{
+          bgcolor: 'background.paper',
+          borderRadius: 3,
+          boxShadow: 3,
+          p: 4,
+          textAlign: 'center',
+          maxWidth: 360
+        }}>
+          <span role="img" aria-label="Mapa indisponível" style={{ fontSize: 48 }}>🗺️</span>
+          <Box sx={{ mt: 2 }}>
+            <strong>O mapa dessa região ainda não está disponível.</strong>
+          </Box>
+        </Box>
+      </Box>
+    );
+  }
 
   return (
-    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'background.default', pb: 10 }}>
+    <Box sx={{ 
+      width: '100vw', 
+      minHeight: '100vh', 
+      bgcolor: 'background.default',
+      overflow: 'hidden'
+    }}>
       <Box
         sx={{
           width: '100vw',
-          mt: 2,
           height: isMobile
-            ? `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 8}px)`
-            : `calc(100vh - ${HEIGHT_HEADER + HEIGHT_SELECTOR + 12}px)`,
-          position: 'relative',
+            ? `calc(100vh - ${HEIGHT_HEADER + 8}px)`
+            : `calc(100vh - ${HEIGHT_HEADER + 12}px)`,
+          position: 'fixed',
+          top: `${HEIGHT_HEADER}px`,
+          left: 0,
+          right: 0,
+          bottom: 0,
           zIndex: 1,
+          margin: 0,
+          padding: 0,
+          border: 'none',
+          outline: 'none'
         }}
       >
         <MapContainer
-          center={campusSelecionado === 'mucambinho' ? [-3.6932203, -40.3543455] : [-3.681909655617651, -40.337232529802655]}
+          center={center}
           zoom={18}
-          minZoom={16}
-          maxZoom={18}
+          minZoom={10}
+          maxZoom={24}
           style={{ height: '100%', width: '100%' }}
-          whenReady={() => {
-            if (mapRef.current) {
-              mapRef.current.on('zoomend', handleZoomEnd);
-            }
-          }}
         >
+          <ChangeView center={center} />
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <GeoJSON data={geojsonFiltrado as GeoJSON.GeoJsonObject} />
+          {/* @ts-ignore - Ignorando erro de tipo do GeoJSON */}
+          <GeoJSON data={geojsonFiltrado} />
           {marcadoresFiltrados.map((item, idx) => (
-            <Marker 
-              key={idx} 
-              position={item.pos} 
-              icon={item.icone}
-              opacity={currentZoom >= 18 ? 1 : 0.7}
-            >
+            <Marker key={idx} position={item.pos} icon={item.icone}>
               <Popup>
                 <div dangerouslySetInnerHTML={{ __html: String(item.popup.getContent() ?? '') }} />
               </Popup>
@@ -138,9 +170,14 @@ const MapaUFC = () => {
               color: nivelSelecionado === nivel ? 'common.white' : 'text.primary',
               border: nivelSelecionado === nivel ? '2px solid #1976d2' : '1.5px solid #bbb',
               transition: 'all 0.2s',
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent',
               '&:hover': {
                 bgcolor: nivelSelecionado === nivel ? 'primary.dark' : 'grey.200',
               },
+              '&:active': {
+                transform: 'scale(0.95)',
+              }
             }}
             onClick={() => setNivelSelecionado(nivel)}
           >
@@ -152,7 +189,7 @@ const MapaUFC = () => {
         sx={{
           position: 'fixed',
           left: '50%',
-          bottom: isMobile ? '120px' : '130px',
+          bottom: isMobile ? '90px' : '100px',
           transform: 'translateX(-50%)',
           zIndex: 2000,
           bgcolor: 'rgba(255,255,255,0.85)',

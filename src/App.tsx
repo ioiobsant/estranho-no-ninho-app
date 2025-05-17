@@ -92,7 +92,7 @@ const AppContent = () => {
                 zIndex: 1000
               }}
             >
-              <CampusIndicator />
+              {/* <CampusIndicator /> */}
             </Box>
             <Box sx={{ mt: '32px' }}>
               <AppRoutes />

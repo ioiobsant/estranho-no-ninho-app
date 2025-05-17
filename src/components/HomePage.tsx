@@ -6,21 +6,23 @@ const HomePage = () => {
   return (
     <Box sx={{ 
       width: '100%',
+      height: '100vh',
       position: 'relative',
-      pb: 8,
       bgcolor: 'background.paper',
-      overflowX: 'hidden'
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column'
     }}>
       <Banner />
       <Box sx={{ 
-        mt: -2, 
-        mx: 2, 
-        mb: 3, 
+        flex: 1,
+        mx: 2,
         bgcolor: 'background.paper', 
         borderRadius: 2, 
         boxShadow: (theme) => theme.palette.mode === 'dark' 
           ? '0 2px 8px rgba(0,0,0,0.3)' 
-          : '0 2px 8px rgba(0,0,0,0.08)'
+          : '0 2px 8px rgba(0,0,0,0.08)',
+        overflow: 'auto'
       }}>
         <Box sx={{ 
           py: 1.5, 

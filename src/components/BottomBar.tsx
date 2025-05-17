@@ -30,10 +30,10 @@ const BottomBar = () => {
           onChange={(_, newValue) => navigate(newValue)}
           sx={{
             '& .MuiBottomNavigationAction-root': {
-              padding: '12px 0',
+              padding: '8px 0',
               '& .MuiSvgIcon-root': {
-                transform: 'translateY(-8px)',
-                fontSize: 28
+                transform: 'translateY(-4px)',
+                fontSize: 24
               }
             }
           }}

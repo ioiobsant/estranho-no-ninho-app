@@ -41,15 +41,10 @@ const BottomBar = () => {
           sx={{
             height: '80px',
             '& .MuiBottomNavigationAction-root': {
-              padding: '8px 0 12px 0',
+              padding: '8px 0',
               '& .MuiSvgIcon-root': {
-                fontSize: '28px',
-                transform: 'translateY(-12px)'
-              },
-              '& .MuiBottomNavigationAction-label': {
-                fontSize: '0.875rem',
-                marginTop: '4px',
-                transform: 'translateY(-2px)'
+                transform: 'translateY(-4px)',
+                fontSize: 24
               }
             }
           }}

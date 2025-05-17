@@ -86,14 +86,10 @@ const AppContent = () => {
                 pb: 0
               }}
             >
-              <Box sx={{ 
-                position: 'relative', 
-                zIndex: 1,
-                flex: 1,
-                overflow: 'auto'
-              }}>
-                <AppRoutes />
-              </Box>
+              {/* <CampusIndicator /> */}
+            </Box>
+            <Box sx={{ mt: '32px' }}>
+              <AppRoutes />
             </Box>
             <BottomBar />
           </Box>

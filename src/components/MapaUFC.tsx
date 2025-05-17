@@ -36,7 +36,9 @@ const MapaUFC = () => {
   const { campus } = useCampus();
 
   const geojsonFiltrado = campusSelecionado === 'mucambinho'
+    // @ts-ignore - Ignorando erro de tipo do GeoJSON
     ? { ...blocoEngenharia, features: blocoEngenharia.features.filter(f => f.properties?.level === nivelSelecionado) }
+    // @ts-ignore - Ignorando erro de tipo do GeoJSON
     : { ...famed, features: famed.features.filter(f => f.properties?.level === nivelSelecionado) };
 
   const marcadoresFiltrados = iconpos.filter((item) => {
@@ -121,6 +123,7 @@ const MapaUFC = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
+          {/* @ts-ignore - Ignorando erro de tipo do GeoJSON */}
           <GeoJSON data={geojsonFiltrado} />
           {marcadoresFiltrados.map((item, idx) => (
             <Marker key={idx} position={item.pos} icon={item.icone}>

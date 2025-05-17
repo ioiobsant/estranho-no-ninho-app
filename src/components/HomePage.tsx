@@ -5,26 +5,24 @@ import MenuGrid from './MenuGrid';
 const HomePage = () => {
   return (
     <Box sx={{ 
-      width: '100vw',
+      width: '100%',
+      height: '100vh',
       position: 'relative',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      pb: 8,
       bgcolor: 'background.paper',
-      overflowX: 'hidden'
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column'
     }}>
       <Banner />
       <Box sx={{ 
-        mt: -2, 
-        mx: 2, 
-        mb: 3, 
+        flex: 1,
+        mx: 2,
         bgcolor: 'background.paper', 
         borderRadius: 2, 
         boxShadow: (theme) => theme.palette.mode === 'dark' 
           ? '0 2px 8px rgba(0,0,0,0.3)' 
           : '0 2px 8px rgba(0,0,0,0.08)',
-        position: 'relative',
-        zIndex: 1
+        overflow: 'auto'
       }}>
         <MenuGrid />
       </Box>

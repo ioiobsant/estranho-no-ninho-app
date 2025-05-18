@@ -9,7 +9,7 @@ import MapIcon from '@mui/icons-material/Map';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import { useCampus } from '../contexts/CampusContext';
 
-// Corrige o ícone padrão do Leaflet para produção
+
 L.Icon.Default.mergeOptions({
   iconUrl: '/icons/marker.png',
   iconRetinaUrl: '/icons/marker.png',
@@ -42,6 +42,11 @@ const MapaUFC = () => {
     : { ...famed, features: famed.features.filter(f => f.properties?.level === nivelSelecionado) };
 
   const marcadoresFiltrados = iconpos.filter((item) => {
+    
+    if (!item.icone || !item.icone.options || !item.icone.options.iconUrl || item.icone.options.iconUrl === '/icons/marker.png') {
+      console.log('Removendo marcador padrão:', item);
+      return false;
+    }
     if (Array.isArray(item.pos)) {
       if (campusSelecionado === 'mucambinho') {
         return String(item.level) === nivelSelecionado && item.pos[0] < -3.692;
@@ -144,7 +149,7 @@ const MapaUFC = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {/* @ts-ignore - Ignorando erro de tipo do GeoJSON */}
-          <GeoJSON data={geojsonFiltrado} />
+          <GeoJSON data={geojsonFiltrado} pointToLayer={() => null} />
           {marcadoresFiltrados.map((item, idx) => (
             <Marker key={idx} position={item.pos} icon={item.icone}>
               <Popup>

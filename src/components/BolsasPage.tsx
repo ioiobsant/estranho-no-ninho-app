@@ -6,7 +6,6 @@ const BolsasPage = () => {
       pt: 1, 
       pb: 8, 
       bgcolor: 'background.paper', 
-      minHeight: '100vh', 
       width: '100vw',
       position: 'relative',
       left: '50%',

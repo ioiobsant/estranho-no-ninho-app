@@ -71,15 +71,36 @@ const MapaUFC = () => {
       }}>
         <Box sx={{
           bgcolor: 'background.paper',
-          borderRadius: 3,
-          boxShadow: 3,
+          borderRadius: 4,
+          boxShadow: 6,
           p: 4,
           textAlign: 'center',
-          maxWidth: 360
+          maxWidth: 400,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 2
         }}>
-          <span role="img" aria-label="Mapa indisponível" style={{ fontSize: 48 }}>🗺️</span>
-          <Box sx={{ mt: 2 }}>
-            <strong>O mapa dessa região ainda não está disponível.</strong>
+          <Box sx={{
+            width: 80,
+            height: 80,
+            borderRadius: '50%',
+            bgcolor: 'primary.light',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mb: 1
+          }}>
+            <span role="img" aria-label="Mapa indisponível" style={{ fontSize: 48 }}>🗺️</span>
+          </Box>
+          <Box sx={{ typography: 'h5', fontWeight: 'bold', color: 'text.primary', mb: 1 }}>
+            Mapa Indisponível
+          </Box>
+          <Box sx={{ typography: 'body1', color: 'text.secondary', mb: 2 }}>
+            O mapa dessa região ainda não está disponível.
+          </Box>
+          <Box sx={{ typography: 'body2', color: 'text.secondary', opacity: 0.8 }}>
+            Estamos trabalhando para disponibilizar em breve!
           </Box>
         </Box>
       </Box>
@@ -89,7 +110,6 @@ const MapaUFC = () => {
   return (
     <Box sx={{ 
       width: '100vw', 
-      minHeight: '100vh', 
       bgcolor: 'background.default',
       overflow: 'hidden'
     }}>

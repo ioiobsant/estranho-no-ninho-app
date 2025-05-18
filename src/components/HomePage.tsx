@@ -1,32 +1,57 @@
 import { Box } from '@mui/material';
 import Banner from './Banner';
 import MenuGrid from './MenuGrid';
+import { motion } from 'framer-motion';
 
 const HomePage = () => {
   return (
-    <Box sx={{ 
-      width: '100%',
-      height: '100vh',
-      position: 'relative',
-      bgcolor: 'background.paper',
-      overflow: 'hidden',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      <Banner />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Box sx={{ 
-        flex: 1,
-        mx: 2,
-        bgcolor: 'background.paper', 
-        borderRadius: 2, 
-        boxShadow: (theme) => theme.palette.mode === 'dark' 
-          ? '0 2px 8px rgba(0,0,0,0.3)' 
-          : '0 2px 8px rgba(0,0,0,0.08)',
-        overflow: 'auto'
+        width: '100%',
+        position: 'relative',
+        bgcolor: 'background.paper',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh'
       }}>
-        <MenuGrid />
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Banner />
+        </motion.div>
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Box sx={{ 
+            flex: 1,
+            mx: { xs: 1, sm: 2, md: 3 },
+            bgcolor: 'background.paper', 
+            borderRadius: { xs: 1, sm: 2 }, 
+            boxShadow: (theme) => theme.palette.mode === 'dark' 
+              ? '0 4px 20px rgba(0,0,0,0.4)' 
+              : '0 4px 20px rgba(0,0,0,0.1)',
+            overflow: 'hidden',
+            transition: 'all 0.3s ease-in-out',
+            '&:hover': {
+              boxShadow: (theme) => theme.palette.mode === 'dark'
+                ? '0 6px 24px rgba(0,0,0,0.5)'
+                : '0 6px 24px rgba(0,0,0,0.15)',
+              transform: 'translateY(-2px)'
+            }
+          }}>
+            <MenuGrid />
+          </Box>
+        </motion.div>
       </Box>
-    </Box>
+    </motion.div>
   );
 };
 

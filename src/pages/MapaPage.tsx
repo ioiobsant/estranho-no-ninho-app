@@ -194,12 +194,14 @@ const MapaPage: React.FC = () => {
   }, []);
 
   return (
-    <MapContainer>
-      <MapTitle>
-        <h1>Mapa do Campus da UFC em Sobral</h1>
-      </MapTitle>
-      <div id="map" style={{ width: '100%', height: '100%' }} />
-    </MapContainer>
+    <div style={{ width: '100vw' }}>
+      <MapContainer>
+        <MapTitle>
+          <h1>Mapa do Campus da UFC em Sobral</h1>
+        </MapTitle>
+        <div id="map" style={{ width: '100%', height: '100%' }} />
+      </MapContainer>
+    </div>
   );
 };
 

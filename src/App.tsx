@@ -6,10 +6,11 @@ import BottomBar from './components/BottomBar'
 import { CampusProvider } from './contexts/CampusContext'
 import { ThemeProvider, useThemeContext } from './contexts/ThemeContext'
 import AppRoutes from './routes'
+import Button from '@mui/material/Button'
 
 const AppContent = () => {
   const { isDarkMode } = useThemeContext();
-
+  
   const theme = createTheme({
     palette: {
       mode: isDarkMode ? 'dark' : 'light',
@@ -59,13 +60,13 @@ const AppContent = () => {
       },
     },
   });
-
+  
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <CampusProvider>
         <Router>
-          <Box sx={{ 
+          <Box sx={{
             minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
@@ -73,22 +74,17 @@ const AppContent = () => {
             pb: { xs: '64px', sm: '80px' }
           }}>
             <Header />
-            <Box 
-              component="main" 
-              sx={{ 
+            <Box
+              component="main"
+              sx={{
                 flex: 1,
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'relative',
                 overflow: 'auto',
-                height: 'calc(100vh - 56px)',
-                pt: '56px',
-                pb: 0
+                zIndex: 1 // Ensure the main content has a lower z-index than the AppBar
               }}
             >
-              {/* <CampusIndicator /> */}
-            </Box>
-            <Box sx={{ mt: '32px' }}>
               <AppRoutes />
             </Box>
             <BottomBar />
@@ -101,9 +97,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -1,3 +1,4 @@
+/*
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,6 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F5F5F5;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -69,16 +71,9 @@ button:focus-visible {
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 /* Prevenir comportamento de bounce no iOS */
 html {
-  position: fixed;
   height: 100%;
-  overflow: hidden;
-  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -86,17 +81,18 @@ body {
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  touch-action: manipulation;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 /* Melhorar interação touch com botões */
 button, 
 [role="button"],
 .MuiButtonBase-root {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+}
+*/
+* {
+  box-sizing: border-box;
+  background-color: rgba(0,255,0,0.05) !important;
+  border: 1px solid rgba(0,0,255,0.2) !important;
+  pointer-events: auto !important;
 }

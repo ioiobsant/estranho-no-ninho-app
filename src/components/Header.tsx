@@ -15,7 +15,6 @@ const Header = () => {
   const { campus, setCampus } = useCampus();
   const { isDarkMode, toggleTheme } = useThemeContext();
 
-
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
   };
@@ -40,13 +39,19 @@ const Header = () => {
         sx={{
           bgcolor: 'background.paper',
           borderBottom: '1px solid',
-          borderColor: 'divider'
+          borderColor: 'divider',
+          width: '100%',
+          left: 0,
+          right: 0,
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          pointerEvents: 'none', // This makes the entire AppBar non-interactive by default
         }}
       >
         <Toolbar 
           sx={{ 
             minHeight: '56px !important',
-            px: { xs: '12px !important', sm: '16px !important' }
+            px: { xs: '12px !important', sm: '16px !important' },
+            pointerEvents: 'auto', // This makes just the Toolbar interactive
           }}
         >
           <Box sx={{ 
@@ -159,8 +164,10 @@ const Header = () => {
         open={isDrawerOpen}
         onClose={handleDrawerClose}
       />
+      {/* Add a spacer to prevent content from being hidden under the AppBar */}
+      <Toolbar sx={{ minHeight: '56px !important' }} />
     </>
   );
 };
 
-export default Header; 
+export default Header;

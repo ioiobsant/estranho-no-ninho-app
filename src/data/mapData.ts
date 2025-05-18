@@ -14,7 +14,7 @@ export const mapOptions = {
 };
 
 // Configurações dos ícones
-export const iconesize: [number, number] = [20, 28];
+export const iconesize: [number, number] = [16, 22];
 export const icones = {
   cadeirante: [
     L.icon({ iconUrl: "/icons/2-cad.png", iconSize: iconesize }),

@@ -5,8 +5,9 @@ import SupportIcon from '@mui/icons-material/Support';
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ArticleIcon from '@mui/icons-material/Article';
-import MapIcon from '@mui/icons-material/Map';
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const menuItems = [
   { icon: SchoolIcon, label: 'Cursos', path: '/cursos' },
@@ -15,8 +16,31 @@ const menuItems = [
   { icon: CardMembershipIcon, label: 'Carteirinhas', path: '/carteirinhas' },
   { icon: AttachMoneyIcon, label: 'Bolsas', path: '/bolsas' },
   { icon: ArticleIcon, label: 'UFC', path: '/ufc' },
-  { icon: MapIcon, label: 'Mapa', path: '/mapa' },
+  { icon: AccessibilityIcon, label: 'Mapa Acessível', path: '/mapa' },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
+  }
+};
 
 const MenuGrid = () => {
   const navigate = useNavigate();
@@ -25,110 +49,133 @@ const MenuGrid = () => {
     <Box 
       sx={{ 
         px: { xs: 2, sm: 3 },
-        py: { xs: 1.5, sm: 2 },
+        py: { xs: 2, sm: 3 },
         bgcolor: 'background.paper',
         position: 'relative',
         zIndex: 2
       }}
     >
-      <Typography
-        variant="h6"
-        sx={{
-          fontSize: { xs: '1.25rem', sm: '1.5rem' },
-          fontWeight: 500,
-          color: 'text.primary',
-          mb: { xs: 3, sm: 4 }
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        Navegação rápida
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontSize: { xs: '1.25rem', sm: '1.5rem' },
+            fontWeight: 600,
+            color: 'text.primary',
+            mb: { xs: 3, sm: 4 },
+            textAlign: 'center'
+          }}
+        >
+          Navegação rápida
+        </Typography>
+      </motion.div>
 
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
-          gap: { xs: 3, sm: 4 },
-          maxWidth: 'lg',
-          mx: 'auto'
-        }}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        {menuItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <Box
-              key={index}
-              sx={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}
-            >
-              <Button
-                onClick={() => {
-                  console.log('Clicou no botão:', item.path);
-                  navigate(item.path);
-                }}
-                sx={{
-                  width: '100%',
-                  maxWidth: { xs: 100, sm: 120 },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: { xs: 1.5, sm: 2 },
-                  padding: 0,
-                  textTransform: 'none',
-                  touchAction: 'manipulation',
-                  WebkitTapHighlightColor: 'transparent',
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                    '& > div': {
-                      transform: 'translateY(-4px)',
-                      bgcolor: 'primary.dark'
-                    }
-                  },
-                  '&:active': {
-                    backgroundColor: 'transparent',
-                    '& > div': {
-                      transform: 'translateY(0)',
-                      bgcolor: 'primary.dark'
-                    }
-                  }
-                }}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
+            gap: { xs: 2, sm: 3 },
+            maxWidth: 'lg',
+            mx: 'auto'
+          }}
+        >
+          {menuItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Box
                   sx={{
-                    width: { xs: 48, sm: 56 },
-                    height: { xs: 48, sm: 56 },
-                    borderRadius: '50%',
-                    bgcolor: 'primary.main',
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    transition: 'all 0.2s ease-in-out'
+                    justifyContent: 'center'
                   }}
                 >
-                  <Icon sx={{ 
-                    fontSize: { xs: 24, sm: 28 }
-                  }} />
+                  <Button
+                    onClick={() => navigate(item.path)}
+                    sx={{
+                      width: '100%',
+                      maxWidth: { xs: 90, sm: 110 },
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: { xs: 1, sm: 1.5 },
+                      padding: 0,
+                      textTransform: 'none',
+                      touchAction: 'manipulation',
+                      WebkitTapHighlightColor: 'transparent',
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        '& > div': {
+                          transform: 'translateY(-4px) scale(1.1)',
+                          bgcolor: 'primary.dark',
+                          boxShadow: (theme) => theme.palette.mode === 'dark'
+                            ? '0 4px 12px rgba(0,0,0,0.4)'
+                            : '0 4px 12px rgba(0,0,0,0.15)'
+                        }
+                      },
+                      '&:active': {
+                        backgroundColor: 'transparent',
+                        '& > div': {
+                          transform: 'translateY(0) scale(0.95)',
+                          bgcolor: 'primary.dark'
+                        }
+                      }
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: { xs: 42, sm: 48 },
+                        height: { xs: 42, sm: 48 },
+                        borderRadius: '50%',
+                        bgcolor: 'primary.main',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        boxShadow: (theme) => theme.palette.mode === 'dark'
+                          ? '0 2px 8px rgba(0,0,0,0.3)'
+                          : '0 2px 8px rgba(0,0,0,0.1)'
+                      }}
+                    >
+                      <Icon sx={{ 
+                        fontSize: { xs: 20, sm: 24 }
+                      }} />
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: 'text.primary',
+                        fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                        fontWeight: 500,
+                        lineHeight: 1.2,
+                        textAlign: 'center',
+                        width: '100%',
+                        transition: 'color 0.2s ease-in-out'
+                      }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </Button>
                 </Box>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: 'text.primary',
-                    fontSize: { xs: '0.875rem', sm: '1rem' },
-                    fontWeight: 400,
-                    lineHeight: 1.2,
-                    textAlign: 'center',
-                    width: '100%'
-                  }}
-                >
-                  {item.label}
-                </Typography>
-              </Button>
-            </Box>
-          );
-        })}
-      </Box>
+              </motion.div>
+            );
+          })}
+        </Box>
+      </motion.div>
     </Box>
   );
 };

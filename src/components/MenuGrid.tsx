@@ -6,6 +6,11 @@ import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ArticleIcon from '@mui/icons-material/Article';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+import LinkIcon from '@mui/icons-material/Link';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import RssFeedIcon from '@mui/icons-material/RssFeed';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -17,6 +22,11 @@ const menuItems = [
   { icon: AttachMoneyIcon, label: 'Bolsas', path: '/bolsas' },
   { icon: ArticleIcon, label: 'UFC', path: '/ufc' },
   { icon: AccessibilityIcon, label: 'Mapa Acessível', path: '/mapa' },
+  { icon: LocalLibraryIcon, label: 'Bibliotecas', path: '/bibliotecas' },
+  { icon: DirectionsBusIcon, label: 'Transportes', path: '/transportes' },
+  { icon: LinkIcon, label: 'Links Úteis', path: '/links-uteis' },
+  { icon: MenuBookIcon, label: 'Regimentos, Manuais e Outros', path: '/regimentos' },
+  { icon: RssFeedIcon, label: 'RSS', path: '/rss' },
 ];
 
 const containerVariants = {
@@ -82,7 +92,7 @@ const MenuGrid = () => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: { xs: 2, sm: 3 },
             maxWidth: 'lg',
             mx: 'auto'

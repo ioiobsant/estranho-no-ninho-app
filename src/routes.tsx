@@ -7,6 +7,11 @@ import CarteirinhasPage from './components/CarteirinhasPage';
 import BolsasPage from './components/BolsasPage';
 import UfcPage from './components/UfcPage';
 import MapaPage from './components/MapaPage';
+import BibliotecasPage from './components/BibliotecasPage';
+import TransportesPage from './components/TransportesPage';
+import LinksUteisPage from './components/LinksUteisPage';
+import RegimentosPage from './components/RegimentosPage';
+import RssPage from './components/RssPage';
 
 const AppRoutes = () => {
   return (
@@ -19,6 +24,11 @@ const AppRoutes = () => {
       <Route path="/bolsas" element={<BolsasPage />} />
       <Route path="/ufc" element={<UfcPage />} />
       <Route path="/mapa" element={<MapaPage />} />
+      <Route path="/bibliotecas" element={<BibliotecasPage />} />
+      <Route path="/transportes" element={<TransportesPage />} />
+      <Route path="/links-uteis" element={<LinksUteisPage />} />
+      <Route path="/regimentos" element={<RegimentosPage />} />
+      <Route path="/rss" element={<RssPage />} />
     </Routes>
   );
 };

@@ -5,11 +5,14 @@ import React from 'react';
 
 const CoursesPage = () => {
   const courses = [
-    { title: 'Graduação', subtitle: 'Cursos de graduação disponíveis' },
-    { title: 'Pós-graduação', subtitle: 'Especializações e mestrados' },
-    { title: 'Extensão', subtitle: 'Cursos de curta duração' },
-    { title: 'Idiomas', subtitle: 'Cursos de línguas estrangeiras' },
-    { title: 'Certificações', subtitle: 'Certificações profissionais' },
+    { title: 'Ciências Econômicas' },
+    { title: 'Engenharia da Computação' },
+    { title: 'Engenharia Elétrica' },
+    { title: 'Finanças' },
+    { title: 'Medicina' },
+    { title: 'Música' },
+    { title: 'Odontologia' },
+    { title: 'Psicologia' },
   ];
 
   return (
@@ -70,14 +73,9 @@ const CoursesPage = () => {
                 </ListItemIcon>
                 <ListItemText
                   primary={course.title}
-                  secondary={course.subtitle}
                   primaryTypographyProps={{
                     fontWeight: 500,
                     color: 'text.primary',
-                  }}
-                  secondaryTypographyProps={{
-                    fontSize: '0.875rem',
-                    color: 'text.secondary',
                   }}
                 />
                 <ArrowForwardIosIcon

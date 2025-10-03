@@ -49,7 +49,7 @@ const Header = () => {
       >
         <Toolbar 
           sx={{ 
-            minHeight: '56px !important',
+            minHeight: { xs: '64px !important', sm: '72px !important' },
             px: { xs: '12px !important', sm: '16px !important' },
             pointerEvents: 'auto', // This makes just the Toolbar interactive
           }}
@@ -64,11 +64,11 @@ const Header = () => {
               edge="start" 
               sx={{ 
                 color: 'primary.main',
-                padding: { xs: '6px', sm: '8px' },
+                padding: { xs: '8px', sm: '10px' },
               }}
               onClick={handleDrawerOpen}
             >
-              <MenuIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
+              <MenuIcon sx={{ fontSize: { xs: 35, sm: 60 } }} />
             </IconButton>
 
             <Box sx={{ 
@@ -77,11 +77,11 @@ const Header = () => {
               gap: { xs: 1, sm: 1.5 },
               flex: 1
             }}>
-              <ApartmentIcon sx={{ color: 'text.primary', fontSize: { xs: 20, sm: 24 } }} />
+              <ApartmentIcon sx={{ color: 'text.primary', fontSize: { xs: 24, sm: 28 } }} />
               <Typography 
                 sx={{ 
                   color: 'text.primary',
-                  fontSize: { xs: '0.875rem', sm: '1rem' },
+                  fontSize: { xs: '1rem', sm: '1.125rem' },
                   fontWeight: 400,
                   display: { xs: 'none', sm: 'block' }
                 }}
@@ -110,14 +110,14 @@ const Header = () => {
                   onChange={handleCampusChange}
                   sx={{ 
                     '& .MuiSelect-select': {
-                      py: { xs: 0.75, sm: 1 },
-                      px: { xs: 1, sm: 1.5 },
-                      fontSize: { xs: '0.875rem', sm: '1rem' }
+                      py: { xs: 1, sm: 1.25 },
+                      px: { xs: 1.25, sm: 1.75 },
+                      fontSize: { xs: '1rem', sm: '1.125rem' }
                     }
                   }}
                 >
                   <MenuItem value="sobral">Sobral</MenuItem>
-                  <MenuItem value="russas">Russas</MenuItem>
+                  <MenuItem value="russas">Opção 2</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -126,35 +126,28 @@ const Header = () => {
               <Box sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                gap: 0.5,
+                gap: 0.2,
                 px: 1,
                 py: 0.5,
                 borderRadius: 2,
                 bgcolor: 'action.hover'
               }}>
                 <LightModeIcon sx={{ 
-                  fontSize: { xs: 16, sm: 18 },
+                  fontSize: { xs: 18, sm: 20 },
                   color: isDarkMode ? 'text.disabled' : 'warning.main'
                 }} />
                 <Switch
                   checked={isDarkMode}
                   onChange={toggleTheme}
                   color="primary"
-                  size="small"
+                  size="medium"
                 />
                 <DarkModeIcon sx={{ 
-                  fontSize: { xs: 16, sm: 18 },
+                  fontSize: { xs: 18, sm: 20 },
                   color: isDarkMode ? 'primary.main' : 'text.disabled'
                 }} />
               </Box>
-              <IconButton 
-                sx={{ 
-                  color: 'primary.main',
-                  padding: { xs: '6px', sm: '8px' },
-                }}
-              >
-                <SearchIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
-              </IconButton>
+              
             </Box>
           </Box>
         </Toolbar>
@@ -165,7 +158,7 @@ const Header = () => {
         onClose={handleDrawerClose}
       />
       {/* Add a spacer to prevent content from being hidden under the AppBar */}
-      <Toolbar sx={{ minHeight: '56px !important' }} />
+      <Toolbar sx={{ minHeight: { xs: '64px !important', sm: '72px !important' } }} />
     </>
   );
 };

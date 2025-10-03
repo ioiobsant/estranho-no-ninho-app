@@ -1,0 +1,128 @@
+import { Box, Typography, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { 
+  LibraryBooks, 
+  LocalHospital 
+} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import { useCampus } from '../../contexts/CampusContext';
+import ConteudoIndisponivel from '../ConteudoIndisponivel';
+
+// Interface para definir a estrutura das opções
+interface BibliotecasOption {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactElement;
+  onClick: () => void;
+}
+
+// Componente reutilizável para cada item do menu
+const BibliotecasMenuItem = ({ option }: { option: BibliotecasOption }) => {
+  return (
+    <ListItem disablePadding>
+      <ListItemButton 
+        onClick={option.onClick}
+        role="button"
+        tabIndex={0}
+        aria-label={`${option.title}: ${option.description}`}
+        sx={{
+          borderRadius: 2,
+          mb: 1,
+          py: 2,
+          px: 2,
+          '&:hover': {
+            bgcolor: 'action.hover',
+            transform: 'translateY(-1px)',
+            boxShadow: 2
+          },
+          '&:focus': {
+            outline: '2px solid',
+            outlineColor: 'primary.main',
+            outlineOffset: 2
+          },
+          transition: 'all 0.2s ease-in-out'
+        }}
+      >
+        <ListItemIcon sx={{ color: 'primary.main', minWidth: 40 }}>
+          {option.icon}
+        </ListItemIcon>
+        <ListItemText
+          primary={option.title}
+          secondary={option.description}
+          primaryTypographyProps={{
+            fontWeight: 600,
+            color: 'text.primary'
+          }}
+          secondaryTypographyProps={{
+            color: 'text.secondary',
+            fontSize: '0.875rem'
+          }}
+        />
+      </ListItemButton>
+    </ListItem>
+  );
+};
+
+const BibliotecasPage = () => {
+  const navigate = useNavigate();
+  const { campus } = useCampus();
+
+  if (campus === 'russas') {
+    return <ConteudoIndisponivel />;
+  }
+
+  // Array com as opções do menu - fácil de manter e expandir
+  const bibliotecasOptions: BibliotecasOption[] = [
+    {
+      id: 'ufc',
+      title: 'Biblioteca UFC',
+      description: 'Biblioteca Central da Universidade Federal do Ceará',
+      icon: <LibraryBooks />,
+      onClick: () => navigate('/bibliotecas/ufc')
+    },
+    {
+      id: 'medicina',
+      title: 'Biblioteca Medicina',
+      description: 'Biblioteca do Curso de Medicina da UFC',
+      icon: <LocalHospital />,
+      onClick: () => navigate('/bibliotecas/medicina')
+    }
+  ];
+
+  return (
+    <Box sx={{ 
+      pt: 1, 
+      pb: 8, 
+      bgcolor: 'background.paper', 
+      width: '100vw',
+      position: 'relative',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      overflowX: 'hidden'
+    }}>
+      <Box sx={{ 
+        px: 3, 
+        py: 2, 
+        borderBottom: '1px solid',
+        borderColor: 'divider'
+      }}>
+        <Typography variant="h6" color="primary" fontWeight="500">
+          Bibliotecas
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Recursos bibliográficos e acervos da UFC
+        </Typography>
+      </Box>
+
+      <Box sx={{ p: 3 }}>
+        <List sx={{ px: 1 }}>
+          {bibliotecasOptions.map((option) => (
+            <BibliotecasMenuItem key={option.id} option={option} />
+          ))}
+        </List>
+      </Box>
+    </Box>
+  );
+};
+
+export default BibliotecasPage; 

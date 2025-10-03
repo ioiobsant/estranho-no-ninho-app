@@ -1,18 +1,28 @@
 import { Box, Typography, List, ListItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import { useCampus } from '../../contexts/CampusContext';
+import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const CoursesPage = () => {
+  const navigate = useNavigate();
+  const { campus } = useCampus();
+
+  if (campus === 'russas') {
+    return <ConteudoIndisponivel />;
+  }
+  
   const courses = [
-    { title: 'Ciências Econômicas' },
-    { title: 'Engenharia da Computação' },
-    { title: 'Engenharia Elétrica' },
-    { title: 'Finanças' },
-    { title: 'Medicina' },
-    { title: 'Música' },
-    { title: 'Odontologia' },
-    { title: 'Psicologia' },
+    { title: 'Ciências Econômicas', path: '/cursos/ciencias-economicas' },
+    { title: 'Engenharia da Computação', path: '/cursos/engenharia-computacao' },
+    { title: 'Engenharia Elétrica', path: '/cursos/engenharia-eletrica' },
+    { title: 'Finanças', path: '/cursos/financas' },
+    { title: 'Medicina', path: '/cursos/medicina' },
+    { title: 'Música', path: '/cursos/musica' },
+    { title: 'Odontologia', path: '/cursos/odontologia' },
+    { title: 'Psicologia', path: '/cursos/psicologia' },
   ];
 
   return (
@@ -55,6 +65,7 @@ const CoursesPage = () => {
             >
               <ListItem
                 component="div"
+                onClick={() => navigate(course.path)}
                 sx={{
                   width: '100%',
                   py: 2,

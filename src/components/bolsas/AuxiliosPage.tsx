@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-const AssistenciaPage = () => {
+const AuxiliosPage = () => {
   return (
     <Box sx={{ 
       pt: 1, 
@@ -19,10 +19,10 @@ const AssistenciaPage = () => {
         borderColor: 'divider'
       }}>
         <Typography variant="h6" color="primary" fontWeight="500">
-          Assistência
+          Auxílios
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Suporte e auxílio estudantil
+          Auxílios financeiros para estudantes
         </Typography>
       </Box>
 
@@ -40,4 +40,4 @@ const AssistenciaPage = () => {
   );
 };
 
-export default AssistenciaPage; 
+export default AuxiliosPage;

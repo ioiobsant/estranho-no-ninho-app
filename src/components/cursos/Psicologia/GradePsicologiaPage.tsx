@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-const UfcPage = () => {
+const GradePsicologiaPage = () => {
   return (
     <Box sx={{ 
       pt: 1, 
@@ -19,10 +19,10 @@ const UfcPage = () => {
         borderColor: 'divider'
       }}>
         <Typography variant="h6" color="primary" fontWeight="500">
-          UFC
+          Grade Curricular - Psicologia
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Informações institucionais
+          Grade curricular do curso de Psicologia
         </Typography>
       </Box>
 
@@ -40,4 +40,4 @@ const UfcPage = () => {
   );
 };
 
-export default UfcPage; 
+export default GradePsicologiaPage;

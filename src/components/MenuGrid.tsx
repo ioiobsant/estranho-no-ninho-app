@@ -147,9 +147,9 @@ const MenuGrid = () => {
                   >
                     <Box
                       sx={{
-                        width: { xs: 42, sm: 48 },
-                        height: { xs: 42, sm: 48 },
-                        borderRadius: '50%',
+                        width: { xs: 56, sm: 64 },
+                        height: { xs: 56, sm: 64 },
+                        borderRadius: { xs: 2, sm: 2.5 },
                         bgcolor: 'primary.main',
                         display: 'flex',
                         alignItems: 'center',
@@ -162,7 +162,7 @@ const MenuGrid = () => {
                       }}
                     >
                       <Icon sx={{ 
-                        fontSize: { xs: 20, sm: 24 }
+                        fontSize: { xs: 28, sm: 32 }
                       }} />
                     </Box>
                     <Typography

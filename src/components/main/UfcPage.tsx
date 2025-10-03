@@ -1,6 +1,14 @@
 import { Box, Typography } from '@mui/material';
+import { useCampus } from '../../contexts/CampusContext';
+import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
-const CarteirinhasPage = () => {
+const UfcPage = () => {
+  const { campus } = useCampus();
+
+  if (campus === 'russas') {
+    return <ConteudoIndisponivel />;
+  }
+
   return (
     <Box sx={{ 
       pt: 1, 
@@ -19,10 +27,10 @@ const CarteirinhasPage = () => {
         borderColor: 'divider'
       }}>
         <Typography variant="h6" color="primary" fontWeight="500">
-          Carteirinhas
+          UFC
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Carteira de estudante
+          Informações institucionais
         </Typography>
       </Box>
 
@@ -40,4 +48,4 @@ const CarteirinhasPage = () => {
   );
 };
 
-export default CarteirinhasPage; 
+export default UfcPage; 

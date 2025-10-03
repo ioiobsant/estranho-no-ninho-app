@@ -159,7 +159,7 @@ const CampusButtons = ({
     sx={{
       position: 'fixed',
       left: '50%',
-      bottom: isMobile ? '90px' : '100px',
+      bottom: isMobile ? '130px' : '140px',
       transform: 'translateX(-50%)',
       zIndex: 2000,
       bgcolor: 'rgba(255,255,255,0.85)',
@@ -242,7 +242,7 @@ const MapaUFC = () => {
 
   if (campus === 'russas') {
     return <MapaIndisponivel />;
-  }
+  };
 
   return (
     <Box sx={{ 

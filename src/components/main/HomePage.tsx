@@ -1,9 +1,17 @@
 import { Box } from '@mui/material';
-import Banner from './Banner';
-import MenuGrid from './MenuGrid';
+import Banner from '../Banner';
+import MenuGrid from '../MenuGrid';
 import { motion } from 'framer-motion';
+import { useCampus } from '../../contexts/CampusContext';
+import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const HomePage = () => {
+  const { campus } = useCampus();
+
+  if (campus === 'russas') {
+    return <ConteudoIndisponivel />;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,25 +24,23 @@ const HomePage = () => {
         bgcolor: 'background.paper',
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh'
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        minHeight: '100vh',
+        pt: { xs: 16, sm: 8, md: 10 },
+        pb: { xs: 4, sm: 4, md: 6 }
       }}>
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Banner />
-        </motion.div>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          style={{ width: '100%', maxWidth: '1200px' }}
         >
           <Box sx={{ 
-            flex: 1,
             mx: { xs: 1, sm: 2, md: 3 },
+            my: { xs: 2, sm: 3 },
             bgcolor: 'background.paper', 
-            borderRadius: { xs: 1, sm: 2 }, 
+            borderRadius: { xs: 2, sm: 3 }, 
             boxShadow: (theme) => theme.palette.mode === 'dark' 
               ? '0 4px 20px rgba(0,0,0,0.4)' 
               : '0 4px 20px rgba(0,0,0,0.1)',

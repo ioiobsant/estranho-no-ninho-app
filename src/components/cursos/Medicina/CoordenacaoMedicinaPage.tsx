@@ -1,83 +1,12 @@
-import { Box, Typography, Divider, Link } from '@mui/material';
-
-// padronização do estilo da aplicação
-const sectionBoxSx = { mb: 3 };
-const sectionTitleProps = {
-  component: 'h2' as const,
-  variant: 'subtitle1' as const,
-  fontWeight: 700,
-  color: 'primary' as const,
-  gutterBottom: true,
-};
-const dividerSx = { mb: 1 };
-const bodyTextProps = { variant: 'body2' as const, color: 'text.secondary' as const, fontSize: 16, lineHeight: 1.8 };
+import { useCampus } from '../../../contexts/CampusContext';
+import CoordenacaoPage from '../../CoordenacaoPage';
+import { coordenacaoMedicinaData } from '../../../data';
 
 const CoordenacaoMedicinaPage = () => {
-  return (
-    <Box sx={{ 
-      pt: 1, 
-      pb: 8, 
-      bgcolor: 'background.paper', 
-      width: '100vw',
-      position: 'relative',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      overflowX: 'hidden'
-    }}>
-      <Box sx={{ 
-        px: 3, 
-        py: 2, 
-        borderBottom: '1px solid',
-        borderColor: 'divider'
-      }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
-          Coordenação - Medicina
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Informações sobre a coordenação do curso
-        </Typography>
-      </Box>
+  const { getCampusData } = useCampus();
+  const coordenacao = getCampusData(coordenacaoMedicinaData) as any;
 
-      <Box sx={{ p: 3 }}>
-        <Box sx={sectionBoxSx}>
-          <Typography {...sectionTitleProps}>Coordenação</Typography>
-          <Divider sx={dividerSx} />
-          <Typography {...bodyTextProps}>
-            <strong>Coordenador:</strong> Professor Paulo Roberto Lacerda Leal
-          </Typography>
-          <Typography {...bodyTextProps}>
-            <strong>Vice-Coordenadora:</strong> Professora Carla Roberta Macêdo de Sousa
-          </Typography>
-        </Box>
-
-        <Box sx={sectionBoxSx}>
-          <Typography {...sectionTitleProps}>Contato</Typography>
-          <Divider sx={dividerSx} />
-          <Typography {...bodyTextProps}>
-            <strong>E-mail:</strong> secretaria.medicina@sobral.ufc.br
-          </Typography>
-          <Typography {...bodyTextProps}>
-            <strong>Página:</strong>{' '}
-            <Link
-              href="http://www.medsobral.ufc.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                color: 'primary.main',
-                textDecoration: 'underline',
-                '&:hover': {
-                  color: 'primary.dark',
-                  textDecoration: 'underline'
-                }
-              }}
-            >
-              http://www.medsobral.ufc.br
-            </Link>
-          </Typography>
-        </Box>
-      </Box>
-    </Box>
-  );
+  return <CoordenacaoPage coordenacao={coordenacao} />;
 };
 
 export default CoordenacaoMedicinaPage;

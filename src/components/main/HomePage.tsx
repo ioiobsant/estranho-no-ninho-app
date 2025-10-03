@@ -2,15 +2,8 @@ import { Box } from '@mui/material';
 import Banner from '../Banner';
 import MenuGrid from '../MenuGrid';
 import { motion } from 'framer-motion';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const HomePage = () => {
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
 
   return (
     <motion.div

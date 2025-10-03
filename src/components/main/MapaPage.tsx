@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { blocoEngenharia } from '../../data/geoJsonData';
+import { blocoEngenharia } from '../../data/mapa/geoJsonData';
 import MapaUFC from '../MapaUFC';
 
 const MapaPage = () => {

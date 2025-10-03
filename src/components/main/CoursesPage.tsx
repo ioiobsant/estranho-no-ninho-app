@@ -3,16 +3,9 @@ import SchoolIcon from '@mui/icons-material/School';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const CoursesPage = () => {
   const navigate = useNavigate();
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
   
   const courses = [
     { title: 'Ciências Econômicas', path: '/cursos/ciencias-economicas' },

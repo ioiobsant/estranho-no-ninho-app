@@ -2,12 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { useCampus } from '../contexts/CampusContext';
 
 const CampusIndicator = () => {
-  const { campus } = useCampus();
-
-  const campusNames = {
-    sobral: 'Campus Sobral',
-    russas: 'Campus Russas'
-  };
+  const { campusName } = useCampus();
 
   return (
     <Box
@@ -21,7 +16,7 @@ const CampusIndicator = () => {
       }}
     >
       <Typography variant="body2">
-        {campusNames[campus]}
+        Campus {campusName}
       </Typography>
     </Box>
   );

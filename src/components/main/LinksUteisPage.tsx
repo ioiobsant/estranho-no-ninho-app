@@ -1,13 +1,6 @@
 import { Box, Typography, Link } from '@mui/material';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const LinksUteisPage = () => {
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
   const linksData = [
     { text: 'Sistema Integrado de Gestão de Atividades Acadêmicas - SIGAA', url: 'https://si3.ufc.br/sigaa/verTelaLogin.do' },
     { text: 'Agência de Estágios', url: null },

@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { campus, setCampus } = useCampus();
+  const { campus, setCampus, availableCampus } = useCampus();
   const { isDarkMode, toggleTheme } = useThemeContext();
 
   const handleDrawerOpen = () => {
@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   const handleCampusChange = (event: any) => {
-    setCampus(event.target.value as 'sobral' | 'russas');
+    setCampus(event.target.value);
   };
 
   return (
@@ -116,8 +116,11 @@ const Header = () => {
                     }
                   }}
                 >
-                  <MenuItem value="sobral">Sobral</MenuItem>
-                  <MenuItem value="russas">Opção 2</MenuItem>
+                  {availableCampus.map((campusOption) => (
+                    <MenuItem key={campusOption.id} value={campusOption.id}>
+                      {campusOption.name}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Box>

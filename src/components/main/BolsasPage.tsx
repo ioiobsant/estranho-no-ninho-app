@@ -9,8 +9,6 @@ import GroupIcon from '@mui/icons-material/Group';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import PublicIcon from '@mui/icons-material/Public';
 import DescriptionIcon from '@mui/icons-material/Description';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 interface BolsasOption {
   id: string;
@@ -65,11 +63,6 @@ const BolsasMenuItem = ({ option }: { option: BolsasOption }) => (
 
 const BolsasPage = () => {
   const navigate = useNavigate();
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
 
   // Array com as opções do menu - fácil de manter e expandir
   const bolsasOptions: BolsasOption[] = [

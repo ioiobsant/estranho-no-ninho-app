@@ -1,12 +1,14 @@
-import { Box, Typography } from '@mui/material';
+import { useCampus } from '../../contexts/CampusContext';
+import ContentPage from '../ContentPage';
+import { rssData } from '../../data';
 
-const RssPage = () => (
-  <Box sx={{ p: 3, textAlign: 'center' }}>
-    <Typography variant="h5" fontWeight={600} mb={2}>
-      RSS
-    </Typography>
-    <Typography variant="body1" color="text.secondary">Em construção</Typography>
-  </Box>
-);
+const RssPage = () => {
+  const { getCampusData } = useCampus();
+  const content = getCampusData(rssData) as any;
 
-export default RssPage; 
+    
+  // Sempre renderiza o ContentPage, que já trata conteúdo vazio
+return <ContentPage content={content} />;
+};
+
+export default RssPage;

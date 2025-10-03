@@ -1,13 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 const UfcPage = () => {
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
 
   return (
     <Box sx={{ 

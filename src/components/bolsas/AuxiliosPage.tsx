@@ -1,43 +1,14 @@
-import { Box, Typography } from '@mui/material';
+import { useCampus } from '../../contexts/CampusContext';
+import ContentPage from '../ContentPage';
+import { auxiliosData } from '../../data';
 
 const AuxiliosPage = () => {
-  return (
-    <Box sx={{ 
-      pt: 1, 
-      pb: 8, 
-      bgcolor: 'background.paper', 
-      width: '100vw',
-      position: 'relative',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      overflowX: 'hidden'
-    }}>
-      <Box sx={{ 
-        px: 3, 
-        py: 2, 
-        borderBottom: '1px solid',
-        borderColor: 'divider'
-      }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
-          Auxílios
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Auxílios financeiros para estudantes
-        </Typography>
-      </Box>
+  const { getCampusData } = useCampus();
+  const content = getCampusData(auxiliosData) as any;
 
-      <Box sx={{ p: 3 }}>
-        <Typography variant="h1" sx={{ 
-          fontSize: { xs: '2rem', sm: '2.5rem' },
-          color: 'text.secondary',
-          textAlign: 'center',
-          mt: 4
-        }}>
-          Em construção
-        </Typography>
-      </Box>
-    </Box>
-  );
+    
+  // Sempre renderiza o ContentPage, que já trata conteúdo vazio
+return <ContentPage content={content} />;
 };
 
 export default AuxiliosPage;

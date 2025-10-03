@@ -7,8 +7,6 @@ import {
   LocalTaxi 
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { useCampus } from '../../contexts/CampusContext';
-import ConteudoIndisponivel from '../ConteudoIndisponivel';
 
 // Interface para definir a estrutura das opções
 interface TransportesOption {
@@ -68,11 +66,6 @@ const TransportesMenuItem = ({ option }: { option: TransportesOption }) => {
 
 const TransportesPage = () => {
   const navigate = useNavigate();
-  const { campus } = useCampus();
-
-  if (campus === 'russas') {
-    return <ConteudoIndisponivel />;
-  }
 
   // Array com as opções do menu - fácil de manter e expandir
   const transportesOptions: TransportesOption[] = [

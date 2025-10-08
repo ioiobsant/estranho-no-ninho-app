@@ -1,32 +1,19 @@
 import { Box, Typography, Link } from '@mui/material';
+import { linksUteisData } from '../../data';
+import { useCampus } from '../../contexts/CampusContext';
 
 const LinksUteisPage = () => {
-  const linksData = [
-    { text: 'Sistema Integrado de Gestão de Atividades Acadêmicas - SIGAA', url: 'https://si3.ufc.br/sigaa/verTelaLogin.do' },
-    { text: 'Agência de Estágios', url: null },
-    { text: 'Biblioteca Universitária', url: null },
-    { text: 'Casas de Cultura Estrangeira', url: null },
-    { text: 'Ciência sem Fronteiras', url: null },
-    { text: 'Conselho Nacional de Desenvolvimento Científico e Tecnológico – CNPq', url: 'https://www.gov.br/cnpq/pt-br' },
-    { text: 'Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - CAPES', url: 'https://www.gov.br/capes/pt-br' },
-    { text: 'Diretório Central dos Estudantes - DCE', url: null },
-    { text: 'Ministério da Educação', url: 'https://www.gov.br/mec/pt-br' },
-    { text: 'Pró-Reitoria de Planejamento e Administração', url: 'https://proplad.ufc.br/pt/' },
-    { text: 'Pró-Reitoria de Assuntos Estudantis', url: 'https://prae.ufc.br/pt/' },
-    { text: 'Pró-Reitoria de Extensão', url: 'https://prex.ufc.br/pt/' },
-    { text: 'Pró-Reitoria de Graduação', url: 'https://prograd.ufc.br/pt/' },
-    { text: 'Pró-Reitoria de Inovação e Relações Interinstitucionais', url: 'https://prointer.ufc.br/pt/' },
-    { text: 'UFC Virtual', url: 'https://virtual.ufc.br/' }
-  ];
+  const { getCampusData } = useCampus();
+  const content = getCampusData(linksUteisData);
 
   return (
     <Box sx={{ p: 3, textAlign: 'center' }}>
       <Typography variant="h5" fontWeight={600} mb={3}>
-        Links Úteis
+        {content?.titulo}
       </Typography>
       
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
-        {linksData.map((item, index) => (
+        {content?.links.map((item, index) => (
           <Box key={index} sx={{ py: 1 }}>
             {item.url ? (
               <Link
@@ -67,4 +54,4 @@ const LinksUteisPage = () => {
   );
 };
 
-export default LinksUteisPage; 
+export default LinksUteisPage;

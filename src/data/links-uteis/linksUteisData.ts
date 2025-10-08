@@ -37,8 +37,8 @@ export const linksUteisData: CampusData<LinksUteisContent> = {
     titulo: 'Links Úteis',
     links: [
       { text: 'Sistema Integrado de Gestão de Atividades Acadêmicas - SIGAA', url: 'https://si3.ufc.br/sigaa/verTelaLogin.do' },
-      { text: 'Agência de Estágios', url: null },
-      { text: 'Biblioteca Universitária', url: null },
+      { text: 'Agência de Estágios', url: 'https://estagios.ufc.br/pt/' },
+      { text: 'Biblioteca Universitária', url: 'https://google.com' },
       { text: 'Casas de Cultura Estrangeira', url: null },
       { text: 'Ciência sem Fronteiras', url: null },
       { text: 'Conselho Nacional de Desenvolvimento Científico e Tecnológico – CNPq', url: 'https://www.gov.br/cnpq/pt-br' },

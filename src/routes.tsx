@@ -34,6 +34,7 @@ import FormarPageTrancamento from './components/formar/FormarPageTrancamento';
 import FormarPageNotas from './components/formar/FormarPageNotas';
 import FormarPageFaltas from './components/formar/FormarPageFaltas';
 import FormarPageAtivComp from './components/formar/FormarPageAtivComp';
+import FormarPageIra from './components/formar/FormarPageIra';
 import AssistenciaPage from './components/main/AssistenciaPage';
 import AcessibilidadePage from './components/assistencia/AcessibilidadePage';
 import AssistenciaEstudantilPage from './components/assistencia/AssistenciaEstudantilPage';
@@ -45,6 +46,12 @@ import IdJovemPage from './components/carteirinhas/IdJovemPage';
 import BolsasPage from './components/main/BolsasPage';
 import BolsasIniciacaoCientificaPage from './components/bolsas/BolsasIniciacaoCientificaPage';
 import AuxiliosPage from './components/bolsas/AuxiliosPage';
+import AuxilioMoradiaPage from './components/bolsas/AuxilioMoradiaPage';
+import AuxilioEmergencialPage from './components/bolsas/AuxilioEmergencialPage';
+import AuxilioCustosPage from './components/bolsas/AuxilioCustosPage';
+import AuxilioCrechePage from './components/bolsas/AuxilioCrechePage';
+import AuxilioIngressantePage from './components/bolsas/AuxilioIngressantePage';
+import AuxilioConcluentePage from './components/bolsas/AuxilioConcluentePage';
 import PidPage from './components/bolsas/PidPage';
 import BolsasExtensaoPage from './components/bolsas/BolsasExtensaoPage';
 import PaipPage from './components/bolsas/PaipPage';
@@ -96,6 +103,7 @@ const AppRoutes = () => {
       <Route path="/cursos/psicologia/coordenacao" element={<CoordenacaoPsicologiaPage />} />
       <Route path="/cursos/psicologia/grade" element={<GradePsicologiaPage />} />
       <Route path="/formar" element={<FormarPage />} />
+      <Route path="/formar/ira" element={<FormarPageIra />} />
       <Route path="/formar/matricula" element={<FormarPageMatricula />} />
       <Route path="/formar/trancamentos" element={<FormarPageTrancamento />} />
       <Route path="/formar/notas" element={<FormarPageNotas />} />
@@ -112,6 +120,12 @@ const AppRoutes = () => {
       <Route path="/bolsas" element={<BolsasPage />} />
       <Route path="/bolsas/iniciacao-cientifica" element={<BolsasIniciacaoCientificaPage />} />
       <Route path="/bolsas/auxilios" element={<AuxiliosPage />} />
+      <Route path="/bolsas/auxilios/moradia" element={<AuxilioMoradiaPage />} />
+      <Route path="/bolsas/auxilios/emergencial" element={<AuxilioEmergencialPage />} />
+      <Route path="/bolsas/auxilios/custos" element={<AuxilioCustosPage />} />
+      <Route path="/bolsas/auxilios/creche" element={<AuxilioCrechePage />} />
+      <Route path="/bolsas/auxilios/ingressante" element={<AuxilioIngressantePage />} />
+      <Route path="/bolsas/auxilios/concludente" element={<AuxilioConcluentePage />} />
       <Route path="/bolsas/pid" element={<PidPage />} />
       <Route path="/bolsas/extensao" element={<BolsasExtensaoPage />} />
       <Route path="/bolsas/paip" element={<PaipPage />} />

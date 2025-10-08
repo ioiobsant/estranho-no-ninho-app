@@ -7,11 +7,11 @@ export const carteiraEstudantilData: CampusData<PageContent> = {
     secoes: [
       {
         titulo: 'Carteira Estudantil UNE',
-        conteudo: 'O Documento do Estudante é o documento oficial das entidades estudantis nacionais que, de acordo com a Lei 12.933/2013, garante a meia-entrada a estudantes do ensino infantil, fundamental, médio/técnico, graduação e pós-graduação, porém não é gratuito, exceto para jovens de baixa renda. Site: Documento do Estudante 2024 - Válido em todo o Brasil.'
+        conteudo: 'O Documento do Estudante é o documento oficial das entidades estudantis nacionais que, de acordo com a Lei 12.933/2013, garante a meia-entrada a estudantes do ensino infantil, fundamental, médio/técnico, graduação e pós-graduação, porém não é gratuito, exceto para jovens de baixa renda. <a href="https://www.documentodoestudante.com.br/" target="_blank" rel="noopener noreferrer">Site: Documento do Estudante 2024 - Válido em todo o Brasil.</a>'
       },
       {
         titulo: 'Carteira Estudantil DCE',
-        conteudo: 'O estudante universitário tem direito a um documento que lhe assegura a meia passagem no transporte público e a meia-entrada em eventos artísticos e culturais. De acordo com o Decreto nº 8.537/2015 da Presidência da República, só são válidas no território nacional as carteiras universitárias emitidas com a chancela da União Nacional dos Estudantes (UNE) e da Associação Nacional de Pós-Graduandos (ANPG). A solicitação ocorre através da entidade DCE, cada campus da UFC possui uma secretaria do DCE.'
+        conteudo: 'O estudante universitário tem direito a um documento que lhe assegura a meia passagem no transporte público e a meia-entrada em eventos artísticos e culturais. De acordo com o <a href="https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Decreto/D8537.htm" target="_blank" rel="noopener noreferrer">Decreto nº 8.537/2015</a> da Presidência da República, só são válidas no território nacional as carteiras universitárias emitidas com a chancela da União Nacional dos Estudantes (UNE) e da Associação Nacional de Pós-Graduandos (ANPG). A solicitação ocorre através da entidade DCE, cada campus da UFC possui uma secretaria do DCE.'
       }
     ]
   },
@@ -41,7 +41,7 @@ export const carteiraRuData: Partial<CampusData<ServicoContent>> = {
         titulo: 'Valor das refeições para estudantes',
         conteudo: [
           'Recarga Eletrônica (pix, cartão de crédito ou GRU): R$ 1,10.',
-          'Link para recarga eletrônica: http://si3.ufc.br/public//jsp/restaurante_universitario/consulta_comensal_ru.jsf',
+          '<a href="https://si3.ufc.br/public//jsp/restaurante_universitario/consulta_comensal_ru.jsf" target="_blank" rel="noopener noreferrer">Link para recarga eletrônica</a>',
           'Guichê de atendimento (dinheiro em espécie): R$ 3,00.'
         ]
       },
@@ -56,7 +56,7 @@ export const carteiraRuData: Partial<CampusData<ServicoContent>> = {
     ],
     contato: {
       endereco: 'R. Coronel Estanislau Frota, 563 - Campus Mucambinho',
-      email: ['refeitório@sobral.ufc.br']
+      email: ['refeitorio@sobral.ufc.br']
     }
   }
 };
@@ -72,7 +72,7 @@ export const idJovemData: CampusData<PageContent> = {
       },
       {
         titulo: 'Site Oficial',
-        conteudo: 'Site: ID Jovem (juventude.gov.br)'
+        conteudo: '<a href="https://idjovem.juventude.gov.br/" target="_blank" rel="noopener noreferrer">Site: ID Jovem (juventude.gov.br)</a>'
       }
     ]
   },
@@ -85,7 +85,7 @@ export const idJovemData: CampusData<PageContent> = {
       },
       {
         titulo: 'Site Oficial',
-        conteudo: 'Site: ID Jovem (juventude.gov.br)'
+        conteudo: '<a href="https://idjovem.juventude.gov.br/" target="_blank" rel="noopener noreferrer">Site: ID Jovem (juventude.gov.br)</a>'
       }
     ]
   }

@@ -35,7 +35,7 @@ export const AVAILABLE_CAMPUS: CampusConfig[] = [
     displayName: 'Campus Russas',
     color: '#4CAF50',
     description: 'Campus da UFC em Russas'
-  },
+  }
   // Para adicionar um novo campus, basta descomentar e preencher:
   // {
   //   id: 'quixada',
@@ -44,7 +44,15 @@ export const AVAILABLE_CAMPUS: CampusConfig[] = [
   //   color: '#FF9800',
   //   description: 'Campus da UFC em Quixadá'
   // },
+ // {
+ //   id: 'campus_exemplo',
+ //   name: 'Exemplo',
+ //   displayName: 'Campus Exemplo',
+ //   color: '#FF9800',
+ //   description: 'Campus de Exemplo'
+  //} 
 ];
+
 
 /**
  * Campus padrão quando o app inicializa

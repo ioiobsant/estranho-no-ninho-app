@@ -84,15 +84,11 @@ export const paipData: CampusData<PageContent> = {
 export const pidData: CampusData<PageContent> = {
   sobral: {
     titulo: 'Programa de Inicialização à Docência (PID)',
-    subtitulo: 'Programa de incentivo à docência',
+    subtitulo: '',
     secoes: [
       {
-        titulo: 'Sobre o Programa',
-        conteudo: 'O programa é efetivado por meio da atuação do aluno nos componentes curriculares sob a orientação de um professor orientador do quadro efetivo, permitindo ampliar os espaços de ensino-aprendizagem e estimular o interesse pela carreira docente.'
-      },
-      {
-        titulo: 'Modalidades e Bolsas',
-        conteudo: 'O Programa de Iniciação à Docência (PID) é desenvolvido em duas modalidades: monitoria remunerada e monitoria voluntária. Na primeira, o monitor recebe uma bolsa-auxílio para desempenhar as funções e, por isso, não deve participar de qualquer outra atividade remunerada, seja pública ou privada. Na segunda, o monitor desempenha as atividades de maneira voluntária, sem o recebimento do auxílio. A seleção é de responsabilidade de cada Departamento de Curso de Graduação. O bolsista do PID receberá bolsa no valor de R$700,00.'
+        titulo: '',
+        conteudo: 'O programa é efetivado por meio da atuação do aluno nos componentes curriculares sob a orientação de um professor orientador do quadro efetivo, permitindo ampliar os espaços de ensino-aprendizagem e estimular o interesse pela carreira docente. O Programa de Iniciação à Docência (PID) é desenvolvido em duas modalidades: monitoria remunerada e monitoria voluntária. Na primeira, o monitor recebe uma bolsa-auxílio para desempenhar as funções e, por isso, não deve participar de qualquer outra atividade remunerada, seja pública ou privada. Na segunda, o monitor desempenha as atividades de maneira voluntária, sem o recebimento do auxílio. A seleção é de responsabilidade de cada Departamento de Curso de Graduação. O bolsista do PID receberá bolsa no valor de R$700,00.'
       }
     ]
   },
@@ -115,20 +111,12 @@ export const pidData: CampusData<PageContent> = {
 // Bolsas de Extensão
 export const bolsasExtensaoData: CampusData<PageContent> = {
   sobral: {
-    titulo: 'Bolsas de Extensão',
-    subtitulo: 'Bolsas para atividades de extensão universitária',
+    titulo: 'Bolsa de Extensão',
+    subtitulo: '',
     secoes: [
       {
-        titulo: 'Como se Tornar Bolsista',
-        conteudo: 'Para se tornar um bolsista de Extensão, o(a) estudante da UFC precisa – inicialmente – participar de um programa/projeto de Extensão já cadastrado na Pró-Reitoria de Extensão-PREX, ou seja, que já tenha tramitado na unidade de origem do(a) Coordenador(a) do programa/projeto, e que também já tenha cumprido as instâncias necessárias na PREX.'
-      },
-      {
-        titulo: 'Processo de Seleção',
-        conteudo: 'Havendo um determinado programa/projeto que lhe desperte o interesse, o(a) estudante deve entrar em contato com o(a) Coordenador(a) dessa ação. Sendo aceito(a) no programa/projeto, o(a) Coordenador(a) eventualmente o(a) indica para ser contemplado(a) com uma bolsa de extensão. Em alguns casos, o(a) estudante ingressa na ação extensionista na condição de voluntário(a) e posteriormente pode ser contemplado(a) com uma bolsa.'
-      },
-      {
-        titulo: 'Requisitos e Valor da Bolsa',
-        conteudo: 'O(a) estudante deve estar inteirado que, caso possua parentesco em 1º grau com o(a) Coordenador(a) do programa/projeto, ele(a) não terá direito à bolsa. O bolsista de Extensão receberá bolsa no valor de R$700,00.'
+        titulo: '',
+        conteudo: 'Para se tornar um bolsista de Extensão, o(a) estudante da UFC precisa – inicialmente – participar de um programa/projeto de Extensão já cadastrado na Pró-Reitoria de Extensão-PREX, ou seja, que já tenha tramitado na unidade de origem do(a) Coordenador(a) do programa/projeto, e que também já tenha cumprido as instâncias necessárias na PREX.<br/><br/>Havendo um determinado programa/projeto que lhe desperte o interesse, o(a) estudante deve entrar em contato com o(a) Coordenador(a) dessa ação. Sendo aceito(a) no programa/projeto, o(a) Coordenador(a) eventualmente o(a) indica para ser contemplado(a) com uma bolsa de extensão. Em alguns casos, o(a) estudante ingressa na ação extensionista na condição de voluntário(a) e posteriormente pode ser contemplado(a) com uma bolsa.<br/><br/>O (a) estudante deve estar inteirado que, caso possua parentesco em 1º grau com o(a) Coordenador(a) do programa/projeto, ele(a) não terá direito à bolsa. O bolsista de Extensão receberá bolsa no valor de R$700,00.'
       }
     ]
   },
@@ -144,15 +132,15 @@ export const bolsasExtensaoData: CampusData<PageContent> = {
   }
 };
 
-// Auxílios - página em construção
+// Auxílios - página principal (menu)
 export const auxiliosData: CampusData<PageContent> = {
   sobral: {
     titulo: 'Auxílios',
     subtitulo: 'Auxílios financeiros para estudantes',
     secoes: [
       {
-        titulo: 'Em construção',
-        conteudo: 'Esta seção está em desenvolvimento.'
+        titulo: 'Programas de Auxílio',
+        conteudo: 'A UFC oferece diversos programas de auxílio financeiro para apoiar estudantes em situação de vulnerabilidade socioeconômica. Selecione o tipo de auxílio para mais informações.'
       }
     ]
   },
@@ -161,8 +149,164 @@ export const auxiliosData: CampusData<PageContent> = {
     subtitulo: 'Auxílios financeiros para estudantes',
     secoes: [
       {
-        titulo: 'Em construção',
-        conteudo: 'Esta seção está em desenvolvimento.'
+        titulo: 'Programas de Auxílio',
+        conteudo: 'Programas de auxílio financeiro disponíveis para estudantes.'
+      }
+    ]
+  }
+};
+
+// Auxílio Moradia
+export const auxilioMoradiaData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio Moradia',
+    subtitulo: 'Informações importantes sobre o auxílio',
+    secoes: [
+      {
+        titulo: 'O que é?',
+        conteudo: 'É um valor que você pode receber para auxiliar no pagamento das despesas com moradia e alimentação na cidade do campus onde você faz seu curso de graduação. O beneficiário do auxílio recebe um valor em dinheiro de R$ 910,00 por mês depositado em conta corrente bancária do estudante, além da isenção das taxas do Restaurante Universitário em todas as refeições oferecidas.'
+      },
+      {
+        titulo: 'Atenção!',
+        conteudo: 'Para que o auxílio continue durante todo o curso é necessário uma prestação de contas trimestral. A não realização do envio dos documentos resultará no indeferimento do auxílio, seguido pelo desligamento do beneficiário.'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio Moradia',
+  subtitulo: 'Apoio financeiro para moradia estudantil',
+  secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para estudantes que necessitam de apoio financeiro para moradia.'
+      }
+   ]
+  }
+};
+
+// Auxílio Emergencial
+export const auxilioEmergencialData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio Emergencial',
+    subtitulo: '',
+    secoes: [
+      {
+        titulo: '',
+        conteudo: 'É um auxílio em dinheiro destinado aos estudantes dos cursos presenciais de graduação que apresentem vulnerabilidade socioeconômica comprovada e que atendam a um dos requisitos que estejam impedindo que o aluno frequente normalmente as aulas. É solicitado diretamente no setor de Assistência Estudantil do Campus de Sobral e está no valor de R$ 536,00 por mês, podendo ser concedido de um a três meses, dependendo da análise socioeconômica da equipe.'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio Emergencial',
+    subtitulo: 'Apoio em situações de emergência',
+    secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para estudantes em situações imprevistas de vulnerabilidade.'
+      }
+    ]
+  }
+};
+
+// Auxílio de Custos
+export const auxilioCustosData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio de Custos',
+    subtitulo: '',
+    secoes: [
+      {
+        titulo: 'Eventos de natureza acadêmica, científica e artística representando a Universidade:',
+        conteudo: 'Para participar, é necessário responder o formulário virtual de solicitação de Ajuda de Custo, informando seus dados pessoais e bancários e preenchendo as informações do evento.'
+      },
+      {
+        titulo: 'Eventos promovidos por entidades estudantis:',
+        conteudo: 'É também necessário responder o formulário virtual de solicitação de Ajuda de Custo, informando seus dados pessoais e bancários e preenchendo as informações do evento.'
+      },
+      {
+        titulo: 'Eventos Desportivos:',
+        conteudo: 'A solicitação de Ajuda de Custo para estudantes que representam as seleções esportivas da Universidade Federal do Ceará em competições, locais, regionais, nacionais e internacionais é realizada via processo no Sistema Eletrônico de Informações (SEI), encaminhado pela Divisão de Atividades Desportivas (DAD) à Secretaria da PRAE.<br/><br/>Para informações sobre valores e documentos necessários acessar o <a href="https://prae.ufc.br/pt/auxilios-e-bolsas-estudantis/ajuda-de-custo/como-obter-ajuda-de-custo/" target="_blank" rel="noopener noreferrer">link. </a>'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio de Custos',
+    subtitulo: 'Apoio para despesas acadêmicas',
+    secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para despesas relacionadas às atividades acadêmicas.'
+      }
+    ]
+  }
+};
+
+// Auxílio Creche
+export const auxilioCrecheData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio Creche',
+    subtitulo: '',
+    secoes: [
+      {
+        titulo: '',
+        conteudo: 'É um auxílio em dinheiro destinado a estudantes matriculados em cursos presenciais de graduação de todos os Campi da UFC, que se encontrem em situação de vulnerabilidade socioeconômica, tenham filhos, morem e detenham guarda dos mesmos. A criança deve ter idade entre 4 (quatro) e 72 (setenta e dois) meses incompletos. Valor em dinheiro de R$ 400,00 (quatrocentos reais) por mês depositado em conta corrente bancária do estudante.'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio Creche',
+    subtitulo: 'Apoio para mães e pais estudantes',
+    secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para estudantes que necessitam de apoio para cuidados com filhos.'
+      }
+    ]
+  }
+};
+
+// Auxílio Ingressante
+export const auxilioIngressanteData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio Ingressante',
+    subtitulo: '',
+    secoes: [
+      {
+        titulo: '',
+        conteudo: 'O Auxílio Ingressante tem como objetivo disponibilizar apoio financeiro aos estudantes dos cursos de graduação presenciais, em situação de vulnerabilidade socioeconômica comprovada, de modo que possa contribuir para a obtenção de um desempenho acadêmico satisfatório, reduzir o risco de evasão e propiciar a conclusão do curso em tempo hábil. É um valor de R$ 500,00 que você pode receber para auxiliar no pagamento das despesas com seu curso de graduação, no ano de ingresso.'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio Ingressante',
+    subtitulo: 'Apoio para estudantes recém-ingressos',
+    secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para estudantes recém-ingressos em situação de vulnerabilidade.'
+      }
+    ]
+  }
+};
+
+// Auxílio Concludente
+export const auxilioConcluenteData: CampusData<PageContent> = {
+  sobral: {
+    titulo: 'Auxílio Concludente',
+    subtitulo: '',
+    secoes: [
+      {
+        titulo: '',
+        conteudo: 'Destinado a estudantes em situação de vulnerabilidade socioeconômica, regularmente matriculados em cursos de graduação presencial dos Campi de Fortaleza da Universidade Federal do Ceará, que atendam aos requisitos estabelecidos pelo edital lançado anualmente (por exemplo: estar regularmente matriculado em curso de graduação presencial dos Campi de Fortaleza da UFC; ter cadastro socioeconômico aprovado a partir de 2022.2 pela Divisão de Benefícios e Moradia (DIBEM) da Pró-reitoria de Assistência Estudantil (PRAE); ter integralizado pelo menos 60% dos créditos exigidos no curso de graduação presencial; não receber bolsa concedida pela UFC e/ou agência de fomento).<br/><br/>O auxílio financeiro é destinado ao estudante que necessite de ajuda pecuniária e pedagógica para a conclusão da graduação em tempo hábil, sendo condicionado ao acompanhamento pedagógico.'
+      }
+    ]
+  },
+  russas: {
+    titulo: 'Auxílio Concludente',
+    subtitulo: 'Apoio para estudantes em fase de conclusão',
+    secoes: [
+      {
+        titulo: 'Sobre o Auxílio',
+        conteudo: 'Auxílio para estudantes em fase de conclusão do curso.'
       }
     ]
   }
@@ -172,10 +316,10 @@ export const auxiliosData: CampusData<PageContent> = {
 export const editaisBolsasData: CampusData<PageContent> = {
   sobral: {
     titulo: 'Editais de Bolsas e Auxílios',
-    subtitulo: 'Onde consultar editais de bolsas e auxílios',
+    subtitulo: '',
     secoes: [
       {
-        titulo: '',
+        titulo: 'Onde consultar editais de bolsas e auxílios',
         conteudo: [
           '<strong>Direção de Campus:</strong> <a href="https://sobral.ufc.br" target="_blank" rel="noopener noreferrer">sobral.ufc.br</a>',
           '<strong>PRAE (Pró-Reitoria de Assuntos Estudantis):</strong> <a href="https://prae.ufc.br/pt/" target="_blank" rel="noopener noreferrer">prae.ufc.br/pt/</a>',

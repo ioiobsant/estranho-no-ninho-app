@@ -22,6 +22,12 @@ export {
   pidData,
   bolsasExtensaoData,
   auxiliosData,
+  auxilioMoradiaData,
+  auxilioEmergencialData,
+  auxilioCustosData,
+  auxilioCrecheData,
+  auxilioIngressanteData,
+  auxilioConcluenteData,
   editaisBolsasData,
   internacionalizacaoData
 } from './bolsas/bolsasData';
@@ -39,7 +45,8 @@ export {
   notasData,
   faltasData,
   trancamentoData,
-  atividadesComplementaresData
+  atividadesComplementaresData,
+  iraData
 } from './formar/formarData';
 
 // === TRANSPORTES ===

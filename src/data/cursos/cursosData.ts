@@ -1,5 +1,15 @@
 import { CampusData } from '../../types/contentData';
 
+// Para adicionar um novo campus, basta adicionar um novo objeto no objeto AVAILABLE_CAMPUS,
+//  com o nome do campus e os dados.
+
+
+//O AVAILABLE_CAMPUS fica no arquivo:
+//src/config/campusConfig.ts
+//É o arquivo de configuração centralizada dos campus. 
+// Lá na linha 24 está o array AVAILABLE_CAMPUS 
+// onde você adiciona novos campus para que apareçam no seletor do header.
+
 // Interface para dados de coordenação de cursos
 export interface CoordenacaoCurso {
   titulo: string;
@@ -26,6 +36,13 @@ export const coordenacaoCienciasEconomicasData: CampusData<CoordenacaoCurso> = {
     subtitulo: 'Informações sobre a coordenação do curso',
     coordenador: 'A definir',
     email: 'economia@russas.ufc.br'
+  } , 
+  campus_exemplo: {
+    titulo: 'Coordenação - Exemplo',
+    subtitulo: 'Informações sobre a coordenação do curso',
+    coordenador: 'A definir',
+    email: 'emaildocurso',
+    pagina: 'paginadocurso',
   }
 };
 
@@ -34,10 +51,10 @@ export const coordenacaoEngenhariaComputacaoData: CampusData<CoordenacaoCurso> =
   sobral: {
     titulo: 'Coordenação - Engenharia de Computação',
     subtitulo: 'Informações sobre a coordenação do curso',
-    coordenador: 'Professor Vandilberto Pereira Pinto',
-    viceCoordenador: 'Professor Henrique Cunha Pinto',
-    email: 'ccomp.sobral@ufc.br',
-    pagina: 'http://www.computacao.sobral.ufc.br'
+    coordenador: 'Professor Carlos Elmano de Alencar e Silva',
+    viceCoordenador: 'Professora Jermana Lopes de Moraes',
+    email: 'ec@sobral.ufc.br',
+    pagina: 'http://www.ec.ufc.br'
   },
   russas: {
     titulo: 'Coordenação - Engenharia de Computação',
@@ -52,10 +69,10 @@ export const coordenacaoEngenhariaEletricaData: CampusData<CoordenacaoCurso> = {
   sobral: {
     titulo: 'Coordenação - Engenharia Elétrica',
     subtitulo: 'Informações sobre a coordenação do curso',
-    coordenador: 'Professor Jéssica Castro Bubach',
-    viceCoordenador: 'Professor José Augusto Costa Dantas Filho',
-    email: 'coordelétrica.sobral@ufc.br',
-    pagina: 'http://www.engenharia.sobral.ufc.br/'
+    coordenador: 'Professora Rosana Maria Alves Saboya',
+    viceCoordenador: 'Professora Vanessa Siqueira de Castro Teixeira',
+    email: 'coord.engeletrica@sobral.ufc.br',
+    pagina: 'http://www.engeletrica.sobral.ufc.br'
   },
   russas: {
     titulo: 'Coordenação - Engenharia Elétrica',
@@ -70,10 +87,10 @@ export const coordenacaoFinancasData: CampusData<CoordenacaoCurso> = {
   sobral: {
     titulo: 'Coordenação - Finanças',
     subtitulo: 'Informações sobre a coordenação do curso',
-    coordenador: 'Professor Luís Carlos Pinheiro de Castro',
-    viceCoordenador: 'Professor Marcos José Cavalcanti Castro',
+    coordenador: 'Professora Cleycianne de Souza Almeida',
+    viceCoordenador: 'Professora Débora Gaspar Feitos',
     email: 'financas@sobral.ufc.br',
-    pagina: 'http://www.financas.sobral.ufc.br/'
+    pagina: 'http://www.financassobral.ufc.br'
   },
   russas: {
     titulo: 'Coordenação - Finanças',
@@ -124,10 +141,10 @@ export const coordenacaoOdontologiaData: CampusData<CoordenacaoCurso> = {
   sobral: {
     titulo: 'Coordenação - Odontologia',
     subtitulo: 'Informações sobre a coordenação do curso',
-    coordenador: 'Professora Letícia Ladeira Bonato',
-    viceCoordenador: 'Professor Sandro Benigno Gomes',
+    coordenador: 'Professora Adriana Kelly de Sousa Santiago Barbosa',
+    viceCoordenador: 'Filipe Nobre Chaves',
     email: 'odontologia@sobral.ufc.br',
-    pagina: 'http://www.odontologiasobral.ufc.br/'
+    pagina: 'http://www.odontologiasobral.ufc.br'
   },
   russas: {
     titulo: 'Coordenação - Odontologia',
@@ -142,10 +159,10 @@ export const coordenacaoPsicologiaData: CampusData<CoordenacaoCurso> = {
   sobral: {
     titulo: 'Coordenação - Psicologia',
     subtitulo: 'Informações sobre a coordenação do curso',
-    coordenador: 'Professora Izabel do Nascimento',
-    viceCoordenador: 'Professor Kalef Martins Pinheiro',
-    email: 'cpsicol@sobral.ufc.br',
-    pagina: 'http://www.psicologia.sobral.ufc.br/'
+    coordenador: 'Professor Iratan Bezerra Saboia',
+    viceCoordenador: 'Rodrigo da Silva Maia',
+    email: 'coordpsicologia@sobral.ufc.br',
+    pagina: 'http://www.psicologiasobral.ufc.br'
   },
   russas: {
     titulo: 'Coordenação - Psicologia',

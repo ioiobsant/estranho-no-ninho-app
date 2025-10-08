@@ -4,7 +4,8 @@ import {
   PauseCircle, 
   Grade, 
   EventBusy, 
-  Assignment 
+  Assignment,
+  School
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
@@ -103,6 +104,13 @@ const FormarPage = () => {
       description: 'Informações sobre atividades complementares',
       icon: <Assignment />,
       onClick: () => navigate('/formar/atividades-complementares')
+    },
+    {
+      id: 'ira',
+      title: 'IRA',
+      description: 'Informações sobre IRA',
+      icon: <School />,
+      onClick: () => navigate('/formar/ira')
     }
   ];
 

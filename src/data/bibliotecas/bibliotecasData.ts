@@ -46,8 +46,8 @@ export const bibliotecaUfcData: CampusData<ServicoContent> = {
 export const bibliotecaMedicinaData: Partial<CampusData<ServicoContent>> = {
   sobral: {
     titulo: 'Biblioteca Medicina',
-    subtitulo: 'Biblioteca de Medicina de Sobral',
-    descricao: 'Biblioteca especializada em Medicina',
+    subtitulo: '',
+    descricao: 'Biblioteca do curso de Medicina em Sobral',
     secoes: [],
     requisitos: [
       'Apresentar comprovante de matrícula recente',

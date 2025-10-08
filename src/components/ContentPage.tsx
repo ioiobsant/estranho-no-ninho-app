@@ -120,7 +120,9 @@ const ContentPage = ({ content }: ContentPageProps) => {
             <Typography 
               {...bodyTextProps}
               dangerouslySetInnerHTML={{ 
-                __html: renderContent(secao.conteudo) 
+                __html: Array.isArray(secao.conteudo) 
+                  ? formatList(secao.conteudo) 
+                  : renderContent(secao.conteudo) 
               }}
             />
           </Box>

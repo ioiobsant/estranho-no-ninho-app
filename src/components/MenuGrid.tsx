@@ -162,15 +162,15 @@ const MenuGrid = () => {
                       }}
                     >
                       <Icon sx={{ 
-                        fontSize: { xs: 28, sm: 32 }
+                        fontSize: { xs: 28, sm: 52 }
                       }} />
                     </Box>
                     <Typography
-                      variant="body1"
+                      variant="h1"
                       sx={{
                         color: 'text.primary',
-                        fontSize: { xs: '0.75rem', sm: '0.875rem' },
-                        fontWeight: 500,
+                        fontSize: { xs: '0.875rem', sm: '1rem' },
+                        fontWeight: 700,
                         lineHeight: 1.2,
                         textAlign: 'center',
                         width: '100%',

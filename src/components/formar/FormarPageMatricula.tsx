@@ -1,7 +1,7 @@
 import { useCampus } from '../../contexts/CampusContext';
 import ConteudoIndisponivel from '../ConteudoIndisponivel';
 import ContentPage from '../ContentPage';
-import { matriculaData } from '../../data';
+import { matriculaData } from '../../data/formar/formarData';
 
 const FormarPageMatricula = () => {
   const { getCampusData } = useCampus();

@@ -45,8 +45,8 @@ export function renderContent(
 /**
  * Formata lista de strings com bullet points
  * @param items - Lista de itens
- * @returns String formatada com bullets
+ * @returns String formatada com bullets e espaçamento
  */
 export function formatList(items: string[]): string {
-  return items.map(item => `• ${item}`).join('<br/>');
+  return items.map(item => `<div style="margin-bottom: 8px;">• ${item}</div>`).join('');
 }

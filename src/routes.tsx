@@ -59,6 +59,10 @@ import PibicPage from './components/bolsas/PibicPage';
 import InternacionalizacaoPage from './components/bolsas/InternacionalizacaoPage';
 import EditaisBolsasPage from './components/bolsas/EditaisBolsasPage';
 import UfcPage from './components/main/UfcPage';
+import DirecaoPage from './components/ufc/DirecaoPage';
+import EnsinoPage from './components/ufc/EnsinoPage';
+import PesquisaPage from './components/ufc/PesquisaPage';
+import ExtensaoPage from './components/ufc/ExtensaoPage';
 import MapaPage from './components/main/MapaPage';
 import BibliotecasPage from './components/main/BibliotecasPage';
 import BibliotecaUfcPage from './components/bibliotecas/BibliotecaUfcPage';
@@ -133,6 +137,10 @@ const AppRoutes = () => {
       <Route path="/bolsas/internacionalizacao" element={<InternacionalizacaoPage />} />
       <Route path="/bolsas/editais" element={<EditaisBolsasPage />} />
       <Route path="/ufc" element={<UfcPage />} />
+      <Route path="/ufc/direcao" element={<DirecaoPage />} />
+      <Route path="/ufc/ensino" element={<EnsinoPage />} />
+      <Route path="/ufc/pesquisa" element={<PesquisaPage />} />
+      <Route path="/ufc/extensao" element={<ExtensaoPage />} />
       <Route path="/mapa" element={<MapaPage />} />
       <Route path="/bibliotecas" element={<BibliotecasPage />} />
       <Route path="/bibliotecas/ufc" element={<BibliotecaUfcPage />} />

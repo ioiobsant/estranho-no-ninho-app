@@ -87,3 +87,11 @@ export * from './cursos/grades';
 export * from './mapa/mapData';
 export * from './mapa/geoJsonData';
 export * from './mapa/blocoEngenharia';
+
+// === UFC ===
+export {
+  direcaoData,
+  ensinoData,
+  pesquisaData,
+  extensaoData
+} from './ufc/ufcData';

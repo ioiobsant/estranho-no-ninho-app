@@ -28,7 +28,7 @@ const BottomBar = () => {
       <Box
         sx={{
           position: 'fixed',
-          bottom: { xs: 120, sm: 140, md: 160 },
+          bottom: { xs: 80, sm: 70, md: 80 },
           left: 0,
           right: 0,
           height: 1,
@@ -45,16 +45,18 @@ const BottomBar = () => {
           right: 0,
           bgcolor: 'background.paper',
           zIndex: 1100,
-          height: { xs: '120px', sm: '140px', md: '160px' }
+          height: { xs: '80px', sm: '70px', md: '80px' },
+          paddingBottom: { xs: 'env(safe-area-inset-bottom, 0px)', sm: 0, md: 0 }
         }}
         elevation={3}
       >
         <Box sx={{ 
           display: 'flex', 
-          alignItems: 'center', 
+          alignItems: 'flex-start', 
           justifyContent: 'space-between',
           height: '100%',
-          px: 1
+          px: 1,
+          pt: { xs: 1.5, sm: 0.5, md: 0.5 }
         }}>
           {/* Botão de voltar - lado esquerdo */}
           <Box sx={{ 
@@ -69,16 +71,16 @@ const BottomBar = () => {
               sx={{
                 color: voltarClicked ? 'primary.main' : (!isHomePage ? 'primary.main' : 'grey.400'),
                 transition: 'color 0.3s ease',
-                width: { xs: 50, sm: 56, md: 60 },
-                height: { xs: 50, sm: 56, md: 60 },
-                mb: { xs: 2, sm: 2.5, md: 3 }
+                width: { xs: 36, sm: 40, md: 44 },
+                height: { xs: 36, sm: 40, md: 44 },
+                mb: { xs: 0.5, sm: 0.5, md: 0.5 }
               }}
               aria-label="Voltar"
             >
-              <ArrowBackOutlined sx={{ fontSize: { xs: 32, sm: 36, md: 40 }, color: 'inherit' }} />
+              <ArrowBackOutlined sx={{ fontSize: { xs: 20, sm: 22, md: 24 }, color: 'inherit' }} />
             </IconButton>
             <Typography variant="caption" sx={{ 
-              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+              fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
               color: !isHomePage ? 'primary.main' : 'grey.400',
               textAlign: 'center'
             }}>
@@ -102,28 +104,28 @@ const BottomBar = () => {
                 '&.Mui-disabled': {
                   color: 'primary.main',
                 },
-                width: { xs: 50, sm: 56, md: 60 },
-                height: { xs: 50, sm: 56, md: 60 },
-                mb: { xs: 0.5, sm: 0.5, md: 0.5 },
+                width: { xs: 36, sm: 40, md: 44 },
+                height: { xs: 36, sm: 40, md: 44 },
+                mb: { xs: 0.25, sm: 0.25, md: 0.25 },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}
               aria-label="Início"
             >
-              <HomeOutlined sx={{ fontSize: { xs: 32, sm: 36, md: 40 }, color: 'inherit' }} />
+              <HomeOutlined sx={{ fontSize: { xs: 20, sm: 22, md: 24 }, color: 'inherit' }} />
             </IconButton>
             {isHomePage && (
               <Box sx={{
-                width: { xs: 40, sm: 44, md: 48 },
-                height: 3,
+                width: { xs: 30, sm: 32, md: 36 },
+                height: 2,
                 bgcolor: 'primary.main',
-                borderRadius: 1.5,
-                mb: { xs: 1, sm: 1.5, md: 2 }
+                borderRadius: 1,
+                mb: { xs: 0.25, sm: 0.25, md: 0.25 }
               }} />
             )}
             <Typography variant="caption" sx={{ 
-              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+              fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
               color: 'primary.main',
               textAlign: 'center'
             }}>
@@ -143,28 +145,28 @@ const BottomBar = () => {
               onClick={() => navigate('/cursos')}
               sx={{
                 color: 'primary.main',
-                width: { xs: 50, sm: 56, md: 60 },
-                height: { xs: 50, sm: 56, md: 60 },
-                mb: { xs: 0.5, sm: 0.5, md: 0.5 },
+                width: { xs: 36, sm: 40, md: 44 },
+                height: { xs: 36, sm: 40, md: 44 },
+                mb: { xs: 0.25, sm: 0.25, md: 0.25 },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}
               aria-label="Cursos"
             >
-              <SchoolOutlined sx={{ fontSize: { xs: 32, sm: 36, md: 40 }, color: 'inherit' }} />
+              <SchoolOutlined sx={{ fontSize: { xs: 20, sm: 22, md: 24 }, color: 'inherit' }} />
             </IconButton>
             {location.pathname === '/cursos' && (
               <Box sx={{
-                width: { xs: 40, sm: 44, md: 48 },
-                height: 3,
+                width: { xs: 30, sm: 32, md: 36 },
+                height: 2,
                 bgcolor: 'primary.main',
-                borderRadius: 1.5,
-                mb: { xs: 1, sm: 1.5, md: 2 }
+                borderRadius: 1,
+                mb: { xs: 0.25, sm: 0.25, md: 0.25 }
               }} />
             )}
             <Typography variant="caption" sx={{ 
-              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+              fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
               color: 'primary.main',
               textAlign: 'center'
             }}>

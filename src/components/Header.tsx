@@ -49,7 +49,7 @@ const Header = () => {
       >
         <Toolbar 
           sx={{ 
-            minHeight: { xs: '64px !important', sm: '72px !important' },
+            minHeight: { xs: '48px !important', sm: '56px !important' },
             px: { xs: '12px !important', sm: '16px !important' },
             pointerEvents: 'auto', // This makes just the Toolbar interactive
           }}
@@ -64,11 +64,11 @@ const Header = () => {
               edge="start" 
               sx={{ 
                 color: 'primary.main',
-                padding: { xs: '8px', sm: '10px' },
+                padding: { xs: '6px', sm: '8px' },
               }}
               onClick={handleDrawerOpen}
             >
-              <MenuIcon sx={{ fontSize: { xs: 35, sm: 60 } }} />
+              <MenuIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
             </IconButton>
 
             <Box sx={{ 
@@ -77,11 +77,11 @@ const Header = () => {
               gap: { xs: 1, sm: 1.5 },
               flex: 1
             }}>
-              <ApartmentIcon sx={{ color: 'text.primary', fontSize: { xs: 24, sm: 28 } }} />
+              <ApartmentIcon sx={{ color: 'text.primary', fontSize: { xs: 20, sm: 22 } }} />
               <Typography 
                 sx={{ 
                   color: 'text.primary',
-                  fontSize: { xs: '1rem', sm: '1.125rem' },
+                  fontSize: { xs: '0.875rem', sm: '0.95rem' },
                   fontWeight: 400,
                   display: { xs: 'none', sm: 'block' }
                 }}
@@ -92,9 +92,9 @@ const Header = () => {
               <FormControl 
                 size="small" 
                 sx={{ 
-                  minWidth: { xs: 120, sm: 160 },
+                  minWidth: { xs: 100, sm: 140 },
                   '& .MuiOutlinedInput-root': {
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     bgcolor: 'background.paper',
                     '& fieldset': {
                       borderColor: 'divider',
@@ -110,9 +110,9 @@ const Header = () => {
                   onChange={handleCampusChange}
                   sx={{ 
                     '& .MuiSelect-select': {
-                      py: { xs: 1, sm: 1.25 },
-                      px: { xs: 1.25, sm: 1.75 },
-                      fontSize: { xs: '1rem', sm: '1.125rem' }
+                      py: { xs: 0.5, sm: 0.75 },
+                      px: { xs: 1, sm: 1.25 },
+                      fontSize: { xs: '0.875rem', sm: '0.95rem' }
                     }
                   }}
                 >
@@ -136,17 +136,17 @@ const Header = () => {
                 bgcolor: 'action.hover'
               }}>
                 <LightModeIcon sx={{ 
-                  fontSize: { xs: 18, sm: 20 },
+                  fontSize: { xs: 16, sm: 18 },
                   color: isDarkMode ? 'text.disabled' : 'warning.main'
                 }} />
                 <Switch
                   checked={isDarkMode}
                   onChange={toggleTheme}
                   color="primary"
-                  size="medium"
+                  size="small"
                 />
                 <DarkModeIcon sx={{ 
-                  fontSize: { xs: 18, sm: 20 },
+                  fontSize: { xs: 16, sm: 18 },
                   color: isDarkMode ? 'primary.main' : 'text.disabled'
                 }} />
               </Box>
@@ -161,7 +161,7 @@ const Header = () => {
         onClose={handleDrawerClose}
       />
       {/* Add a spacer to prevent content from being hidden under the AppBar */}
-      <Toolbar sx={{ minHeight: { xs: '64px !important', sm: '72px !important' } }} />
+      <Toolbar sx={{ minHeight: { xs: '48px !important', sm: '56px !important' } }} />
     </>
   );
 };

@@ -1,29 +1,74 @@
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import { blocoEngenharia } from '../../data/mapa/geoJsonData';
-import MapaUFC from '../MapaUFC';
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const MapaPage = () => {
+const MapContainer = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  top: '48px', // Altura do header em mobile
+  bottom: '80px', // Altura do bottom bar
+  left: 0,
+  right: 0,
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  zIndex: 1,
+  pointerEvents: 'auto',
+  [theme.breakpoints.up('sm')]: {
+    top: '56px',
+    bottom: '70px'
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '56px',
+    bottom: '80px'
+  }
+}));
+
+const MapTitle = styled(Typography)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  '& h1': {
+    margin: 0,
+    fontSize: '1rem',
+    fontWeight: 500,
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1.1rem'
+    }
+  }
+}));
+
+const IframeContainer = styled(Box)({
+  flex: 1,
+  width: '100%',
+  position: 'relative',
+  overflow: 'hidden',
+  '& iframe': {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+    display: 'block',
+    pointerEvents: 'auto'
+  }
+});
+
+const MapaPage: React.FC = () => {
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
-      <MapContainer
-        center={[-3.6931529, -40.3512688]}
-        zoom={18}
-        style={{ height: '100%', width: '100%' }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={[-3.6931529, -40.3512688]}>
-          <Popup>
-            Marcador simples funcionando!
-          </Popup>
-        </Marker>
-        <GeoJSON data={blocoEngenharia} />
+    <Box sx={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      <MapContainer>
+        <MapTitle>
+          <h1>Mapa Acessível da UFC</h1>
+        </MapTitle>
+        <IframeContainer>
+          <iframe
+            src="https://lincolngondin.github.io/mapaUFC/"
+            title="Mapa Acessível da UFC"
+            allowFullScreen
+          />
+        </IframeContainer>
       </MapContainer>
-    </div>
+    </Box>
   );
 };
 
-export default MapaUFC; 
+export default MapaPage; 

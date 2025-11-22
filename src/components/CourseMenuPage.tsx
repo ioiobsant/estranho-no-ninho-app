@@ -29,10 +29,11 @@ const CourseMenuItem = ({ option }: { option: CourseOption }) => (
         <ListItemIcon sx={{ color: 'primary.main' }}>
           {option.icon}
         </ListItemIcon>
-        <ListItemText
+        <ListItemText //Texto primário e segundário dos cursos. 
           primary={option.title}
           secondary={option.description}
-          primaryTypographyProps={{ fontWeight: 600 }}
+          primaryTypographyProps={{ fontWeight: 600, fontSize: '18px' }}
+          secondaryTypographyProps={{ fontSize: '1rem' }}
         />
       </ListItemButton>
     </ListItem>
@@ -76,10 +77,10 @@ const CourseMenuPage = ({ courseName, courseDescription, baseRoute }: CourseMenu
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           {courseName}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           {courseDescription}
         </Typography>
       </Box>

@@ -62,10 +62,16 @@ export {
 export {
   regimentosData,
   linksUteisData,
-  rssData,
   type LinkUtil,
   type LinksUteisContent
 } from './links-uteis/linksUteisData';
+
+// === COMPARTILHAR ===
+export {
+  compartilharData,
+  type CompartilharContent,
+  type InstallSection
+} from './compartilhar/compartilharData';
 
 // === CURSOS ===
 export {

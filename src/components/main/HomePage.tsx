@@ -45,7 +45,7 @@ const HomePage = () => {
             borderRadius: { xs: 2, sm: 3 }, 
             boxShadow: (theme) => theme.palette.mode === 'dark' 
               ? '0 4px 20px rgba(0,0,0,0.4)' 
-              : '0 4px 20px rgba(0,0,0,0.1)',
+              : '0 4px 20px rgba(99, 96, 96, 0.48)',
             overflow: 'hidden',
             transition: 'all 0.3s ease-in-out',
             '&:hover': {

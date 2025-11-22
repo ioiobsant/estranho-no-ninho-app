@@ -7,7 +7,7 @@ const LinksUteisPage = () => {
   const content = getCampusData(linksUteisData);
 
   return (
-    <Box sx={{ p: 3, textAlign: 'center' }}>
+    <Box sx={{ p: 4, textAlign: 'center' }}> 
       <Typography variant="h5" fontWeight={600} mb={3}>
         {content?.titulo}
       </Typography>

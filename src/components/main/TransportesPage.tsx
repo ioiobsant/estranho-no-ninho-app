@@ -51,12 +51,13 @@ const TransportesMenuItem = ({ option }: { option: TransportesOption }) => {
           primary={option.title}
           secondary={option.description}
           primaryTypographyProps={{
-            fontWeight: 600,
-            color: 'text.primary'
+            fontWeight: 500,
+            color: 'text.primary',
+            fontSize: '18px'
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            fontSize: '1rem'
           }}
         />
       </ListItemButton>
@@ -123,10 +124,10 @@ const TransportesPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           Transportes
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           Opções de transporte em Sobral
         </Typography>
       </Box>

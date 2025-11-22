@@ -28,7 +28,7 @@ const BottomBar = () => {
       <Box
         sx={{
           position: 'fixed',
-          bottom: { xs: 80, sm: 70, md: 80 },
+          bottom: { xs: 96, sm: 110, md: 120 },
           left: 0,
           right: 0,
           height: 1,
@@ -45,7 +45,7 @@ const BottomBar = () => {
           right: 0,
           bgcolor: 'background.paper',
           zIndex: 1100,
-          height: { xs: '80px', sm: '70px', md: '80px' },
+          height: { xs: '110px', sm: '110px', md: '110px' },
           paddingBottom: { xs: 'env(safe-area-inset-bottom, 0px)', sm: 0, md: 0 }
         }}
         elevation={3}

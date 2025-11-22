@@ -67,24 +67,4 @@ export const linksUteisData: CampusData<LinksUteisContent> = {
   }
 };
 
-// RSS - em construção
-export const rssData: CampusData<PageContent> = {
-  sobral: {
-    titulo: 'RSS',
-    secoes: [
-      {
-        titulo: 'Em construção',
-        conteudo: 'Esta seção está em desenvolvimento.'
-      }
-    ]
-  },
-  russas: {
-    titulo: 'RSS',
-    secoes: [
-      {
-        titulo: 'Em construção',
-        conteudo: 'Esta seção está em desenvolvimento.'
-      }
-    ]
-  }
-};
+

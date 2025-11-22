@@ -52,12 +52,13 @@ const FormarMenuItem = ({ option }: { option: FormarOption }) => {
           primary={option.title}
           secondary={option.description}
           primaryTypographyProps={{
-            fontWeight: 600,
-            color: 'text.primary'
+            fontWeight: 500,
+            color: 'text.primary',
+            fontSize: '18px'
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            fontSize: '1rem' //equivale a 16px.
           }}
         />
       </ListItemButton>
@@ -131,11 +132,11 @@ const FormarPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           Para me formar
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Informações sobre formatura
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
+         Acesse informações importantes para sua jornada universitária
         </Typography>
       </Box>
 

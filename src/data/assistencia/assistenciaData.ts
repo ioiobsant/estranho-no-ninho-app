@@ -56,7 +56,7 @@ export const assistenciaPsicologicaData: CampusData<ConteudoComContato> = {
   },
   russas: {
     titulo: 'Assistência Psicológica',
-    subtitulo: 'Suporte psicológico para estudantes da UFC - Campus Russas',
+    subtitulo: 'Serviço de psicologia para estudantes da UFC - Campus Russas',
     secoes: [
       {
         titulo: 'Serviço de Psicologia',

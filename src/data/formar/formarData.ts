@@ -12,7 +12,7 @@ export const matriculaData: CampusData<PageContent> = {
       },
       {
         titulo: 'Quando acontece',
-        conteudo: 'A solicitação de matrícula ocorre 2 (duas) vezes por ano, segundo o calendário acadêmico. A matrícula é o momento que o estudante solicita quais disciplinas irá cursar durante o semestre e, com excessão do primeiro semestre, o estudante deverá cursar um mínimo de13 créditos.'
+        conteudo: 'A solicitação de matrícula ocorre 2 (duas) vezes por ano, segundo o calendário acadêmico. A matrícula é o momento que o estudante solicita quais disciplinas irá cursar durante o semestre e, com excessão do primeiro semestre, o estudante deverá cursar um mínimo de 13 créditos.'
       }
     ]
   },

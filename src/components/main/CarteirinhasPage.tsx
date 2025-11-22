@@ -49,12 +49,13 @@ const CarteirinhasMenuItem = ({ option }: { option: CarteirinhasOption }) => {
           primary={option.title}
           secondary={option.description}
           primaryTypographyProps={{
-            fontWeight: 600,
-            color: 'text.primary'
+            fontWeight: 500,
+            color: 'text.primary',
+            fontSize: '18px'
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            fontSize: '1rem'
           }}
         />
       </ListItemButton>
@@ -107,10 +108,10 @@ const CarteirinhasPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           Carteirinhas
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           Documentos e identificações estudantis
         </Typography>
       </Box>

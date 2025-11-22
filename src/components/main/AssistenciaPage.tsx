@@ -48,13 +48,14 @@ const AssistenciaMenuItem = ({ option }: { option: AssistenciaOption }) => {
         <ListItemText
           primary={option.title}
           secondary={option.description}
-          primaryTypographyProps={{
-            fontWeight: 600,
-            color: 'text.primary'
+          primaryTypographyProps={{ // config. dos textos do menu Assistencia. 
+            fontWeight: 500, // espessura da fonte padrao.
+            color: 'text.primary',
+            fontSize: '18px' //tamanho padrao. 
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            fontSize: '1rem' //descricao do menu Assistencia.
           }}
         />
       </ListItemButton>
@@ -107,10 +108,10 @@ const AssistenciaPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           Assistência
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           Suporte e auxílio estudantil
         </Typography>
       </Box>

@@ -4,6 +4,8 @@ import ConteudoIndisponivel from './ConteudoIndisponivel';
 
 interface CoordenacaoPageProps {
   coordenacao: CoordenacaoCurso | null;
+  courseName?: string;
+  campusName?: string;
 }
 
 // Padronização do estilo da aplicação
@@ -25,8 +27,45 @@ const bodyTextProps = {
   lineHeight: 1.8 
 };
 
-const CoordenacaoPage = ({ coordenacao }: CoordenacaoPageProps) => {
+const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPageProps) => {
   if (!coordenacao) {
+    // Se tiver informações do curso e campus, mostra mensagem específica
+    if (courseName && campusName) {
+      return (
+        <Box sx={{ 
+          pt: 1, 
+          pb: 8, 
+          bgcolor: 'background.paper', 
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          overflowX: 'hidden'
+        }}>
+          <Box sx={{ 
+            px: 3, 
+            py: 2, 
+            borderBottom: '1px solid',
+            borderColor: 'divider'
+          }}>
+            <Typography variant="h6" color="primary" fontWeight="600">
+              Coordenação - {courseName}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" fontSize="1rem">
+              Informações sobre a coordenação do curso
+            </Typography>
+          </Box>
+          <Box sx={{ p: 3, textAlign: 'center' }}>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
+              Curso Indisponível
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Este curso não está disponível no campus {campusName} no momento.
+            </Typography>
+          </Box>
+        </Box>
+      );
+    }
     return <ConteudoIndisponivel />;
   }
 

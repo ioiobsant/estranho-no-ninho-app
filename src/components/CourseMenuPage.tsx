@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
+import { useCampus } from '../contexts/CampusContext';
+import { isCourseAvailableInCampus } from '../data';
 
 interface CourseMenuPageProps {
   courseName: string;
@@ -42,6 +44,10 @@ const CourseMenuItem = ({ option }: { option: CourseOption }) => (
 
 const CourseMenuPage = ({ courseName, courseDescription, baseRoute }: CourseMenuPageProps) => {
   const navigate = useNavigate();
+  const { campus, campusName } = useCampus();
+  
+  // Verifica se o curso está disponível no campus atual
+  const isAvailable = isCourseAvailableInCampus(baseRoute, campus);
 
   const courseOptions: CourseOption[] = [
     {
@@ -59,6 +65,44 @@ const CourseMenuPage = ({ courseName, courseDescription, baseRoute }: CourseMenu
       onClick: () => navigate(`${baseRoute}/grade`)
     }
   ];
+
+  // Se o curso não estiver disponível no campus, exibe mensagem
+  if (!isAvailable) {
+    return (
+      <Box sx={{ 
+        pt: 1, 
+        pb: 8, 
+        bgcolor: 'background.paper', 
+        width: '100vw',
+        position: 'relative',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        overflowX: 'hidden'
+      }}>
+        <Box sx={{ 
+          px: 3, 
+          py: 2, 
+          borderBottom: '1px solid',
+          borderColor: 'divider'
+        }}>
+          <Typography variant="h6" color="primary" fontWeight="600">
+            {courseName}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" fontSize="1rem">
+            {courseDescription}
+          </Typography>
+        </Box>
+        <Box sx={{ p: 3, textAlign: 'center' }}>
+          <Typography variant="h6" color="text.secondary" gutterBottom>
+            Curso Indisponível
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Este curso não está disponível no campus {campusName} no momento.
+          </Typography>
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ 

@@ -5,10 +5,49 @@ import ConteudoIndisponivel from './ConteudoIndisponivel';
 
 interface GradePageProps {
   grade: GradeCurricular | null;
+  courseName?: string;
+  campusName?: string;
 }
 
-const GradePage = ({ grade }: GradePageProps) => {
+const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
   if (!grade) {
+    // Se tiver informações do curso e campus, mostra mensagem específica
+    if (courseName && campusName) {
+      return (
+        <Box sx={{ 
+          pt: 1, 
+          pb: 8, 
+          bgcolor: 'background.paper', 
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          overflowX: 'hidden'
+        }}>
+          <Box sx={{ 
+            px: 3, 
+            py: 2, 
+            borderBottom: '1px solid',
+            borderColor: 'divider'
+          }}>
+            <Typography variant="h6" color="primary" fontWeight="600">
+              Grade Curricular - {courseName}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" fontSize="1rem">
+              Disciplinas e estrutura do curso
+            </Typography>
+          </Box>
+          <Box sx={{ p: 3, textAlign: 'center' }}>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
+              Curso Indisponível
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Este curso não está disponível no campus {campusName} no momento.
+            </Typography>
+          </Box>
+        </Box>
+      );
+    }
     return <ConteudoIndisponivel />;
   }
   const scrollToTop = () => {

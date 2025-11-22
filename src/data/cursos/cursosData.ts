@@ -10,6 +10,39 @@ import { CampusData } from '../../types/contentData';
 // Lá na linha 24 está o array AVAILABLE_CAMPUS 
 // onde você adiciona novos campus para que apareçam no seletor do header.
 
+// Interface para representar um curso na lista
+export interface Curso {
+  title: string;
+  path: string;
+}
+
+// Lista de cursos disponíveis por campus
+export const cursosData: CampusData<Curso[]> = {
+  sobral: [
+    { title: 'Ciências Econômicas', path: '/cursos/ciencias-economicas' },
+    { title: 'Engenharia da Computação', path: '/cursos/engenharia-computacao' },
+    { title: 'Engenharia Elétrica', path: '/cursos/engenharia-eletrica' },
+    { title: 'Finanças', path: '/cursos/financas' },
+    { title: 'Medicina', path: '/cursos/medicina' },
+    { title: 'Música', path: '/cursos/musica' },
+    { title: 'Odontologia', path: '/cursos/odontologia' },
+    { title: 'Psicologia', path: '/cursos/psicologia' },
+  ],
+  russas: [] // Sem cursos no momento
+};
+
+/**
+ * Verifica se um curso está disponível em um campus específico
+ * @param coursePath - Caminho do curso (ex: '/cursos/ciencias-economicas')
+ * @param campus - ID do campus
+ * @returns true se o curso está disponível no campus
+ */
+export const isCourseAvailableInCampus = (coursePath: string, campus: string): boolean => {
+  const cursos = cursosData[campus as keyof typeof cursosData];
+  if (!cursos) return false;
+  return cursos.some(curso => curso.path === coursePath);
+};
+
 // Interface para dados de coordenação de cursos
 export interface CoordenacaoCurso {
   titulo: string;

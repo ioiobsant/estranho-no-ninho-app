@@ -75,6 +75,8 @@ export {
 
 // === CURSOS ===
 export {
+  cursosData,
+  isCourseAvailableInCampus,
   coordenacaoCienciasEconomicasData,
   coordenacaoEngenhariaComputacaoData,
   coordenacaoEngenhariaEletricaData,
@@ -83,6 +85,7 @@ export {
   coordenacaoMusicaData,
   coordenacaoOdontologiaData,
   coordenacaoPsicologiaData,
+  type Curso,
   type CoordenacaoCurso
 } from './cursos/cursosData';
 

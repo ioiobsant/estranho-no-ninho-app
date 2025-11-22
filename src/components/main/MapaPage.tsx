@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 const MapContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
   top: '48px', // Altura do header em mobile
-  bottom: '80px', // Altura do bottom bar
+  bottom: '110px', // Altura do bottom bar
   left: 0,
   right: 0,
   width: '100%',
@@ -15,11 +15,11 @@ const MapContainer = styled(Box)(({ theme }) => ({
   pointerEvents: 'auto',
   [theme.breakpoints.up('sm')]: {
     top: '56px',
-    bottom: '70px'
+    bottom: '110px'
   },
   [theme.breakpoints.up('md')]: {
     top: '56px',
-    bottom: '80px'
+    bottom: '110px'
   }
 }));
 

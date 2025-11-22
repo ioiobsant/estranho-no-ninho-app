@@ -76,21 +76,21 @@ const GradePage = ({ grade }: GradePageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           {grade.titulo}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           {grade.subtitulo}
         </Typography>
       </Box>
-
-      <Box sx={{ p: 3 }}>
+ 
+      <Box sx={{ p: 3 }}> 
         {grade.semestres.map((semestre, index) => (
-          <Box key={index} sx={{ mb: 4 }}>
+          <Box key={index} sx={{ mb: 4 }}> 
             <Typography 
               variant="h6" 
               color="primary" 
-              fontWeight="600"
+              fontWeight="600" //espessura título do Semestre.
               sx={{ mb: 2 }}
             >
               {semestre.nome}
@@ -100,12 +100,12 @@ const GradePage = ({ grade }: GradePageProps) => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell 
+                    <TableCell  
                       sx={{ 
                         bgcolor: 'primary.main',
                         color: 'white',
                         fontWeight: 'bold',
-                        fontSize: '0.95rem'
+                        fontSize: '1rem' //configs. do cabeçalho das tabelas (L 103-134)
                       }}
                     >
                       Matéria
@@ -116,7 +116,7 @@ const GradePage = ({ grade }: GradePageProps) => {
                         bgcolor: 'primary.main',
                         color: 'white',
                         fontWeight: 'bold',
-                        fontSize: '0.95rem'
+                        fontSize: '1rem'
                       }}
                     >
                       Carga Horária
@@ -127,7 +127,7 @@ const GradePage = ({ grade }: GradePageProps) => {
                         bgcolor: 'primary.main',
                         color: 'white',
                         fontWeight: 'bold',
-                        fontSize: '0.95rem'
+                        fontSize: '1rem'
                       }}
                     >
                       Créditos
@@ -155,11 +155,11 @@ const GradePage = ({ grade }: GradePageProps) => {
                             : 'rgba(33, 150, 243, 0.1)'
                         }
                       }}
-                    >
-                      <TableCell>{disciplina.materia}</TableCell>
-                      <TableCell align="center">{disciplina.horas}</TableCell>
-                      <TableCell align="center">{disciplina.creditos}</TableCell>
-                    </TableRow>
+                    > 
+                      <TableCell sx={{ fontSize: '1rem' }}>{disciplina.materia}</TableCell> 
+                      <TableCell align="center" sx={{ fontSize: '1rem' }}>{disciplina.horas}</TableCell>
+                      <TableCell align="center" sx={{ fontSize: '1rem' }}>{disciplina.creditos}</TableCell>
+                    </TableRow> 
                   ))}
                 </TableBody>
               </Table>

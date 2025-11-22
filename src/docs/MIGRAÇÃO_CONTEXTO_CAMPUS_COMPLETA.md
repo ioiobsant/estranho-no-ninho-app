@@ -102,7 +102,6 @@ const AssistenciaEstudantilPage = () => {
 
 ### 7️⃣ **Links Úteis** (2 arquivos)
 - ✅ `links-uteis/RegimentosPage.tsx`
-- ✅ `links-uteis/RssPage.tsx`
 
 ---
 

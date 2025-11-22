@@ -54,7 +54,7 @@
 - ✅ `FormarPageNotas.tsx`
 - ✅ `FormarPageFaltas.tsx`
 - ✅ `FormarPageTrancamento.tsx`
-- ✅ `FormarPageAtivComp.tsx` ⭐ **NOVO**
+- ✅ `FormarPageAtivComp.tsx` 
 
 ### 🚌 Transportes (5 componentes)
 - ✅ `VltPage.tsx`
@@ -65,7 +65,6 @@
 
 ### 🔗 Links Úteis (2 componentes)
 - ✅ `RegimentosPage.tsx`
-- ✅ `RssPage.tsx` ⭐ **NOVO**
 
 ---
 
@@ -79,8 +78,6 @@
 2. ✅ `formarData.ts` - Adicionado:
    - `atividadesComplementaresData`
 
-3. ✅ `linksUteisData.ts` - Adicionado:
-   - `rssData`
 
 ### Arquivos de Dados Atualizados
 - ✅ `src/data/index.ts` - Todas as exportações atualizadas

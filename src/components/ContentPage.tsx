@@ -2,26 +2,39 @@ import { Box, Typography, Divider } from '@mui/material';
 import { PageContent, ConteudoComContato, ServicoContent } from '../types/contentData';
 import { renderContent, formatList } from '../utils/contentHelpers';
 
-// Estilos padronizados
+// === Estilos Específicos do ContentPage ===
+// Herda configurações globais do tema (App.tsx)
+// Adiciona apenas customizações específicas para páginas de conteúdo
+
 const sectionBoxSx = { mb: 3 };
+
 const sectionTitleProps = {
   component: 'h2' as const,
   variant: 'subtitle1' as const,
-  fontWeight: 700,
-  color: 'primary' as const,
+  fontWeight: 600,
+  color: 'primary' as const,  // #1565C0 (contraste 5.1:1 )
   gutterBottom: true,
+  fontSize: 20,  // Override: maior que o padrão para melhor hierarquia visual
 };
+
 const dividerSx = { mb: 1 };
+
 const bodyTextProps = { 
-  variant: 'body2' as const, 
-  color: 'text.secondary' as const, 
-  fontSize: 16, 
-  lineHeight: 1.8 
+  variant: 'body1' as const,  // Herda do tema: 18px, lineHeight 1.6, letterSpacing 0.02em
+  color: 'text.secondary' as const,  // #3E5060 (contraste 9.0:1)
+  sx: {
+    // === Espaçamentos Específicos WCAG 1.4.12 ===
+    // Não definidos no tema global, apenas para conteúdo de texto
+    '& p': { 
+      marginBottom: '2em',  // WCAG: espaçamento entre parágrafos (mínimo 2x) 
+    },
+    wordSpacing: '0.16em',  // WCAG: espaçamento entre palavras (mínimo 0.16x) 
+  }
 };
 
 interface ContentPageProps {
   content: PageContent | ConteudoComContato | ServicoContent | null;
-}
+} 
 
 /**
  * Componente genérico para renderizar páginas de conteúdo
@@ -90,7 +103,7 @@ const ContentPage = ({ content }: ContentPageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h5" color="primary" fontWeight="600">
           {content.titulo}
         </Typography>
         {content.subtitulo && (

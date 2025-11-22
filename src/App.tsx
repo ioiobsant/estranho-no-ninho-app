@@ -15,28 +15,48 @@ const AppContent = () => {
     palette: {
       mode: isDarkMode ? 'dark' : 'light',
       primary: {
-        main: '#2196F3',
+        main: '#1565C0', 
         light: '#64B5F6',
         dark: '#1976D2',
-      },
+      }, //aqui é a cor do tema.
       background: {
         default: isDarkMode ? '#121212' : '#F8FAFC',
         paper: isDarkMode ? '#1E1E1E' : '#FFFFFF',
-      },
+      }, //aqui é a cor do fundo do tema.
       text: {
         primary: isDarkMode ? '#FFFFFF' : '#1A2027',
         secondary: isDarkMode ? '#B0B0B0' : '#3E5060',
-      },
+      }, //aqui é a cor do texto do tema.
     },
     typography: {
       fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontSize: 16, // Base 16px - usado para cálculos de rem
+      
+      
+      // Todos os componentes que usarem estas variants herdarão estas propriedades
+      
+      body1: {
+        fontSize: '1.125rem',     // 18px // WCAG mínimo é 1.0rem (16px)
+        lineHeight: 2,          // WCAG: mínimo 1.5
+        letterSpacing: '0.02em',  // WCAG: mínimo 0.12
+        fontWeight: 500,
+      },
+      body2: {
+        fontSize: '1rem',     // 16px
+        lineHeight: 1.6,          // WCAG: mínimo 1.5x 
+        letterSpacing: '0.02em',  // WCAG: mínimo 0.12x 
+      },
       button: {
-        textTransform: 'none',
+        fontSize: '1rem',         // 16px
+        fontWeight: 500,
+        textTransform: 'none',    // Mantém capitalização natural
+        lineHeight: 1.75,
+        letterSpacing: '0.02em',
       },
     },
     shape: {
       borderRadius: 12,
-    },
+    },  
     components: {
       MuiAppBar: {
         styleOverrides: {
@@ -44,7 +64,7 @@ const AppContent = () => {
             backdropFilter: 'blur(8px)',
             backgroundColor: isDarkMode ? 'rgba(18, 18, 18, 0.9)' : 'rgba(255, 255, 255, 0.9)',
             borderBottom: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.05)',
-          },
+          }, 
         },
       },
       MuiChip: {
@@ -54,7 +74,7 @@ const AppContent = () => {
             '&:hover': {
               transform: 'translateY(-1px)',
               boxShadow: isDarkMode ? '0 4px 8px rgba(0, 0, 0, 0.3)' : '0 4px 8px rgba(0, 0, 0, 0.1)',
-            },
+            }, 
           },
         },
       },

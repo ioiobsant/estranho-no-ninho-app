@@ -74,8 +74,8 @@ import OnibusIntracampusPage from './components/transportes/OnibusIntracampusPag
 import PasseLivreSobralPage from './components/transportes/PasseLivreSobralPage';
 import TaxiPage from './components/transportes/TaxiPage';
 import LinksUteisPage from './components/main/LinksUteisPage';
+import CompartilharPage from './components/main/CompartilharPage';
 import RegimentosPage from './components/links-uteis/RegimentosPage';
-import RssPage from './components/links-uteis/RssPage';
 
 const AppRoutes = () => {
   return (
@@ -152,8 +152,8 @@ const AppRoutes = () => {
       <Route path="/transportes/passe-livre-sobral" element={<PasseLivreSobralPage />} />
       <Route path="/transportes/taxi" element={<TaxiPage />} />
       <Route path="/links-uteis" element={<LinksUteisPage />} />
+      <Route path="/compartilhar" element={<CompartilharPage />} />
       <Route path="/regimentos" element={<RegimentosPage />} />
-      <Route path="/rss" element={<RssPage />} />
     </Routes>
   );
 };

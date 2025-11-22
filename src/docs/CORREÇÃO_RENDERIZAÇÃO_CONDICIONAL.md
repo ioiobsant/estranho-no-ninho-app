@@ -95,7 +95,6 @@ const ContentPage = ({ content }: ContentPageProps) => {
 
 #### **Links Úteis (2 componentes)**
 - ✅ `RegimentosPage.tsx`
-- ✅ `RssPage.tsx`
 
 ---
 

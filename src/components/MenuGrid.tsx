@@ -9,8 +9,8 @@ import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import LinkIcon from '@mui/icons-material/Link';
+import ShareIcon from '@mui/icons-material/Share';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -25,8 +25,8 @@ const menuItems = [
   { icon: LocalLibraryIcon, label: 'Bibliotecas', path: '/bibliotecas' },
   { icon: DirectionsBusIcon, label: 'Transportes', path: '/transportes' },
   { icon: LinkIcon, label: 'Links Úteis', path: '/links-uteis' },
+  { icon: ShareIcon, label: 'Compartilhar', path: '/compartilhar' },
   { icon: MenuBookIcon, label: 'Regimentos, Manuais e Outros', path: '/regimentos' },
-  { icon: RssFeedIcon, label: 'RSS', path: '/rss' },
 ];
 
 const containerVariants = {
@@ -57,9 +57,9 @@ const MenuGrid = () => {
 
   return (
     <Box 
-      sx={{ 
-        px: { xs: 2, sm: 3 },
-        py: { xs: 2, sm: 3 },
+      sx={{  
+        px: { xs: 2, sm: 3 },  //padding do container. 
+        py: { xs: 3, sm: 6 },
         bgcolor: 'background.paper',
         position: 'relative',
         zIndex: 2
@@ -70,13 +70,13 @@ const MenuGrid = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Typography
+        <Typography // aqui define o tamanho do texto do título do menu.
           variant="h6"
           sx={{
-            fontSize: { xs: '1.25rem', sm: '1.5rem' },
+            fontSize: { xs: '1.8rem', sm: '1.5rem' },
             fontWeight: 600,
             color: 'text.primary',
-            mb: { xs: 3, sm: 4 },
+            mb: { xs: 5, sm: 3 },
             textAlign: 'center'
           }}
         >
@@ -93,7 +93,7 @@ const MenuGrid = () => {
           sx={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: { xs: 2, sm: 3 },
+            gap: { xs: 3, sm: 4 }, // aqui define o espaçamento entre os itens do menu.
             maxWidth: 'lg',
             mx: 'auto'
           }}
@@ -147,9 +147,9 @@ const MenuGrid = () => {
                   >
                     <Box
                       sx={{
-                        width: { xs: 56, sm: 64 },
-                        height: { xs: 56, sm: 64 },
-                        borderRadius: { xs: 2, sm: 2.5 },
+                        width: { xs: 66, sm: 64 }, //tamanho do container do ícone. (largura)
+                        height: { xs: 56, sm: 64 }, // (altura) 
+                        borderRadius: { xs: 2.5, sm: 2.5 }, // arredondamento. 
                         bgcolor: 'primary.main',
                         display: 'flex',
                         alignItems: 'center',
@@ -162,15 +162,15 @@ const MenuGrid = () => {
                       }}
                     >
                       <Icon sx={{ 
-                        fontSize: { xs: 28, sm: 52 }
+                        fontSize: { xs: 32, sm: 60 } //tamanho dos ícones. 
                       }} />
                     </Box>
                     <Typography
                       variant="h1"
                       sx={{
                         color: 'text.primary',
-                        fontSize: { xs: '0.875rem', sm: '1rem' },
-                        fontWeight: 700,
+                        fontSize: { xs: '1rem', sm: '1.2rem' }, //aqui é o tamanho do texto do botão.
+                        fontWeight: 500,
                         lineHeight: 1.2,
                         textAlign: 'center',
                         width: '100%',

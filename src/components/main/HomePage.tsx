@@ -12,31 +12,40 @@ const HomePage = () => {
       transition={{ duration: 0.5 }}
     >
       <Box sx={{ 
+        position: 'fixed',
+        top: '48px', // Altura do header em mobile
+        bottom: '80px', // Altura do bottom bar
+        left: 0,
+        right: 0,
         width: '100%',
-        position: 'relative',
         bgcolor: 'background.paper',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        minHeight: '100vh',
-        pt: { xs: 16, sm: 8, md: 10 },
-        pb: { xs: 4, sm: 4, md: 6 }
+        justifyContent: 'center',
+        overflow: 'hidden',
+        '@media (min-width: 600px)': {
+          top: '56px',
+          bottom: '70px'
+        },
+        '@media (min-width: 900px)': {
+          bottom: '80px'
+        }
       }}>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          style={{ width: '100%', maxWidth: '1200px' }}
+          style={{ width: '100%', maxWidth: '1200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
           <Box sx={{ 
             mx: { xs: 1, sm: 2, md: 3 },
-            my: { xs: 2, sm: 3 },
+            width: '100%',
             bgcolor: 'background.paper', 
             borderRadius: { xs: 2, sm: 3 }, 
             boxShadow: (theme) => theme.palette.mode === 'dark' 
               ? '0 4px 20px rgba(0,0,0,0.4)' 
-              : '0 4px 20px rgba(0,0,0,0.1)',
+              : '0 4px 20px rgba(99, 96, 96, 0.48)',
             overflow: 'hidden',
             transition: 'all 0.3s ease-in-out',
             '&:hover': {

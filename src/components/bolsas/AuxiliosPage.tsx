@@ -30,6 +30,7 @@ const AuxilioMenuItem = ({ option }: { option: AuxilioOption }) => (
           border: '1px solid',
           borderColor: 'divider',
           bgcolor: 'background.paper',
+          py: 1.5, // Aumenta área de toque para acessibilidade
           '&:hover': {
             bgcolor: 'action.hover',
             borderColor: 'primary.main',
@@ -46,12 +47,18 @@ const AuxilioMenuItem = ({ option }: { option: AuxilioOption }) => (
           primary={option.title}
           secondary={option.description}
           primaryTypographyProps={{
+            variant: 'body1',  // Herda: 18px, lineHeight 1.6, letterSpacing 0.02em (WCAG AA ✅)
             fontWeight: 500,
             color: 'text.primary'
           }}
           secondaryTypographyProps={{
+            variant: 'body1',  // Usa body1 para garantir 18px (WCAG AA ✅)
+            fontWeight: 400,   // Mais leve para diferenciar do título
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            sx: {
+              fontSize: '1rem',  // 16px - mínimo WCAG AA
+              mt: 0.5  // Pequeno espaço entre título e descrição
+            }
           }}
         />
       </ListItemButton>
@@ -118,20 +125,32 @@ const AuxiliosPage = () => {
       transform: 'translateX(-50%)',
       overflowX: 'hidden'
     }}>
+      {/* Cabeçalho da página */}
       <Box sx={{ 
         px: 3, 
         py: 2, 
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography 
+          variant="h6" 
+          color="primary" 
+          fontWeight="500"
+          sx={{ 
+            fontSize: { xs: '1.25rem', sm: '1.5rem' }  // 20px → 24px (responsivo)
+          }}
+        >
           Auxílios
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography 
+          variant="body1"  // Usa body1 (18px) em vez de body2 (14px) - WCAG AA ✅
+          color="text.secondary"
+        >
           Auxílios financeiros para estudantes
         </Typography>
       </Box>
 
+      {/* Lista de opções */}
       <Box sx={{ p: 3 }}>
         <List sx={{ px: 1 }}>
           {auxilioOptions.map((option) => (

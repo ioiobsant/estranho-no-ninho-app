@@ -11,8 +11,8 @@ import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import LinkIcon from '@mui/icons-material/Link';
+import ShareIcon from '@mui/icons-material/Share';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
 import { motion } from 'framer-motion';
 
 const menuItems = [
@@ -27,8 +27,8 @@ const menuItems = [
   { icon: LocalLibraryIcon, label: 'Bibliotecas', path: '/bibliotecas' },
   { icon: DirectionsBusIcon, label: 'Transportes', path: '/transportes' },
   { icon: LinkIcon, label: 'Links Úteis', path: '/links-uteis' },
+  { icon: ShareIcon, label: 'Compartilhar', path: '/compartilhar' },
   { icon: MenuBookIcon, label: 'Regimentos, Manuais e Outros', path: '/regimentos' },
-  { icon: RssFeedIcon, label: 'RSS', path: '/rss' },
 ];
 
 interface DrawerProps {
@@ -80,7 +80,7 @@ const SideDrawer = ({ open, onClose }: DrawerProps) => {
             variant="h6"
             sx={{
               color: 'text.primary',
-              fontSize: { xs: '1.25rem', sm: '1.5rem' },
+              fontSize: { xs: '1.5rem', sm: '1.5rem' },
               fontWeight: 600
             }}
           >
@@ -120,7 +120,7 @@ const SideDrawer = ({ open, onClose }: DrawerProps) => {
                   primary={item.label}
                   sx={{
                     '& .MuiTypography-root': {
-                      fontSize: { xs: '0.875rem', sm: '1rem' },
+                      fontSize: { xs: '1.2rem', sm: '1.2rem' }, //aqui é o tamanho do texto das opções do menu lateral. 
                       fontWeight: 500,
                       color: 'text.primary'
                     }

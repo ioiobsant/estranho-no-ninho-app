@@ -7,19 +7,21 @@ interface CoordenacaoPageProps {
 }
 
 // Padronização do estilo da aplicação
+//titulo das seções. (linhas 11-17)
 const sectionBoxSx = { mb: 3 };
 const sectionTitleProps = {
   component: 'h2' as const,
   variant: 'subtitle1' as const,
-  fontWeight: 700,
+  fontWeight: 600,
   color: 'primary' as const,
   gutterBottom: true,
 };
+//texto do corpo. (linhas 19-24)
 const dividerSx = { mb: 1 };
 const bodyTextProps = { 
   variant: 'body2' as const, 
   color: 'text.secondary' as const, 
-  fontSize: 16, 
+  fontSize: 18, 
   lineHeight: 1.8 
 };
 
@@ -45,10 +47,10 @@ const CoordenacaoPage = ({ coordenacao }: CoordenacaoPageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography variant="h6" color="primary" fontWeight="600">
           {coordenacao.titulo}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           {coordenacao.subtitulo}
         </Typography>
       </Box>

@@ -140,7 +140,6 @@ Links e recursos úteis para estudantes.
 **Exports:**
 - `regimentosData`
 - `linksUteisData`
-- `rssData`
 - Types: `LinkUtil`, `LinksUteisContent`
 
 ### 8️⃣ **Transportes** (`transportes/`)

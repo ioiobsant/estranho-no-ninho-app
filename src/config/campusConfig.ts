@@ -36,7 +36,7 @@ export const AVAILABLE_CAMPUS: CampusConfig[] = [
     color: '#4CAF50',
     description: 'Campus da UFC em Russas'
   }
-  // Para adicionar um novo campus, basta descomentar e preencher:
+  // Para adicionar um novo campus, basta descomentar e preencher. Exemplos:
   // {
   //   id: 'quixada',
   //   name: 'Quixadá',

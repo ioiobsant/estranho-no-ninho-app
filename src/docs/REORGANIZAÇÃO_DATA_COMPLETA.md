@@ -207,7 +207,6 @@ Links e recursos úteis.
 **Exports:**
 - regimentosData
 - linksUteisData
-- rssData
 
 ---
 

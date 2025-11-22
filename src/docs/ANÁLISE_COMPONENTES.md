@@ -102,7 +102,6 @@ Páginas de menu/navegação que NÃO precisam de contexto de campus:
 
 #### Links Úteis (2 páginas) ✅
 - ✅ `RegimentosPage.tsx`
-- ✅ `RssPage.tsx`
 
 **Total de páginas de conteúdo migradas: 27 páginas** ✅
 

@@ -49,11 +49,12 @@ const BolsasMenuItem = ({ option }: { option: BolsasOption }) => (
           secondary={option.description}
           primaryTypographyProps={{
             fontWeight: 500,
-            color: 'text.primary'
+            color: 'text.primary',
+            fontSize: '18px'
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',
-            fontSize: '0.875rem'
+            fontSize: '1rem'
           }}
         />
       </ListItemButton>
@@ -141,10 +142,13 @@ const BolsasPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="500">
+        <Typography 
+          variant="h6"  // tamanho do texto do cabeçalho padronizado. 
+          color="primary" 
+          fontWeight="600"> 
           Bolsas
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem"> 
           Oportunidades de bolsas e auxílios
         </Typography>
       </Box>

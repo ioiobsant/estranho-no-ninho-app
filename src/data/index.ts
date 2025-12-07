@@ -99,3 +99,9 @@ export {
   pesquisaData,
   extensaoData
 } from './ufc/ufcData';
+
+// === MAPA ===
+export {
+  mapaData,
+  type MapaData
+} from './mapa/mapaData';

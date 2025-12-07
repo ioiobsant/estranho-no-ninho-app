@@ -41,9 +41,8 @@ data/
 │   └── transportesData.ts
 │
 ├── mapa/                         # Dados do mapa interativo
-│   ├── blocoEngenharia.ts       # GeoJSON do bloco de engenharia
-│   ├── geoJsonData.ts           # Dados GeoJSON
-│   └── mapData.ts               # Configurações do mapa
+│   ├── mapaData.ts              # URLs dos mapas por campus
+│   └── README.md                # Documentação do mapa
 │
 └── docs/                         # Documentação
     ├── README.md                 # Documentação geral (anterior)
@@ -153,12 +152,18 @@ Dados sobre transportes e mobilidade.
 - `taxiData`
 
 ### 9️⃣ **Mapa** (`mapa/`)
-Dados do mapa interativo do campus.
+Configurações do Mapa Acessível por campus (integração via iframe).
 
 **Exports:**
-- GeoJSON do bloco de engenharia
-- Dados de geolocalização
-- Configurações do mapa
+- `mapaData` - URLs dos mapas acessíveis por campus
+- `MapaData` - Interface TypeScript
+
+**Como funciona:**
+- Cada campus pode ter seu próprio link de mapa
+- Se disponível: exibe o mapa via iframe
+- Se indisponível: exibe mensagem amigável
+
+**Documentação detalhada:** Veja `mapa/README.md`
 
 ---
 

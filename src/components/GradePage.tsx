@@ -30,18 +30,18 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
             borderBottom: '1px solid',
             borderColor: 'divider'
           }}>
-            <Typography variant="h6" color="primary" fontWeight="600">
+            <Typography variant="h6" color="primary" fontWeight="600" component="p">
               Grade Curricular - {courseName}
             </Typography>
-            <Typography variant="body2" color="text.secondary" fontSize="1rem">
+            <Typography variant="body2" color="text.secondary" fontSize="1rem" component="p">
               Disciplinas e estrutura do curso
             </Typography>
           </Box>
           <Box sx={{ p: 3, textAlign: 'center' }}>
-            <Typography variant="h6" color="text.secondary" gutterBottom>
+            <Typography variant="h6" color="text.secondary" gutterBottom component="p">
               Curso Indisponível
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" component="p">
               Este curso não está disponível no campus {campusName} no momento.
             </Typography>
           </Box>
@@ -98,6 +98,8 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
     );
   }
 
+  const tableAriaLabel = grade.titulo ? `Grade curricular: ${grade.titulo}` : 'Grade curricular';
+
   return (
     <Box sx={{ 
       pt: 1, 
@@ -115,10 +117,10 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h6" color="primary" fontWeight="600" component="p">
           {grade.titulo}
         </Typography>
-        <Typography variant="body2" color="text.secondary" fontSize="1rem">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem" component="p">
           {grade.subtitulo}
         </Typography>
       </Box>
@@ -131,15 +133,18 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
               color="primary" 
               fontWeight="600" //espessura título do Semestre.
               sx={{ mb: 2 }}
+              component="p"
             >
               {semestre.nome}
             </Typography>
 
             <TableContainer component={Paper} sx={{ mb: 3, overflow: 'hidden' }}>
-              <Table>
+              <Table aria-label={tableAriaLabel}>
                 <TableHead>
                   <TableRow>
                     <TableCell  
+                      component="th"
+                      scope="col"
                       sx={{ 
                         bgcolor: 'primary.main',
                         color: 'white',
@@ -150,6 +155,8 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
                       Matéria
                     </TableCell>
                     <TableCell 
+                      component="th"
+                      scope="col"
                       align="center"
                       sx={{ 
                         bgcolor: 'primary.main',
@@ -161,6 +168,8 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
                       Carga Horária
                     </TableCell>
                     <TableCell 
+                      component="th"
+                      scope="col"
                       align="center"
                       sx={{ 
                         bgcolor: 'primary.main',
@@ -212,6 +221,7 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
             startIcon={<KeyboardArrowUpIcon />}
             onClick={scrollToTop}
             sx={{ minWidth: 200 }}
+            aria-label="Voltar ao topo da página"
           >
             Voltar ao Topo
           </Button>

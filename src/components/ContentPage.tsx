@@ -103,11 +103,11 @@ const ContentPage = ({ content }: ContentPageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h5" color="primary" fontWeight="600">
+        <Typography variant="h5" color="primary" fontWeight="600" component="p">
           {content.titulo}
         </Typography>
         {content.subtitulo && (
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" component="p">
             {content.subtitulo}
           </Typography>
         )}

@@ -1,5 +1,5 @@
-import { Drawer as MuiDrawer, List, ListItemButton, ListItemIcon, ListItemText, Box, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Drawer as MuiDrawer, List, ListItemButton, ListItemIcon, ListItemText, Box, Typography, IconButton } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import PersonIcon from '@mui/icons-material/Person';
@@ -13,6 +13,7 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import LinkIcon from '@mui/icons-material/Link';
 import ShareIcon from '@mui/icons-material/Share';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import CloseIcon from '@mui/icons-material/Close';
 import { motion } from 'framer-motion';
 
 const menuItems = [
@@ -38,6 +39,8 @@ interface DrawerProps {
 
 const SideDrawer = ({ open, onClose }: DrawerProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const drawerId = 'menu-lateral';
 
   const handleItemClick = (path: string) => {
     navigate(path);
@@ -50,13 +53,18 @@ const SideDrawer = ({ open, onClose }: DrawerProps) => {
       open={open}
       onClose={onClose}
       PaperProps={{
+        id: drawerId,
         sx: {
           width: { xs: '280px', sm: '320px' },
           bgcolor: 'background.paper',
           borderRight: '1px solid',
           borderColor: 'divider'
-        }
+        },
+        role: undefined,
+        'aria-labelledby': 'menu-lateral-titulo',
+        'aria-label': 'Menu lateral'
       }}
+      ModalProps={{ keepMounted: true }}
     >
       <Box
         component={motion.div}
@@ -73,22 +81,42 @@ const SideDrawer = ({ open, onClose }: DrawerProps) => {
           sx={{
             p: { xs: 2, sm: 3 },
             borderBottom: '1px solid',
-            borderColor: 'divider'
+            borderColor: 'divider',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 1
           }}
         >
           <Typography
+            component="p"
             variant="h6"
+            id="menu-lateral-titulo"
             sx={{
               color: 'text.primary',
               fontSize: { xs: '1.5rem', sm: '1.5rem' },
-              fontWeight: 600
+              fontWeight: 600,
+              m: 0
             }}
           >
-            Menu
+            Menu lateral
           </Typography>
+          <IconButton
+            onClick={onClose}
+            aria-label="Fechar menu lateral"
+            size="small"
+            sx={{
+              color: 'text.primary',
+              ml: 1
+            }}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
         </Box>
 
         <List
+          component="nav"
+          aria-label="Navegação principal"
           sx={{
             flex: 1,
             p: { xs: 1, sm: 2 }
@@ -100,6 +128,10 @@ const SideDrawer = ({ open, onClose }: DrawerProps) => {
               <ListItemButton
                 key={index}
                 onClick={() => handleItemClick(item.path)}
+                aria-label={`Ir para ${item.label}`}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
+                role="link"
+                selected={location.pathname === item.path}
                 sx={{
                   borderRadius: '8px',
                   mb: 0.5,

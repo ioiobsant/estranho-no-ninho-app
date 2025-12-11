@@ -145,6 +145,7 @@ const BolsasPage = () => {
         <Typography 
           variant="h6"  // tamanho do texto do cabeçalho padronizado. 
           color="primary" 
+          component="p"
           fontWeight="600"> 
           Bolsas
         </Typography>

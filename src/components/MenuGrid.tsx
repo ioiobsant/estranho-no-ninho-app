@@ -57,6 +57,9 @@ const MenuGrid = () => {
 
   return (
     <Box 
+      //component="nav"
+      role="navigation"
+      aria-label="Atalhos Principais"
       sx={{  
         px: { xs: 2, sm: 3 },  //padding do container. 
         py: { xs: 3, sm: 6 },
@@ -72,6 +75,8 @@ const MenuGrid = () => {
       >
         <Typography // aqui define o tamanho do texto do título do menu.
           variant="h6"
+          component="p"
+          aria-label="Navegação rápida"
           sx={{
             fontSize: { xs: '1.8rem', sm: '1.5rem' },
             fontWeight: 600,
@@ -92,10 +97,11 @@ const MenuGrid = () => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: { xs: 3, sm: 4 }, // aqui define o espaçamento entre os itens do menu.
-            maxWidth: 'lg',
-            mx: 'auto'
+            gridTemplateColumns: 'repeat(3, 1fr)', // mantém 3 colunas em todas as larguras
+            gap: { xs: 2, sm: 2.5, md: 3 },
+            maxWidth: 960,
+            mx: 'auto',
+            columnGap: { xs: 1.5, sm: 2.5 }
           }}
         >
           {menuItems.map((item, index) => {
@@ -115,13 +121,14 @@ const MenuGrid = () => {
                 >
                   <Button
                     onClick={() => navigate(item.path)}
+                    aria-label={`Ir para ${item.label}`}
                     sx={{
                       width: '100%',
-                      maxWidth: { xs: 90, sm: 110 },
+                      maxWidth: { xs: 92, sm: 104, md: 110 },
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      gap: { xs: 1, sm: 1.5 },
+                      gap: { xs: 0.75, sm: 1.25 },
                       padding: 0,
                       textTransform: 'none',
                       touchAction: 'manipulation',
@@ -147,8 +154,8 @@ const MenuGrid = () => {
                   >
                     <Box
                       sx={{
-                        width: { xs: 66, sm: 64 }, //tamanho do container do ícone. (largura)
-                        height: { xs: 56, sm: 64 }, // (altura) 
+                        width: { xs: 60, sm: 62, md: 64 }, //tamanho do container do ícone. (largura)
+                        height: { xs: 52, sm: 58, md: 60 }, // (altura) 
                         borderRadius: { xs: 2.5, sm: 2.5 }, // arredondamento. 
                         bgcolor: 'primary.main',
                         display: 'flex',
@@ -158,20 +165,21 @@ const MenuGrid = () => {
                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                         boxShadow: (theme) => theme.palette.mode === 'dark'
                           ? '0 2px 8px rgba(0,0,0,0.3)'
-                          : '0 2px 8px rgba(0,0,0,0.1)'
+                          : '0 2px 8px rgba(0,0,0,0.1)',
+                        mt: { xs: -1.2, sm: -0.8, md: -0.6 } // sobe um pouco mais o ícone
                       }}
                     >
                       <Icon sx={{ 
-                        fontSize: { xs: 32, sm: 60 } //tamanho dos ícones. 
+                        fontSize: { xs: 30, sm: 48, md: 54 } //tamanho dos ícones. 
                       }} />
                     </Box>
                     <Typography
                       variant="h1"
                       sx={{
                         color: 'text.primary',
-                        fontSize: { xs: '1rem', sm: '1.2rem' }, //aqui é o tamanho do texto do botão.
+                        fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }, //aqui é o tamanho do texto do botão.
                         fontWeight: 500,
-                        lineHeight: 1.2,
+                        lineHeight: 1.15,
                         textAlign: 'center',
                         width: '100%',
                         transition: 'color 0.2s ease-in-out'

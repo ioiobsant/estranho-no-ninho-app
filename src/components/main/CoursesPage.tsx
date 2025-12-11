@@ -71,11 +71,11 @@ const CoursesPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h6" component="p" color="primary" fontWeight="600">
           Cursos
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="1rem">
-          Explore nossos cursos disponíveis - {campusName}
+          Explore nossos cursos disponíveis
         </Typography>
       </Box>
 

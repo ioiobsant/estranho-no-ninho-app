@@ -1,5 +1,7 @@
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useEffect } from 'react';
 import { GradeCurricular } from '../types/gradeTypes';
 import ConteudoIndisponivel from './ConteudoIndisponivel';
 
@@ -99,6 +101,34 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
   }
 
   const tableAriaLabel = grade.titulo ? `Grade curricular: ${grade.titulo}` : 'Grade curricular';
+  const semesterIds = grade.semestres.map((_, index) => `semestre-${index + 1}`);
+  const shortcutsContainerId = 'atalhos-semestres-container';
+
+  useEffect(() => {
+    const blurIfShortcutFocused = () => {
+      const active = document.activeElement as HTMLElement | null;
+      if (active && (active.closest(`#${shortcutsContainerId}`) || active.id === 'atalhos-semestres-header')) {
+        active.blur();
+      }
+    };
+
+    const frameId = requestAnimationFrame(() => {
+      blurIfShortcutFocused();
+      setTimeout(blurIfShortcutFocused, 0);
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, []);
+
+  const scrollToSemester = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (element instanceof HTMLElement) {
+        element.focus({ preventScroll: true });
+      }
+    }
+  };
 
   return (
     <Box sx={{ 
@@ -126,14 +156,82 @@ const GradePage = ({ grade, courseName, campusName }: GradePageProps) => {
       </Box>
  
       <Box sx={{ p: 3 }}> 
+        <Accordion 
+          square 
+          disableGutters 
+          defaultExpanded
+          sx={{ 
+            mb: 3,
+            border: '1px solid',
+            borderColor: 'divider',
+            borderRadius: 1,
+            '&:before': { display: 'none' }
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="atalhos-semestres-content"
+            id="atalhos-semestres-header"
+          >
+            <Typography variant="body1" fontWeight={600}>
+              Atalhos para semestres
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Box 
+              component="nav" 
+              aria-label="Pular para semestre"
+              id={shortcutsContainerId}
+              sx={{ 
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 1.5
+              }}
+            >
+              {grade.semestres.map((semestre, index) => (
+                <Button
+                  key={semesterIds[index]}
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  onClick={() => scrollToSemester(semesterIds[index])}
+                  aria-label={`Ir para ${semestre.nome}`}
+                  disableRipple
+                  disableFocusRipple
+                  sx={{
+                    borderColor: 'primary.dark',
+                    color: 'primary.dark',
+                    fontWeight: 600,
+                    '&:hover': {
+                      borderColor: 'primary.dark',
+                      backgroundColor: 'primary.dark',
+                      color: 'white'
+                    }
+                  }}
+                >
+                  {semestre.nome}
+                </Button>
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+
         {grade.semestres.map((semestre, index) => (
-          <Box key={index} sx={{ mb: 4 }}> 
+          <Box 
+            key={index} 
+            id={semesterIds[index]}
+            tabIndex={-1}
+            role="region"
+            aria-labelledby={`semestre-heading-${index}`}
+            sx={{ mb: 4 }}
+          > 
             <Typography 
               variant="h6" 
               color="primary" 
               fontWeight="600" //espessura título do Semestre.
               sx={{ mb: 2 }}
               component="p"
+              id={`semestre-heading-${index}`}
             >
               {semestre.nome}
             </Typography>

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 
 const MapContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
-  top: '60px', // Altura ajustada do header (mobile)
+  top: '82px', // Ajuste para header mais alto (mobile)
   bottom: '100px', // Altura ajustada da bottom bar
   left: 0,
   right: 0,
@@ -14,11 +14,11 @@ const MapContainer = styled(Box)(({ theme }) => ({
   zIndex: 1,
   pointerEvents: 'auto',
   [theme.breakpoints.up('sm')]: {
-    top: '68px',
+    top: '92px',
     bottom: '100px'
   },
   [theme.breakpoints.up('md')]: {
-    top: '68px',
+    top: '92px',
     bottom: '100px'
   }
 }));

@@ -85,7 +85,7 @@ const CourseMenuPage = ({ courseName, courseDescription, baseRoute }: CourseMenu
           borderBottom: '1px solid',
           borderColor: 'divider'
         }}>
-          <Typography variant="h6" color="primary" fontWeight="600" >
+          <Typography variant="h1" color="primary" fontWeight="600" fontSize="2rem" >
             {courseName}
           </Typography>
           <Typography variant="body2" color="text.secondary" fontSize="1rem">
@@ -121,7 +121,7 @@ const CourseMenuPage = ({ courseName, courseDescription, baseRoute }: CourseMenu
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" component="p" fontWeight="600" aria-label={`${courseName}`}>
+        <Typography variant="h1" color="primary" fontWeight="600" fontSize="2rem" aria-label={`${courseName}`}>
           {courseName} 
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="1rem">

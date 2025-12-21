@@ -62,7 +62,7 @@ const LinksPage = ({ content }: LinksPageProps) => {
       overflowX: 'hidden'
     }}>
       <Box sx={{ p: 3, textAlign: 'center' }}>
-        <Typography variant="h5" fontWeight={600} mb={3}>
+        <Typography variant="h1" fontWeight={600} fontSize="2rem" mb={3}>
           {content.titulo}
         </Typography>
         

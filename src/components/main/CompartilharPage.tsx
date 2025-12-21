@@ -70,8 +70,6 @@ const CompartilharPage = () => {
       }}
     >
       <Box
-        role="banner"
-        aria-label="Cabeçalho da página de compartilhamento"
         sx={{
           px: 3,
           py: 2,
@@ -79,7 +77,7 @@ const CompartilharPage = () => {
           borderColor: 'divider'
         }}
       >
-        <Typography variant="h5" color="primary" fontWeight={600}>
+        <Typography variant="h1" color="primary" fontWeight={600} fontSize="2rem">
           Compartilhar o Estranho no Ninho
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>

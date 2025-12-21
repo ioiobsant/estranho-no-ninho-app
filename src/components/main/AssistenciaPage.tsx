@@ -108,7 +108,7 @@ const AssistenciaPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h1" color="primary" fontWeight="600" fontSize="2rem">
           Assistência
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="1rem">

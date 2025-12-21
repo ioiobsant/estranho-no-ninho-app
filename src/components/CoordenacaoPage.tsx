@@ -86,17 +86,17 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" component="p" fontWeight="600" aria-label={`${coordenacao.titulo}`}>
+        <Typography variant="h1" color="primary" fontWeight="600" fontSize="1.5rem" aria-label={`${coordenacao.titulo}`}>
           {coordenacao.titulo}
         </Typography>
-        <Typography variant="body2" color="text.secondary" fontSize="1rem" component="p">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
           {coordenacao.subtitulo}
         </Typography>
       </Box>
 
       <Box sx={{ p: 3 }}>
         <Box sx={sectionBoxSx}>
-          <Typography {...sectionTitleProps} component="p">Coordenação</Typography>
+          <Typography {...sectionTitleProps}>Coordenação</Typography>
           <Divider sx={dividerSx} />
           <Typography {...bodyTextProps}>
             <strong>Coordenador{coordenacao.coordenador.includes('Professor') ? '' : '(a)'}:</strong> {coordenacao.coordenador}
@@ -109,7 +109,7 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
         </Box>
 
         <Box sx={sectionBoxSx}>
-          <Typography {...sectionTitleProps} component="p">Contato</Typography>
+          <Typography {...sectionTitleProps} >Contato</Typography>
           <Divider sx={dividerSx} />
           <Typography {...bodyTextProps}>
             <strong>E-mail:</strong> {coordenacao.email}

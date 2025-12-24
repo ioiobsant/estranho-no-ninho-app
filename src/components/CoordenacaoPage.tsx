@@ -48,10 +48,10 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
             borderBottom: '1px solid',
             borderColor: 'divider'
           }}>
-            <Typography variant="h6" color="primary" fontWeight="600">
+            <Typography variant="h6" color="primary" component="p" fontWeight="600" aria-label={`${courseName}`}>
               Coordenação - {courseName}
             </Typography>
-            <Typography variant="body2" color="text.secondary" fontSize="1rem">
+            <Typography variant="body2" color="text.secondary" fontSize="1rem" component="p">
               Informações sobre a coordenação do curso
             </Typography>
           </Box>
@@ -86,7 +86,7 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h1" color="primary" fontWeight="600" fontSize="1.5rem" aria-label={`${coordenacao.titulo}`}>
           {coordenacao.titulo}
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="1rem">
@@ -109,7 +109,7 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
         </Box>
 
         <Box sx={sectionBoxSx}>
-          <Typography {...sectionTitleProps}>Contato</Typography>
+          <Typography {...sectionTitleProps} >Contato</Typography>
           <Divider sx={dividerSx} />
           <Typography {...bodyTextProps}>
             <strong>E-mail:</strong> {coordenacao.email}
@@ -126,17 +126,10 @@ const CoordenacaoPage = ({ coordenacao, courseName, campusName }: CoordenacaoPag
                 href={coordenacao.pagina}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{
-                  color: 'primary.main',
-                  textDecoration: 'underline',
-                  '&:hover': {
-                    color: 'primary.dark',
-                    textDecoration: 'underline'
-                  }
-                }}
+                aria-label={`Link, ${coordenacao.pagina}`}
               >
                 {coordenacao.pagina}
-              </Link>
+              </Link> 
             </Typography>
           )}
         </Box>

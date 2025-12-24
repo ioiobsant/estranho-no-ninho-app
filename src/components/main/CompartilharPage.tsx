@@ -8,9 +8,7 @@ import {
   Divider,
   useTheme
 } from '@mui/material';
-import ShareIcon from '@mui/icons-material/Share';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import DownloadIcon from '@mui/icons-material/Download';
 import { compartilharData } from '../../data';
 
 const CompartilharPage = () => {
@@ -20,10 +18,8 @@ const CompartilharPage = () => {
 
   const {
     appName,
-    tagline,
     description,
     url,
-    shareText,
     logoSrc,
     qrCodeSrc,
     instructions,
@@ -32,29 +28,42 @@ const CompartilharPage = () => {
 
   const handleCopyLink = async () => {
     try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+        return;
+      }
+      
+      
+      const textArea = document.createElement('textarea');
+      textArea.value = url;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2500);
+        } else {
+          setCopied(false);
+        }
+      } catch (err) {
+        setCopied(false);
+      } finally {
+        document.body.removeChild(textArea);
+      }
+    } catch (error) {
       setCopied(false);
     }
   };
 
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: appName,
-          text: shareText,
-          url
-        });
-      } catch {
-        /* usuário cancelou */
-      }
-    } else {
-      handleCopyLink();
-    }
-  };
 
   return (
     <Box
@@ -70,8 +79,6 @@ const CompartilharPage = () => {
       }}
     >
       <Box
-        role="banner"
-        aria-label="Cabeçalho da página de compartilhamento"
         sx={{
           px: 3,
           py: 2,
@@ -79,7 +86,7 @@ const CompartilharPage = () => {
           borderColor: 'divider'
         }}
       >
-        <Typography variant="h5" color="primary" fontWeight={600}>
+        <Typography variant="h1" color="primary" fontWeight={600} fontSize="2rem">
           Compartilhar o Estranho no Ninho
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>
@@ -97,8 +104,6 @@ const CompartilharPage = () => {
         >
           {/* Div 1: Logo e Botões */}
           <Paper
-            role="region"
-            aria-label="Informações do app e botões de compartilhamento"
             elevation={3}
             sx={{
               p: 3,
@@ -123,11 +128,8 @@ const CompartilharPage = () => {
                   
                 }}
               />
-              <Typography variant="h6" fontWeight={600}>
+              <Typography variant="h2" fontSize="1.5rem" fontWeight={600}>
                 {appName}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>
-                {tagline}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>
                 {description}
@@ -136,20 +138,6 @@ const CompartilharPage = () => {
               <Divider sx={{ my: 1 }} />
 
               <Stack spacing={2}>
-                <Button
-                  variant="contained"
-                  startIcon={<ShareIcon />}
-                  onClick={handleNativeShare}
-                  aria-label="Compartilhar o app Um Estranho no Ninho"
-                  sx={{ 
-                    py: 1.2, 
-                    minHeight: '44px',
-                    minWidth: '44px',
-                    fontSize: '18px'  // WCAG AA: mínimo 18px para texto normal
-                  }} // tamanho minimo do botao para atender as normas de acessibilidade. 
-                >
-                  Compartilhar agora
-                </Button>
                 <Button
                   variant="outlined"
                   startIcon={<ContentCopyIcon />}
@@ -160,8 +148,8 @@ const CompartilharPage = () => {
                     py: 1.2, 
                     minHeight: '44px',
                     minWidth: '44px',
-                    fontSize: '18px'  // WCAG AA: mínimo 18px para texto normal
-                  }} // tamanho minimo do botao para atender as normas de acessibilidade. 
+                    fontSize: '18px'  
+                  }}  
                 >
                   {copied ? 'Link copiado!' : 'Copiar link'}
                 </Button>
@@ -176,7 +164,7 @@ const CompartilharPage = () => {
                     color: theme.palette.primary.main,
                     fontWeight: 600,
                     textDecoration: 'none',
-                    fontSize: '18px'  // WCAG AA: mínimo 18px para texto normal
+                    fontSize: '18px'  // tamanho minimo do texto para atender as normas de acessibilidade. 
                   }} 
                 >
                   {url.replace('https://', '')}
@@ -193,12 +181,12 @@ const CompartilharPage = () => {
               p: { xs: 3, sm: 4 },
               display: 'flex',
               flexDirection: 'column',
-              gap: 3,
+              gap: 1,
               height: '100%'
             }}
           >
-            <Box textAlign="center" mb={2}>
-              <Typography id="qr-code-title" variant="subtitle1" fontWeight={600} mb={2} sx={{ fontSize: '18px' }}>
+            <Box textAlign="center" mb={1}>
+              <Typography id="qr-code-title" variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
                 Escaneie o QR Code
               </Typography>
               {qrCodeError ? (
@@ -239,26 +227,12 @@ const CompartilharPage = () => {
             </Box>
             <Divider sx={{ my: 2 }} />
             <Box>
-              <Typography variant="subtitle1" fontWeight={600} gutterBottom sx={{ fontSize: '18px' }}>
+              <Typography variant="h2" fontWeight={600} gutterBottom sx={{ fontSize: '18px' }}>
                 {instructions.title}
               </Typography>
               <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '18px' }}>
                 {instructions.body}
               </Typography>
-              <Button
-                variant="text"
-                startIcon={<DownloadIcon />}
-                onClick={() => window.print()}
-                aria-label="Imprimir ou salvar esta página como PDF"
-                sx={{ 
-                  py: 1.2, 
-                  minHeight: '44px',
-                  minWidth: '44px',
-                  fontSize: '18px'  // WCAG AA: mínimo 18px para texto normal
-                }} // tamanho minimo do botao para atender as normas de acessibilidade. 
-              >
-                {instructions.ctaLabel}
-              </Button>
             </Box>
           </Paper>
 
@@ -275,14 +249,15 @@ const CompartilharPage = () => {
               height: '100%'
             }}
           >
-              <Typography variant="subtitle1" fontWeight={600} mb={2} sx={{ fontSize: '18px' }}>
-                Como instalar o app no celular
+              <Typography variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
+              INSTALE NO SEU CELULAR
               </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '18px' }}> Para facilitar o acesso, é possível instalar o Um Estranho no Ninho no seu celular, permitindo utilizá-lo como um aplicativo nativo, sem a necessidade de abrir o navegador. Basta seguir as instruções abaixo.  </Typography>
               <Box
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: 2
+                  gap: 1
                 }}
               >
                 {installSections.map((section) => (
@@ -291,18 +266,18 @@ const CompartilharPage = () => {
                       variant="outlined"
                       sx={{ p: 2, height: '100%', borderRadius: 2 }}
                     >
-                      <Typography variant="body1" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
+                      <Typography variant="h3" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
                         {section.platform}
                       </Typography>
                       <ol style={{ paddingLeft: '1.1rem', margin: 0 }}>
                         {section.steps.map((step, index) => (
-                          <li key={index}>
+                          <li  key={index}>
                             <Typography
                               variant="body2"
                               color="text.secondary"
                               sx={{ 
                                 mb: index === section.steps.length - 1 ? 0 : 1,
-                                fontSize: '18px'  // WCAG AA: mínimo 18px para texto normal
+                                fontSize: '18px'  
                               }}
                             >
                               {step}

@@ -143,8 +143,9 @@ const BolsasPage = () => {
         borderColor: 'divider'
       }}>
         <Typography 
-          variant="h6"  // tamanho do texto do cabeçalho padronizado. 
-          color="primary" 
+          variant="h1"  // tamanho do texto do cabeçalho padronizado. 
+          color="primary"
+          fontSize="2rem"
           fontWeight="600"> 
           Bolsas
         </Typography>

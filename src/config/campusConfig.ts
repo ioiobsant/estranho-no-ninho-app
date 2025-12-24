@@ -15,6 +15,11 @@ export interface CampusConfig {
   color?: string;       // Cor tema (opcional)
   icon?: string;        // Ícone (opcional)
   description?: string; // Descrição (opcional)
+  /**
+   * URL do mapa acessível (quando existir para o campus).
+   * Se não existir, a tela de "Mapa Acessível" deve exibir "Mapa indisponível".
+   */
+  accessibleMapUrl?: string;
 }
 
 /**
@@ -27,7 +32,9 @@ export const AVAILABLE_CAMPUS: CampusConfig[] = [
     name: 'Sobral',
     displayName: 'Campus Sobral',
     color: '#2196F3',
-    description: 'Campus da UFC em Sobral'
+    description: 'Campus da UFC em Sobral',
+    // Atualmente o mapa acessível disponível no app é o de Sobral
+    accessibleMapUrl: 'https://lincolngondin.github.io/mapaUFC/'
   },
   {
     id: 'russas',

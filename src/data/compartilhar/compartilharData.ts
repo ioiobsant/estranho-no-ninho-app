@@ -14,7 +14,6 @@ export interface CompartilharContent {
   instructions: {
     title: string;
     body: string;
-    ctaLabel: string;
   };
   installSections: InstallSection[];
 }
@@ -22,33 +21,24 @@ export interface CompartilharContent {
 export const compartilharData: CompartilharContent = {
   appName: 'Um Estranho no Ninho',
   description:
-    'Serviços, links e contatos essenciais da UFC na palma da mão.',
-  url: 'https://estranho-no-ninho-app-git-developeri-63c6e1-ioiobsants-projects.vercel.app/',
+    'Plataforma digital para acesso centralizado a informações, serviços e recursos institucionais da UFC na palma da mão. Compartilhe através do link abaixo.',
+  url: 'https://estranho-no-ninho-app.vercel.app/',
   shareText: 'Conheça o app Um Estranho no Ninho com os serviços da UFC.',
   logoSrc: '/icon-UENN-.png',
   qrCodeSrc: '/qr-code.png',
   instructions: {
     title: 'Como usar este cartão',
-    body: 'Mostre o QR code ou repasse o link em reuniões, grupos ou eventos. Você também pode imprimir esta tela e deixar em murais do campus.',
-    ctaLabel: 'Imprimir / salvar como PDF'
+    body: 'Você também pode compartilhar o aplicativo através do QR code. Aponte a câmera do seu celular para o QR Code exibido. Assim que o link for reconhecido, toque na notificação para acessar o aplicativo diretamente no navegador.'
   },
 
   
   installSections: [
     {
-      platform: 'Android / Chrome',
+      platform: 'Chrome / Sarafi: Instruções gerais, podem haver pequenas variações.',
       steps: [
-        'Abra o link no Chrome do celular.',
-        'Toque no menu ⋮ e selecione “Adicionar à tela inicial”.',
-        'Confirme o nome “Um Estranho no Ninho” e toque em “Adicionar”.'
-      ]
-    },
-    {
-      platform: 'iPhone / Safari',
-      steps: [
-        'Acesse o link no Safari.',
-        'Toque no ícone de compartilhamento (quadrado com seta).',
-        'Escolha “Adicionar à Tela de Início” e confirme.'
+        'Abra o link no celular;',
+        'Toque no compartilhamento (quadrado com seta);',
+        'Confirme o nome “Um Estranho no Ninho” e toque em “Adicionar à tela de início.”'
       ]
     },
     {
@@ -56,7 +46,7 @@ export const compartilharData: CompartilharContent = {
       steps: [
         'Abra o link no Chrome. ',
         'Clique na barra de configurações, no canto superior direito da tela.',
-        'Procure a opção de "Transmitir, salvar ou Compartilhar".',
+        'Procure a opção de "Transmitir, salvar e Compartilhar".',
         'Clique na opção de "Instalar página como APP".', 
       ]
     }

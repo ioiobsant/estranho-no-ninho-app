@@ -34,12 +34,12 @@ const CoursesPage = () => {
           borderBottom: '1px solid',
           borderColor: 'divider'
         }}>
-          <Typography variant="h6" color="primary" fontWeight="600">
-            Cursos
-          </Typography>
-          <Typography variant="body2" color="text.secondary" fontSize="1rem">
-            Explore nossos cursos disponíveis
-          </Typography>
+          <Typography variant="h1" fontSize="2rem" color="primary" fontWeight="600">
+          Cursos
+        </Typography>
+        <Typography variant="body2" color="text.secondary" fontSize="1rem">
+          Explore nossos cursos disponíveis
+        </Typography>
         </Box>
         <Box sx={{ p: 3, textAlign: 'center' }}>
           <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -71,11 +71,11 @@ const CoursesPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h1" fontSize="2rem" color="primary" fontWeight="600">
           Cursos
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize="1rem">
-          Explore nossos cursos disponíveis - {campusName}
+          Explore nossos cursos disponíveis
         </Typography>
       </Box>
 

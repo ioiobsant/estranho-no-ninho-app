@@ -3,8 +3,10 @@ import { Box } from '@mui/material'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header'
 import BottomBar from './components/BottomBar'
+import ZoomControls from './components/ZoomControls'
 import { CampusProvider } from './contexts/CampusContext'
 import { ThemeProvider, useThemeContext } from './contexts/ThemeContext'
+import { ZoomProvider } from './contexts/ZoomContext'
 import AppRoutes from './routes'
 import Button from '@mui/material/Button'
 
@@ -107,6 +109,7 @@ const AppContent = () => {
             >
               <AppRoutes />
             </Box>
+          <ZoomControls />
             <BottomBar />
           </Box>
         </Router>
@@ -119,7 +122,9 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <AppContent />
+        <ZoomProvider>
+          <AppContent />
+        </ZoomProvider>
       </ThemeProvider>
     </>
   );

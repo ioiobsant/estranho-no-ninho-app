@@ -132,10 +132,10 @@ const FormarPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h6" color="primary" fontWeight="600">
+        <Typography variant="h1" color="primary" fontWeight="600" fontSize="2rem" role="heading">
           Para me formar
         </Typography>
-        <Typography variant="body2" color="text.secondary" fontSize="1rem">
+        <Typography variant="body2" color="text.secondary" fontSize="1rem" role="heading" aria-label="nível 2, Acesse informações importantes para sua jornada universitária">
          Acesse informações importantes para sua jornada universitária
         </Typography>
       </Box>

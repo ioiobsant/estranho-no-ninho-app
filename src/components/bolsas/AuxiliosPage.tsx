@@ -132,19 +132,17 @@ const AuxiliosPage = () => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography 
-          variant="h6" 
+          <Typography 
+          variant="h6"  // tamanho do texto do cabeçalho padronizado. 
           color="primary" 
-          fontWeight="500"
-          sx={{ 
-            fontSize: { xs: '1.25rem', sm: '1.5rem' }  // 20px → 24px (responsivo)
-          }}
-        >
+          component="p"
+          fontWeight="600"> 
           Auxílios
         </Typography>
         <Typography 
           variant="body1"  // Usa body1 (18px) em vez de body2 (14px) - WCAG AA ✅
           color="text.secondary"
+          component="p"
         >
           Auxílios financeiros para estudantes
         </Typography>

@@ -103,11 +103,26 @@ const ContentPage = ({ content }: ContentPageProps) => {
         borderBottom: '1px solid',
         borderColor: 'divider'
       }}>
-        <Typography variant="h5" color="primary" fontWeight="600">
+        <Typography 
+          variant="h1" 
+          color="primary" 
+          fontWeight="600" 
+          fontSize="2rem"
+          //role="heading"
+          //aria-level={1}
+          //aria-label={`nível 1, ${content.titulo}`}
+        >
           {content.titulo}
         </Typography>
         {content.subtitulo && (
-          <Typography variant="body2" color="text.secondary">
+          <Typography 
+            variant="body2" 
+            color="text.secondary" 
+            //component="p"
+            //role="heading"
+           // aria-level={2}
+            aria-label={`nível 2, ${content.subtitulo}`}
+          >
             {content.subtitulo}
           </Typography>
         )}
@@ -117,7 +132,14 @@ const ContentPage = ({ content }: ContentPageProps) => {
         {/* Descrição (para ServicoContent) */}
         {isServicoContent && servicoContent.descricao && (
           <Box sx={sectionBoxSx}>
-            <Typography {...sectionTitleProps}>Sobre</Typography>
+            <Typography 
+              {...sectionTitleProps} 
+              role="heading" 
+             // aria-level={3}
+              aria-label="nível 3, Sobre"
+            >
+              Sobre
+            </Typography>
             <Divider sx={dividerSx} />
             <Typography {...bodyTextProps}>
               {servicoContent.descricao}
@@ -128,7 +150,14 @@ const ContentPage = ({ content }: ContentPageProps) => {
         {/* Seções de conteúdo */}
         {content.secoes.map((secao, index) => (
           <Box key={index} sx={sectionBoxSx}>
-            <Typography {...sectionTitleProps}>{secao.titulo}</Typography>
+            <Typography 
+              {...sectionTitleProps}
+              role="heading"
+             // aria-level={3}
+              aria-label={` ${secao.titulo}`}
+            >
+              {secao.titulo}
+            </Typography>
             <Divider sx={dividerSx} />
             <Typography 
               {...bodyTextProps}
@@ -144,7 +173,12 @@ const ContentPage = ({ content }: ContentPageProps) => {
         {/* Requisitos (para ServicoContent) */}
         {isServicoContent && servicoContent.requisitos && servicoContent.requisitos.length > 0 && (
           <Box sx={sectionBoxSx}>
-            <Typography {...sectionTitleProps}>
+            <Typography 
+              {...sectionTitleProps}
+              role="heading"
+             // aria-level={3}
+              aria-label="Documentos necessários"
+            >
               Documentos necessários
             </Typography>
             <Divider sx={dividerSx} />
@@ -160,7 +194,12 @@ const ContentPage = ({ content }: ContentPageProps) => {
         {/* Horário de funcionamento (para ServicoContent) */}
         {isServicoContent && servicoContent.horarioFuncionamento && servicoContent.horarioFuncionamento.length > 0 && (
           <Box sx={sectionBoxSx}>
-            <Typography {...sectionTitleProps}>
+            <Typography 
+              {...sectionTitleProps}
+              role="heading"
+             // aria-level={3}
+              aria-label="Horário de funcionamento"
+            >
               Horário de funcionamento
             </Typography>
             <Divider sx={dividerSx} />
@@ -176,7 +215,14 @@ const ContentPage = ({ content }: ContentPageProps) => {
         {/* Contato */}
         {hasContato && (content as ConteudoComContato).contato && (
           <Box sx={sectionBoxSx}>
-            <Typography {...sectionTitleProps}>Contato</Typography>
+            <Typography 
+              {...sectionTitleProps}
+              role="heading"
+             // aria-level={3}
+              aria-label="Contato"
+            >
+              Contato
+            </Typography>
             <Divider sx={dividerSx} />
             <Typography {...bodyTextProps}>
               {(content as ConteudoComContato).contato.endereco && (

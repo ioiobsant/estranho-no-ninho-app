@@ -1,8 +1,8 @@
 // Tipos base para o sistema de conteúdo
 import { Campus } from '../config/campusConfig';
 
-// REMOVIDO: export type Campus = 'sobral' | 'russas';
-// Campus agora é importado de campusConfig.ts para ser dinâmico
+
+// Campus é importado de campusConfig.ts para ser dinâmico para facilitar a adição de novos campus.
 
 // Interface base para conteúdo de página
 export interface PageContent {

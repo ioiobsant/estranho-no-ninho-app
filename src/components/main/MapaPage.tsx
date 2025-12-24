@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useCampus } from '../../contexts/CampusContext';
 
 const MapContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
@@ -48,6 +49,9 @@ const IframeContainer = styled(Box)({
 });
 
 const MapaPage: React.FC = () => {
+  const { campusConfig, campusName, campus } = useCampus();
+  const mapUrl = campusConfig?.accessibleMapUrl;
+
   return (
     <Box sx={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
       <MapContainer>
@@ -64,13 +68,38 @@ const MapaPage: React.FC = () => {
             Mapa Acessível da UFC
           </Typography>
         </MapTitle>
-        <IframeContainer>
-          <iframe
-            src="https://lincolngondin.github.io/mapaUFC/"
-            title="Mapa Acessível da UFC"
-            allowFullScreen
-          />
-        </IframeContainer>
+        {mapUrl ? (
+          <IframeContainer>
+            <iframe
+              // key força recarregar o iframe quando trocar o campus
+              key={campus}
+              src={mapUrl}
+              title={`Mapa Acessível - ${campusName}`}
+              allowFullScreen
+            />
+          </IframeContainer>
+        ) : (
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              px: 3,
+              textAlign: 'center',
+              bgcolor: 'background.default'
+            }}
+          >
+            <Box sx={{ maxWidth: 520 }}>
+              <Typography variant="h6" color="text.secondary" gutterBottom>
+                Mapa indisponível
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                O mapa acessível ainda não está disponível para o campus {campusName}.
+              </Typography>
+            </Box>
+          </Box>
+        )}
       </MapContainer>
     </Box>
   );

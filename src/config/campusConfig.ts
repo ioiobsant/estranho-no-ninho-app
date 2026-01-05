@@ -110,14 +110,14 @@ export const CampusHelpers = {
    * Retorna todos os IDs de campus
    */
   getAllIds: (): string[] => {
-    return AVAILABLE_CAMPUS.map(c => c.id);
+    return AVAILABLE_CAMPUS.filter(c => c.id !== 'russas').map(c => c.id);
   },
 
   /**
    * Retorna todos os campus
    */
   getAll: (): CampusConfig[] => {
-    return AVAILABLE_CAMPUS;
+    return AVAILABLE_CAMPUS.filter(c => c.id !== 'russas');
   }
 };
 

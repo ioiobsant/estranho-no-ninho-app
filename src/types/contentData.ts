@@ -2,8 +2,6 @@
 import { Campus } from '../config/campusConfig';
 
 
-// Campus é importado de campusConfig.ts para ser dinâmico para facilitar a adição de novos campus.
-
 // Interface base para conteúdo de página
 export interface PageContent {
   titulo: string;

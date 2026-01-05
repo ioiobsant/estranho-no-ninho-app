@@ -89,7 +89,7 @@ const CompartilharPage = () => {
         <Typography variant="h1" color="primary" fontWeight={600} fontSize="2rem">
           Compartilhar o Estranho no Ninho
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '1.125rem' }}>
           Divulgue o app para outras pessoas do seu campus
         </Typography>
       </Box>
@@ -131,7 +131,7 @@ const CompartilharPage = () => {
               <Typography variant="h2" fontSize="1.5rem" fontWeight={600}>
                 {appName}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '18px' }}>
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '1.125rem' }}>
                 {description}
               </Typography>
 
@@ -148,7 +148,7 @@ const CompartilharPage = () => {
                     py: 1.2, 
                     minHeight: '44px',
                     minWidth: '44px',
-                    fontSize: '18px'  
+                    fontSize: '1.125rem'  
                   }}  
                 >
                   {copied ? 'Link copiado!' : 'Copiar link'}
@@ -164,7 +164,7 @@ const CompartilharPage = () => {
                     color: theme.palette.primary.main,
                     fontWeight: 600,
                     textDecoration: 'none',
-                    fontSize: '18px'  // tamanho minimo do texto para atender as normas de acessibilidade. 
+                    fontSize: '1.125rem'  // tamanho minimo do texto para atender as normas de acessibilidade. 
                   }} 
                 >
                   {url.replace('https://', '')}
@@ -186,7 +186,7 @@ const CompartilharPage = () => {
             }}
           >
             <Box textAlign="center" mb={1}>
-              <Typography id="qr-code-title" variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
+              <Typography id="qr-code-title" variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '1.125rem' }}>
                 Escaneie o QR Code
               </Typography>
               {qrCodeError ? (
@@ -204,7 +204,7 @@ const CompartilharPage = () => {
                     bgcolor: 'action.hover'
                   }}
                 >
-                  <Typography variant="body2" color="text.secondary" textAlign="center" px={2} sx={{ fontSize: '18px' }}>
+                  <Typography variant="body2" color="text.secondary" textAlign="center" px={2} sx={{ fontSize: '1.125rem' }}>
                     Imagem do QR code não encontrada.
                   </Typography>
                 </Box>
@@ -227,10 +227,10 @@ const CompartilharPage = () => {
             </Box>
             <Divider sx={{ my: 2 }} />
             <Box>
-              <Typography variant="h2" fontWeight={600} gutterBottom sx={{ fontSize: '18px' }}>
+              <Typography variant="h2" fontWeight={600} gutterBottom sx={{ fontSize: '1.125rem' }}>
                 {instructions.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '18px' }}>
+              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1.125rem' }}>
                 {instructions.body}
               </Typography>
             </Box>
@@ -249,10 +249,10 @@ const CompartilharPage = () => {
               height: '100%'
             }}
           >
-              <Typography variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
+              <Typography variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '1.125rem' }}>
               INSTALE NO SEU CELULAR
               </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '18px' }}> Para facilitar o acesso, é possível instalar o Um Estranho no Ninho no seu celular, permitindo utilizá-lo como um aplicativo nativo, sem a necessidade de abrir o navegador. Basta seguir as instruções abaixo.  </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1.125rem' }}> Para facilitar o acesso, é possível instalar o Um Estranho no Ninho no seu celular, permitindo utilizá-lo como um aplicativo nativo, sem a necessidade de abrir o navegador. Basta seguir as instruções abaixo.  </Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -266,7 +266,7 @@ const CompartilharPage = () => {
                       variant="outlined"
                       sx={{ p: 2, height: '100%', borderRadius: 2 }}
                     >
-                      <Typography variant="h3" fontWeight={600} mb={1} sx={{ fontSize: '18px' }}>
+                      <Typography variant="h3" fontWeight={600} mb={1} sx={{ fontSize: '1.125rem' }}>
                         {section.platform}
                       </Typography>
                       <ol style={{ paddingLeft: '1.1rem', margin: 0 }}>
@@ -277,7 +277,7 @@ const CompartilharPage = () => {
                               color="text.secondary"
                               sx={{ 
                                 mb: index === section.steps.length - 1 ? 0 : 1,
-                                fontSize: '18px'  
+                                fontSize: '1.125rem'  
                               }}
                             >
                               {step}

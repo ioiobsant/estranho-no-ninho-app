@@ -51,7 +51,7 @@ const AssistenciaMenuItem = ({ option }: { option: AssistenciaOption }) => {
           primaryTypographyProps={{ // config. dos textos do menu Assistencia. 
             fontWeight: 500, // espessura da fonte padrao.
             color: 'text.primary',
-            fontSize: '18px' //tamanho padrao. 
+            fontSize: '1.125rem' //tamanho padrao. 
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',

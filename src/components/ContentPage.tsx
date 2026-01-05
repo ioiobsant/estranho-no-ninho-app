@@ -14,7 +14,7 @@ const sectionTitleProps = {
   fontWeight: 600,
   color: 'primary' as const,  // #1565C0 (contraste 5.1:1 )
   gutterBottom: true,
-  fontSize: 20,  // Override
+  fontSize: '1.25rem',  // Override em rem para escalar com o zoom
 };
 
 const dividerSx = { mb: 1 };

@@ -50,7 +50,7 @@ const BibliotecasMenuItem = ({ option }: { option: BibliotecasOption }) => {
           primaryTypographyProps={{
             fontWeight: 500,
             color: 'text.primary',
-            fontSize: '18px'
+            fontSize: '1.125rem'
           }}
           secondaryTypographyProps={{
             color: 'text.secondary',

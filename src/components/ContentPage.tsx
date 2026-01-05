@@ -14,13 +14,13 @@ const sectionTitleProps = {
   fontWeight: 600,
   color: 'primary' as const,  // #1565C0 (contraste 5.1:1 )
   gutterBottom: true,
-  fontSize: 20,  // Override: maior que o padrão para melhor hierarquia visual
+  fontSize: '1.25rem',  // Override em rem para escalar com o zoom
 };
 
 const dividerSx = { mb: 1 };
 
 const bodyTextProps = { 
-  variant: 'body1' as const,  // Herda do tema: 18px, lineHeight 1.6, letterSpacing 0.02em
+  variant: 'body1' as const,  // 
   color: 'text.secondary' as const,  // #3E5060 (contraste 9.0:1)
   sx: {
     // === Espaçamentos Específicos WCAG 1.4.12 ===

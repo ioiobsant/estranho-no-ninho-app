@@ -34,7 +34,7 @@ const CourseMenuItem = ({ option }: { option: CourseOption }) => (
         <ListItemText //Texto primário e segundário dos cursos. 
           primary={option.title}
           secondary={option.description}
-          primaryTypographyProps={{ fontWeight: 600, fontSize: '18px' }}
+          primaryTypographyProps={{ fontWeight: 600, fontSize: '1.125rem' }}
           secondaryTypographyProps={{ fontSize: '1rem' }}
         />
       </ListItemButton>

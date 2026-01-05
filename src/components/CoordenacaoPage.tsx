@@ -23,7 +23,7 @@ const dividerSx = { mb: 1 };
 const bodyTextProps = { 
   variant: 'body2' as const, 
   color: 'text.secondary' as const, 
-  fontSize: 18, 
+  fontSize: '1.125rem', 
   lineHeight: 1.8 
 };
 

@@ -17,7 +17,7 @@ const AppContent = () => {
     palette: {
       mode: isDarkMode ? 'dark' : 'light',
       primary: {
-        main: '#1565C0', 
+        main: isDarkMode ? '#368ef2' : '#1565C0', 
         light: '#64B5F6',
         dark: '#1976D2',
       }, //aqui é a cor do tema.

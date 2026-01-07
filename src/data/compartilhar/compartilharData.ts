@@ -34,7 +34,7 @@ export const compartilharData: CompartilharContent = {
   
   installSections: [
     {
-      platform: 'Chrome / Sarafi: Instruções gerais, podem haver pequenas variações.',
+      platform: 'Celular: Instruções gerais, podem haver pequenas variações',
       steps: [
         'Abra o link no celular;',
         'Toque no compartilhamento (quadrado com seta);',
@@ -42,9 +42,9 @@ export const compartilharData: CompartilharContent = {
       ]
     },
     {
-      platform: 'Desktop',
+      platform: 'Desktop: Instruções gerais, podem haver pequenas variações',
       steps: [
-        'Abra o link no Chrome. ',
+        'Abra o link no navegador. ',
         'Clique na barra de configurações, no canto superior direito da tela.',
         'Procure a opção de "Transmitir, salvar e Compartilhar".',
         'Clique na opção de "Instalar página como APP".', 

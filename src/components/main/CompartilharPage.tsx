@@ -250,9 +250,9 @@ const CompartilharPage = () => {
             }}
           >
               <Typography variant="h2" fontWeight={600} mb={1} sx={{ fontSize: '1.125rem' }}>
-              INSTALE NO SEU CELULAR
+              INSTALE COMO APLICATIVO, É SIMPLES!
               </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1.125rem' }}> Para facilitar o acesso, é possível instalar o Um Estranho no Ninho no seu celular, permitindo utilizá-lo como um aplicativo nativo, sem a necessidade de abrir o navegador. Basta seguir as instruções abaixo.  </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1.125rem' }}> Você pode instalar o Um Estranho no Ninho no seu celular ou desktop, permitindo utilizá-lo como um aplicativo nativo, sem a necessidade de abrir o navegador. Assim, o acesso fica mais fácil e rápido. Basta seguir as instruções abaixo.  </Typography>
               <Box
                 sx={{
                   display: 'flex',

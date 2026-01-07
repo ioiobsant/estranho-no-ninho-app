@@ -8,7 +8,6 @@ import { CampusProvider } from './contexts/CampusContext'
 import { ThemeProvider, useThemeContext } from './contexts/ThemeContext'
 import { ZoomProvider } from './contexts/ZoomContext'
 import AppRoutes from './routes'
-import Button from '@mui/material/Button'
 
 const AppContent = () => {
   const { isDarkMode } = useThemeContext();

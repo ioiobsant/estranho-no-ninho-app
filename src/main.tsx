@@ -8,3 +8,12 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Registra o service worker após o carregamento para não bloquear o caminho crítico
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    import('virtual:pwa-register').then(({ registerSW }) => {
+      registerSW({ immediate: false })
+    })
+  })
+}

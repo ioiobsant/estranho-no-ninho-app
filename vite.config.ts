@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: null, // desabilita o script automático para registrar SW
       manifest: {
         name: 'Estranho no Ninho App',
         short_name: 'Estranho no Ninho',

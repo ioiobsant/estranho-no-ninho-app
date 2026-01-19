@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Box, Select, MenuItem, FormControl, Typography, Switch } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Box, Select, MenuItem, FormControl, InputLabel, Typography, Switch } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ApartmentIcon from '@mui/icons-material/Apartment';
@@ -108,10 +108,14 @@ const Header = () => {
                   }
                 }}
               >
+               
                 <Select
+                  id="campus-select"
+                  labelId="campus-select-label"
                   value={campus}
                   onChange={handleCampusChange}
                  
+                  inputProps={{ 'aria-label': 'Selecionar campus' }}
                   sx={{ 
                     '& .MuiSelect-select': {
                       py: { xs: 0.65, sm: 0.85 },

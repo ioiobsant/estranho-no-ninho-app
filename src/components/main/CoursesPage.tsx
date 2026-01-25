@@ -1,10 +1,10 @@
-import { Box, Typography, List, ListItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
+import { Box, Typography, List, ListItemText, ListItemIcon, Divider, ListItemButton } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useNavigate } from 'react-router-dom';
 import React, { useMemo } from 'react';
 import { useCampus } from '../../contexts/CampusContext';
-import { cursosData } from '../../data';
+import { cursosData } from '../../data';                                            
 
 const CoursesPage = () => {
   const navigate = useNavigate();
@@ -82,46 +82,35 @@ const CoursesPage = () => {
       <List sx={{ width: '100%', bgcolor: 'background.paper', padding: 0 }}>
         {courses.map((course, index) => (
           <React.Fragment key={`${campus}-${course.path}-${index}`}>
-            <Box
+            <ListItemButton
+              onClick={() => navigate(course.path)}
               sx={{
                 width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                mb: 1,
+                py: 2,
+                px: 3,
+                cursor: 'pointer',
+                '&:hover': {
+                  bgcolor: 'action.hover',
+                },
+                '&:active': {
+                  bgcolor: 'action.selected',
+                },
               }}
             >
-              <ListItem
-                component="div"
-                onClick={() => navigate(course.path)}
-                sx={{
-                  width: '100%',
-                  py: 2,
-                  px: 3,
-                  cursor: 'pointer',
-                  '&:hover': {
-                    bgcolor: 'action.hover',
-                  },
-                  '&:active': {
-                    bgcolor: 'action.selected',
-                  },
+              <ListItemIcon sx={{ color: 'primary.main' }}>
+                <SchoolIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary={course.title}
+                primaryTypographyProps={{
+                  fontWeight: 500,
+                  color: 'text.primary',
                 }}
-              >
-                <ListItemIcon sx={{ color: 'primary.main' }}>
-                  <SchoolIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary={course.title}
-                  primaryTypographyProps={{
-                    fontWeight: 500,
-                    color: 'text.primary',
-                  }}
-                />
-                <ArrowForwardIosIcon
-                  sx={{ color: 'text.disabled', fontSize: 16 }}
-                />
-              </ListItem>
-            </Box>
+              />
+              <ArrowForwardIosIcon
+                sx={{ color: 'text.disabled', fontSize: 16 }}
+              />
+            </ListItemButton>
             {index < courses.length - 1 && (
               <Divider component="li" />
             )}
